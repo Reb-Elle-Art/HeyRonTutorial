@@ -129,14 +129,14 @@
         <h1>Your Workspace (Where Files Live)</h1>
         
         <div class="highlight">
-            Your agent works in the same workspace you see in your browser — but there's a layer between you.
+            Your agent works in a container. You see the workspace through your browser. Nothing exists on your local computer.
         </div>
         
         <h2>The Simple Version</h2>
         
-        <p>You see a file browser in your browser window. Your agent sees the same files, but works inside a protected space called a <strong>container</strong>.</p>
+        <p>Your agent works inside a protected space called a <strong>container</strong>. You access that space through your browser — there's no local folder on your computer, no sync, no files stored on your machine.</p>
         
-        <p><strong>Think of it like this:</strong> You're looking through a window at a workshop. Your agent is inside the workshop, building things. You can see what they're making, and you can pass notes back and forth, but you're not physically inside.</p>
+        <p><strong>Think of it like this:</strong> Your agent is in a workshop on another server. You're watching through a live video feed in your browser. You can see everything they make, talk to them, and request changes — but the workshop isn't on your property. Nothing exists on your local computer unless you explicitly download it.</p>
         
         <h2>What You Start With</h2>
         
@@ -151,17 +151,7 @@
             <li><strong>USER.md</strong> — Information about you (the human)</li>
         </ul>
         
-        <p>These files are how you and your agent stay coordinated. Edit them to change how your agent behaves.</p>
-        
-        <h2>The Path</h2>
-        
-        <p>Both you and your agent use the same path:</p>
-        
-        <div class="highlight">
-            <code>/root/.openclaw/workspace/</code>
-        </div>
-        
-        <p>This is where all files live. When your agent creates a file, it appears here. When you upload a file through the interface, your agent can see it.</p>
+        <p>These files are how you and your agent stay coordinated. Work together to update them (ask your agent to make updates and suggest improvements).</p>
         
         <h2>The "Nerve"</h2>
         
@@ -178,15 +168,17 @@
         <h2>What This Means Practically</h2>
         
         <h3>Creating Files</h3>
-        <p>Ask your agent: "Create a file called notes.md" — it appears in your workspace.</p>
+        <p>Ask your agent: "Create a file called notes.md" — it appears in the file browser you see in your browser window. The file lives in the container, not on your computer.</p>
         
         <h3>Reading Files</h3>
-        <p>Your agent can read any file you see. Just ask: "What's in the AGENTS.md file?"</p>
+        <p>Your agent can read any file in the workspace. Just ask: "What's in the AGENTS.md file?"</p>
+        
+        <p>You can also view files directly: double-click on a markdown file in your workspace to open it in a tab. Navigate back to your agent by clicking on the Chat tab.</p>
         
         <h3>Getting Files Out</h3>
-        <p>Here's the important part: <strong>Files in the workspace are not directly accessible outside the container.</strong></p>
+        <p>Here's the important part: <strong>The workspace only exists in your browser.</strong> Those files aren't on your local computer — they're in the container on a server somewhere.</p>
         
-        <p>To get a file to your local computer, you need a tool:</p>
+        <p>To actually get a file onto your local computer, you need a tool:</p>
         <ul>
             <li><strong>GitHub</strong> — Push files to a repository, then download</li>
             <li><strong>AgentMail</strong> — Email files to yourself</li>
@@ -198,17 +190,17 @@
         <h2>Key Takeaway</h2>
         
         <div class="highlight">
-            The workspace is shared, but isolated. Your agent can create, read, and organize files. You can see them in your browser. But to get them onto your actual computer, you need to set up a connection (GitHub, email, etc.).
+            The workspace exists only in the container, accessed through your browser. Your agent can create, read, and organize files. You can see them in the Control UI. But nothing is on your local computer — to get files onto your actual machine, you need to set up a connection (GitHub, email, etc.).
         </div>
         
         <h2>What to Do Now</h2>
         
         <ol>
-            <li>Look at your file browser in the Control interface</li>
+            <li>Look at the file browser in the Control UI (browser window)</li>
             <li>Confirm you see the six default files</li>
             <li>Ask your agent: "What files are in our workspace?"</li>
             <li>Have your agent create a test file</li>
-            <li>Watch it appear in your browser</li>
+            <li>Watch it appear in the browser — remember, it's not on your local computer</li>
         </ol>
         
         <div class="footer-nav">
