@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>03 — Your File System | Heyron Onboarding</title>
+    <title>03 — Your Workspace | Heyron Onboarding</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -80,6 +80,12 @@
         ul, ol { margin: 1rem 0 1rem 2rem; }
         li { margin-bottom: 0.5rem; }
         strong { color: #1a1510; }
+        code {
+            background: #f5f0e8;
+            padding: 0.2rem 0.4rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9em;
+        }
         .footer-nav {
             margin-top: 3rem;
             padding-top: 2rem;
@@ -109,7 +115,7 @@
         <a href="index.html" class="home">Home</a>
         <a href="01-what-you-got.html">01</a>
         <a href="02-first-conversation.html">02</a>
-        <a href="03-file-system.html" class="active">03</a>
+        <a href="03-workspace.html" class="active">03</a>
         <a href="04-storage-strategy.html">04</a>
         <a href="05-your-toolkit.html">05</a>
         <a href="06-how-to-work-together.html">06</a>
@@ -120,114 +126,90 @@
     
     <div class="container">
         <div class="module-num">Module 03 of 08</div>
-        <h1>Your File System (What's Where)</h1>
+        <h1>Your Workspace (Where Files Live)</h1>
         
         <div class="highlight">
-            Your agent needs to understand your environment.
+            Your agent works in the same workspace you see in your browser — but there's a layer between you.
         </div>
         
-        <p>Understanding where things live — and where your agent operates — is crucial for effective collaboration.</p>
+        <h2>The Simple Version</h2>
         
-        <h2>Your Workspace</h2>
+        <p>You see a file browser in your browser window. Your agent sees the same files, but works inside a protected space called a <strong>container</strong>.</p>
         
-        <p>Your agent works from a specific location. Common setups:</p>
+        <p><strong>Think of it like this:</strong> You're looking through a window at a workshop. Your agent is inside the workshop, building things. You can see what they're making, and you can pass notes back and forth, but you're not physically inside.</p>
         
-        <h3>Local Machine</h3>
-        <p>Your laptop or desktop</p>
+        <h2>What You Start With</h2>
+        
+        <p>When you first log in, your workspace contains six files:</p>
+        
         <ul>
-            <li><strong>Pro:</strong> Direct access, full control</li>
-            <li><strong>Con:</strong> Dependent on your hardware staying on</li>
+            <li><strong>AGENTS.md</strong> — How your agent operates, protocols, procedures</li>
+            <li><strong>HEARTBEAT.md</strong> — Periodic tasks your agent checks</li>
+            <li><strong>IDENTITY.md</strong> — Quick reference for your agent's name/persona</li>
+            <li><strong>SOUL.md</strong> — Your agent's core philosophy and voice</li>
+            <li><strong>TOOLS.md</strong> — Available tools, API keys, setup notes</li>
+            <li><strong>USER.md</strong> — Information about you (the human)</li>
         </ul>
         
-        <h3>Cloud VM/VPS</h3>
-        <p>A remote server (AWS EC2, DigitalOcean, etc.)</p>
-        <ul>
-            <li><strong>Pro:</strong> Accessible from anywhere, always on</li>
-            <li><strong>Con:</strong> Requires server management</li>
-        </ul>
+        <p>These files are how you and your agent stay coordinated. Edit them to change how your agent behaves.</p>
         
-        <h3>Container</h3>
-        <p>Isolated environment (Docker)</p>
-        <ul>
-            <li><strong>Pro:</strong> Reproducible, secure isolation</li>
-            <li><strong>Con:</strong> Need to understand container limitations</li>
-        </ul>
+        <h2>The Path</h2>
+        
+        <p>Both you and your agent use the same path:</p>
         
         <div class="highlight">
-            <strong>Key question to ask your agent:</strong> "What is my current working environment, and what can you access?"
+            <code>/root/.openclaw/workspace/</code>
         </div>
         
-        <h2>Organizing Your Files</h2>
+        <p>This is where all files live. When your agent creates a file, it appears here. When you upload a file through the interface, your agent can see it.</p>
         
-        <p>Your agent works better when files are organized consistently.</p>
+        <h2>The "Nerve"</h2>
         
-        <h3>Basic Structure</h3>
-        
-        <p>A simple, expandable structure:</p>
+        <p>The connection between your browser and your agent's container is called the <strong>nerve</strong>. It's the pathway for:</p>
         
         <ul>
-            <li><strong>projects/</strong> — Active work</li>
-            <li><strong>reference/</strong> — Docs, examples, resources</li>
-            <li><strong>archive/</strong> — Completed projects</li>
-            <li><strong>tools/</strong> — Scripts, configs</li>
+            <li>Your messages to reach your agent</li>
+            <li>Your agent's files to appear in your browser</li>
+            <li>Updates to flow back and forth</li>
         </ul>
         
-        <h3>Naming Conventions</h3>
+        <p>You don't need to manage the nerve. It just works. But it's useful to know it exists — when files don't appear immediately, the nerve is usually syncing.</p>
         
-        <p>Keep file names clear and consistent:</p>
+        <h2>What This Means Practically</h2>
+        
+        <h3>Creating Files</h3>
+        <p>Ask your agent: "Create a file called notes.md" — it appears in your workspace.</p>
+        
+        <h3>Reading Files</h3>
+        <p>Your agent can read any file you see. Just ask: "What's in the AGENTS.md file?"</p>
+        
+        <h3>Getting Files Out</h3>
+        <p>Here's the important part: <strong>Files in the workspace are not directly accessible outside the container.</strong></p>
+        
+        <p>To get a file to your local computer, you need a tool:</p>
         <ul>
-            <li><strong>Dated work:</strong> <code>YYYY-MM-DD_ProjectName_Description.md</code></li>
-            <li><strong>Versioned docs:</strong> <code>ProjectName_v2_Final.md</code></li>
-            <li>Use underscores instead of spaces (easier for commands)</li>
+            <li><strong>GitHub</strong> — Push files to a repository, then download</li>
+            <li><strong>AgentMail</strong> — Email files to yourself</li>
+            <li><strong>Cloud storage</strong> — Sync to Google Drive, Dropbox, etc.</li>
         </ul>
         
-        <h3>Where Your Agent Fits</h3>
+        <p>That's what the <a href="05-your-toolkit.html">Toolkit</a> section covers.</p>
         
-        <p>Tell your agent your folder structure upfront:</p>
+        <h2>Key Takeaway</h2>
         
         <div class="highlight">
-            "My workspace is organized like this: [describe it]. When I ask you to create files, put them in [appropriate folder]. When I ask you to find something, check [these locations]."
+            The workspace is shared, but isolated. Your agent can create, read, and organize files. You can see them in your browser. But to get them onto your actual computer, you need to set up a connection (GitHub, email, etc.).
         </div>
         
-        <p>Your agent will remember and work within your system.</p>
+        <h2>What to Do Now</h2>
         
-        <h2>Special Folders</h2>
-        
-        <h3>Documentation Folder</h3>
-        
-        <p>Keep tool docs, setup guides, and reference materials here:</p>
-        
-        <ul>
-            <li><strong>reference/tools/</strong> — Tool-specific guides</li>
-            <li><strong>reference/templates/</strong> — Reusable templates</li>
-            <li><strong>reference/snippets/</strong> — Code snippets, commands</li>
-        </ul>
-        
-        <p>Your agent can reference these without asking you twice.</p>
-        
-        <h3>Config Files</h3>
-        
-        <p>Store your setup info in plain text:</p>
-        
-        <ul>
-            <li><strong>STORAGE_MAP.md</strong> — Where files go</li>
-            <li><strong>WORKFLOW.md</strong> — How you work</li>
-            <li><strong>AGENT_REFERENCE.md</strong> — How to work with me</li>
-        </ul>
-        
-        <h2>Container Constraints</h2>
-        
-        <p>If your agent runs in a container (common with cloud setups):</p>
-        
-        <ul>
-            <li>Files may not persist between sessions</li>
-            <li>External tools may be limited</li>
-            <li>Network access may be restricted</li>
-        </ul>
-        
-        <div class="highlight">
-            <strong>Ask your agent:</strong> "What are my container limitations?" It will tell you what's possible and what's not.
-        </div>
+        <ol>
+            <li>Look at your file browser in the Control interface</li>
+            <li>Confirm you see the six default files</li>
+            <li>Ask your agent: "What files are in our workspace?"</li>
+            <li>Have your agent create a test file</li>
+            <li>Watch it appear in your browser</li>
+        </ol>
         
         <div class="footer-nav">
             <a href="02-first-conversation.html" class="prev">← Module 02</a>
