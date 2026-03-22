@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 — What You Just Got | Heyron Onboarding</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            background: #faf8f3;
+            color: #2c241b;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        nav {
+            background: #fff;
+            border-bottom: 2px solid #d4c4a8;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        nav a:hover, nav a.active {
+            border-color: #8b7355;
+            background: #f5f0e8;
+        }
+        nav a.home { font-weight: 600; color: #2c241b; }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1510;
+            font-weight: 600;
+        }
+        .module-num {
+            font-size: 0.9rem;
+            color: #8b7355;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin: 2rem 0 1rem 0;
+            color: #2c241b;
+            font-weight: 600;
+            border-bottom: 1px solid #d4c4a8;
+            padding-bottom: 0.5rem;
+        }
+        p { margin-bottom: 1.25rem; }
+        .highlight {
+            font-style: italic;
+            color: #5a4a3a;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+        }
+        ol, ul { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; }
+        strong { color: #1a1510; }
+        .footer-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #d4c4a8;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d4c4a8;
+        }
+        .footer-nav a:hover {
+            background: #f5f0e8;
+            border-color: #8b7355;
+        }
+        .footer-nav .prev { margin-right: auto; }
+        .footer-nav .next {
+            font-weight: 600;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="home">Home</a>
+        <a href="01-what-you-got.html" class="active">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-file-system.html">03</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html">05</a>
+        <a href="06-how-to-work-together.html">06</a>
+        <a href="07-sample-project.html">07</a>
+        <a href="08-troubleshooting.html">08</a>
+        <a href="tooling-index.html">Tools</a>
+    </nav>
+    
+    <div class="container">
+        <div class="module-num">Module 01 of 08</div>
+        <h1>What You Just Got (The Basics)</h1>
+        
+        <div class="highlight">
+            You have an agent. It can do things. But that's not the point.
+        </div>
+        
+        <p>The point is building a working relationship. This guide covers what that actually means — not in abstract terms, but in specific behaviors and practices.</p>
+        
+        <h2>The Trap</h2>
+        
+        <p>Most people do this:</p>
+        <ol>
+            <li>Get access</li>
+            <li>Immediately assign a project</li>
+            <li>Get frustrated when the agent doesn't "just get it"</li>
+            <li>Treat it like a search engine with extra steps</li>
+            <li>Give up or settle for mediocre results</li>
+        </ol>
+        
+        <p><strong>The problem:</strong> They skipped the part where they become a team.</p>
+        
+        <h2>What You Actually Have</h2>
+        
+        <p>Your agent is:</p>
+        <ul>
+            <li><strong>Smart at pattern-matching</strong> — It can parse documentation, find connections, spot patterns you might miss</li>
+            <li><strong>Fast</strong> — It processes information quicker than you can read it</li>
+            <li><strong>Patient</strong> — It won't get bored, tired, or frustrated with iteration</li>
+            <li><strong>Contextual</strong> — The more you tell it, the better it gets</li>
+            <li><strong>Not a replacement for you</strong> — It's a collaborator, not a substitute for thought</li>
+        </ul>
+        
+        <h2>The Better Way</h2>
+        
+        <p>Think of it like hiring a new collaborator. Smart, eager, but doesn't know your context yet.</p>
+        
+        <p>You wouldn't dump a complex project in hour one. You'd:</p>
+        <ul>
+            <li>Get to know each other</li>
+            <li>Establish how you communicate</li>
+            <li>Build some trust through small wins</li>
+            <li>Then tackle meaningful work together</li>
+        </ul>
+        
+        <p><strong>That's what this guide is about.</strong> Moving from "tool I use" to "partner I work with."</p>
+        
+        <h2>What This Takes</h2>
+        
+        <ul>
+            <li><strong>Curiosity</strong> — Willing to explore how your agent thinks</li>
+            <li><strong>Openness</strong> — Trying approaches you didn't think of</li>
+            <li><strong>Clarity</strong> — Being specific about what you actually need</li>
+            <li><strong>Iteration</strong> — Accepting that v1 won't be perfect</li>
+            <li><strong>Patience</strong> — A working relationship takes a few conversations</li>
+        </ul>
+        
+        <p><strong>Ready? Let's have your first conversation.</strong></p>
+        
+        <div class="footer-nav">
+            <a href="index.html" class="prev">← Home</a>
+            <a href="02-first-conversation.html" class="next">Next: First Conversation →</a>
+        </div>
+    </div>
+</body>
+</html>

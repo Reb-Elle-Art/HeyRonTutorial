@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 — Your Toolkit | Sillage Starter Kit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-tertiary: #0f3460;
+            --accent: #e94560;
+            --accent-glow: #ff6b6b;
+            --text-primary: #eaeaea;
+            --text-muted: #a0a0a0;
+            --terminal-green: #00ff41;
+            --terminal-amber: #ffb000;
+            --terminal-cyan: #00ffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'VT323', monospace; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.6; font-size: 18px; }
+        .nav-bar { position: fixed; top: 0; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 2px solid var(--accent); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; flex-wrap: wrap; gap: 10px; }
+        .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; padding: 5px 10px; border: 1px solid transparent; transition: all 0.3s; }
+        .nav-links a:hover { border-color: var(--accent); color: var(--accent-glow); }
+        .nav-links a.current { background: var(--accent); color: var(--bg-primary); }
+        .container { max-width: 900px; margin: 0 auto; padding: 100px 20px 60px; }
+        .page-header { text-align: center; margin-bottom: 40px; padding: 30px; border: 3px double var(--terminal-amber); background: var(--bg-secondary); }
+        .page-header h1 { font-size: 2.5rem; color: var(--terminal-amber); margin-bottom: 15px; }
+        .page-header .subtitle { font-size: 1.2rem; color: var(--text-muted); font-style: italic; }
+        .content-section { background: var(--bg-secondary); border: 2px solid var(--bg-tertiary); padding: 30px; margin-bottom: 30px; }
+        .content-section h2 { color: var(--accent); font-size: 1.8rem; margin-bottom: 15px; border-bottom: 1px solid var(--bg-tertiary); padding-bottom: 10px; }
+        .content-section h3 { color: var(--terminal-cyan); font-size: 1.4rem; margin: 20px 0 10px; }
+        .content-section p { margin-bottom: 15px; }
+        .content-section ul, .content-section ol { margin-left: 30px; margin-bottom: 20px; }
+        .content-section li { margin-bottom: 10px; }
+        pre { background: var(--bg-tertiary); padding: 15px; overflow-x: auto; margin: 15px 0; }
+        code { color: var(--terminal-green); font-family: 'VT323', monospace; }
+        .highlight-box { background: var(--bg-tertiary); border-left: 4px solid var(--terminal-green); padding: 20px; margin: 20px 0; }
+        .highlight-box.warning { border-left-color: var(--accent); }
+        .checkpoint { background: var(--bg-tertiary); border: 2px solid var(--terminal-green); padding: 20px; margin: 30px 0; }
+        .checkpoint h3 { color: var(--terminal-green); margin-top: 0; }
+        .checkpoint ul { list-style: none; margin-left: 0; }
+        .checkpoint li::before { content: "[ ] "; color: var(--terminal-green); }
+        .page-nav { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--bg-tertiary); }
+        .page-nav a { color: var(--text-primary); text-decoration: none; padding: 10px 20px; border: 2px solid var(--accent); transition: all 0.3s; }
+        .page-nav a:hover { background: var(--accent); color: var(--bg-primary); }
+        @media (max-width: 768px) { .container { padding: 120px 15px 40px; } .page-header h1 { font-size: 1.8rem; } }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="01-what-you-got.html">01</a>
+            <a href="02-first-conversation.html">02</a>
+            <a href="03-file-system.html">03</a>
+            <a href="04-storage-strategy.html">04</a>
+            <a href="05-your-toolkit.html" class="current">05</a>
+            <a href="06-how-to-work-together.html">06</a>
+            <a href="07-sample-project.html">07</a>
+            <a href="08-troubleshooting.html">08</a>
+            <a href="tooling-index.html">Tools</a>
+            <a href="agent-wisdom.html">Wisdom</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>05 — Your Toolkit</h1>
+            <p class="subtitle">External Connections — Pick what you need. Skip what you don't.</p>
+        </header>
+
+        <div class="content-section">
+            <h2>The Toolkit Approach</h2>
+            <p>Tools solve specific problems. You don't need every tool. Start with one that solves something real for you.</p>
+            <p><strong>Philosophy:</strong> Use what serves you. Skip what doesn't. Be curious about the rest.</p>
+            <p>Each tool has its own setup page with:</p>
+            <ul>
+                <li>A challenge to try first (exploration)</li>
+                <li>Full step-by-step instructions</li>
+                <li>Common problems and fixes</li>
+                <li>How your agent helps</li>
+                <li>Security considerations</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Available Tools</h2>
+
+            <h3>Essential Backups & Storage</h3>
+            <p><strong><a href="tooling-github.html">Git & GitHub</a></strong> — Cloud storage, backups, version control<br>
+            <em>Time: 10-15 min | Skill: Beginner</em></p>
+            <ul>
+                <li>Save work permanently</li>
+                <li>Access from any device</li>
+                <li>Keep history of changes</li>
+                <li>Give your agent a home for files</li>
+            </ul>
+
+            <h3>Communication</h3>
+            <p><strong><a href="tooling-discord.html">Discord</a></strong> — Chat with your agent and community<br>
+            <strong>AgentMail</strong> (Coming soon) — Email through your agent</p>
+
+            <h3>Specialized</h3>
+            <p><strong>TTS/Voice</strong> (Coming soon) — Listen to documents, create audio<br>
+            <strong>Web Hosting</strong> (Coming soon) — Publish sites instantly</p>
+        </div>
+
+        <div class="content-section">
+            <h2>How to Pick a Tool</h2>
+            <ol>
+                <li><strong>Identify a real problem</strong> — Not "what tools exist" but "what do I actually need?"</li>
+                <li><strong>Read that tool's page</strong> — Start with the "Try it first" section</li>
+                <li><strong>Work through setup with your agent</strong> — It can walk you through</li>
+                <li><strong>Test it</strong> — Make sure it actually works</li>
+                <li><strong>Come back for another tool when you need it</strong></li>
+            </ol>
+            <div class="highlight-box warning">
+                <p><strong>Don't set up everything at once.</strong> One tool mastered beats five tools half-broken.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Documenting Your Setup</h2>
+            <p>Your agent resets between sessions. To help it remember:</p>
+            <p>Create an <code>AGENT_REFERENCE.md</code>:</p>
+            <pre><code># Agent Reference — My Setup
+
+## Tools I Use
+
+### GitHub
+- Repo: github.com/yourusername/your-repo
+- Token: [stored in .env, never paste here]
+- Folders: backups/, uploads/, downloads/, documents/
+
+### Other Tools
+- [Add as you set them up]
+
+## When You Need Help
+1. Check tool's own setup page
+2. Check this file
+3. Ask: "What's my setup for [tool]?"</code></pre>
+            <p><strong>Tell your agent:</strong> "My toolkit is documented in AGENT_REFERENCE.md. Check there when you need setup info."</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Safety Before Any Tool</h2>
+            <ul>
+                <li>I understand what it does</li>
+                <li>I trust the provider</li>
+                <li>I know how to turn off/revoke access</li>
+                <li>I won't put secrets (passwords, API keys) in plain text</li>
+            </ul>
+        </div>
+
+        <div class="checkpoint">
+            <h3>Checkpoint</h3>
+            <ul>
+                <li>I know what the modular toolkit approach means</li>
+                <li>I've picked one tool that solves a real problem</li>
+                <li>I know where to find each tool's setup page</li>
+                <li>I'm ready to set it up with my agent</li>
+            </ul>
+        </div>
+
+        <div class="page-nav">
+            <a href="04-storage-strategy.html">&larr; Previous: Storage Strategy</a>
+            <a href="06-how-to-work-together.html">Next: How to Work Together &rarr;</a>
+        </div>
+    </div>
+</body>
+</html>
