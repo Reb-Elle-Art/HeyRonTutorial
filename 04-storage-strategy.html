@@ -3,299 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>04 — Storage Strategy | Sillage Starter Kit</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <title>04 — Storage Strategy | Heyron Onboarding</title>
     <style>
-        :root {
-            --bg-primary: #1a1a2e;
-            --bg-secondary: #16213e;
-            --bg-tertiary: #0f3460;
-            --accent: #e94560;
-            --accent-glow: #ff6b6b;
-            --text-primary: #eaeaea;
-            --text-muted: #a0a0a0;
-            --terminal-green: #00ff41;
-            --terminal-amber: #ffb000;
-            --terminal-cyan: #00ffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'VT323', monospace;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            font-size: 18px;
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            background: #faf8f3;
+            color: #2c241b;
+            line-height: 1.7;
+            font-size: 15px;
         }
-
-        .nav-bar {
-            position: fixed;
+        nav {
+            background: #fff;
+            border-bottom: 2px solid #d4c4a8;
+            padding: 1rem;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            background: var(--bg-secondary);
-            border-bottom: 2px solid var(--accent);
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 5px 10px;
-            border: 1px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .nav-links a:hover {
-            border-color: var(--accent);
-            color: var(--accent-glow);
-        }
-
-        .nav-links a.current {
-            background: var(--accent);
-            color: var(--bg-primary);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 100px 20px 60px;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px;
-            border: 3px double var(--terminal-amber);
-            background: var(--bg-secondary);
-        }
-
-        .page-header h1 {
-            font-size: 2.5rem;
-            color: var(--terminal-amber);
-            margin-bottom: 15px;
-        }
-
-        .page-header .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        .content-section {
-            background: var(--bg-secondary);
-            border: 2px solid var(--bg-tertiary);
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .content-section h2 {
-            color: var(--accent);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--bg-tertiary);
-            padding-bottom: 10px;
-        }
-
-        .content-section h3 {
-            color: var(--terminal-cyan);
-            font-size: 1.4rem;
-            margin: 20px 0 10px;
-        }
-
-        .content-section p {
-            margin-bottom: 15px;
-        }
-
-        .content-section ul, .content-section ol {
-            margin-left: 30px;
-            margin-bottom: 20px;
-        }
-
-        .content-section li {
-            margin-bottom: 10px;
-        }
-
-        pre {
-            background: var(--bg-tertiary);
-            padding: 15px;
+            z-index: 100;
             overflow-x: auto;
-            margin: 15px 0;
+            white-space: nowrap;
         }
-
+        nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        nav a:hover, nav a.active {
+            border-color: #8b7355;
+            background: #f5f0e8;
+        }
+        nav a.home { font-weight: 600; color: #2c241b; }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .module-num {
+            font-size: 0.9rem;
+            color: #8b7355;
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1510;
+            font-weight: 600;
+        }
+        .subtitle {
+            font-style: italic;
+            color: #5a4a3a;
+            margin-bottom: 2rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin: 2rem 0 1rem 0;
+            color: #2c241b;
+            font-weight: 600;
+            border-bottom: 1px solid #d4c4a8;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.75rem 0;
+            color: #3d3126;
+            font-weight: 600;
+        }
+        p { margin-bottom: 1.25rem; }
+        .highlight {
+            background: #f5f0e8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #8b7355;
+        }
+        .code-block {
+            background: #f5f0e8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #8b7355;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+        li { margin-bottom: 0.75rem; }
         code {
-            color: var(--terminal-green);
-            font-family: 'VT323', monospace;
+            background: #f5f0e8;
+            padding: 0.2rem 0.4rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9em;
         }
-
-        .highlight-box {
-            background: var(--bg-tertiary);
-            border-left: 4px solid var(--terminal-green);
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .highlight-box.warning {
-            border-left-color: var(--accent);
-        }
-
-        .checkpoint {
-            background: var(--bg-tertiary);
-            border: 2px solid var(--terminal-green);
-            padding: 20px;
-            margin: 30px 0;
-        }
-
-        .checkpoint h3 {
-            color: var(--terminal-green);
-            margin-top: 0;
-        }
-
-        .checkpoint ul {
-            list-style: none;
-            margin-left: 0;
-        }
-
-        .checkpoint li::before {
-            content: "[ ] ";
-            color: var(--terminal-green);
-        }
-
-        .page-nav {
+        strong { color: #1a1510; }
+        .footer-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #d4c4a8;
             display: flex;
             justify-content: space-between;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid var(--bg-tertiary);
         }
-
-        .page-nav a {
-            color: var(--text-primary);
+        .footer-nav a {
+            color: #5a4a3a;
             text-decoration: none;
-            padding: 10px 20px;
-            border: 2px solid var(--accent);
-            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d4c4a8;
         }
-
-        .page-nav a:hover {
-            background: var(--accent);
-            color: var(--bg-primary);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 120px 15px 40px;
-            }
-
-            .page-header h1 {
-                font-size: 1.8rem;
-            }
+        .footer-nav a:hover {
+            background: #f5f0e8;
+            border-color: #8b7355;
         }
     </style>
 </head>
 <body>
-    <nav class="nav-bar">
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="01-what-you-got.html">01</a>
-            <a href="02-first-conversation.html">02</a>
-            <a href="03-file-system.html">03</a>
-            <a href="04-storage-strategy.html" class="current">04</a>
-            <a href="05-your-toolkit.html">05</a>
-            <a href="06-how-to-work-together.html">06</a>
-            <a href="07-sample-project.html">07</a>
-            <a href="08-troubleshooting.html">08</a>
-            <a href="tooling-index.html">Tools</a>
-            <a href="agent-wisdom.html">Wisdom</a>
-        </div>
+    <nav>
+        <a href="index.html" class="home">Home</a>
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-file-system.html">03</a>
+        <a href="04-storage-strategy.html" class="active">04</a>
+        <a href="05-your-toolkit.html">05</a>
+        <a href="06-how-to-work-together.html">06</a>
+        <a href="07-sample-project.html">07</a>
+        <a href="08-troubleshooting.html">08</a>
+        <a href="tooling-index.html">Tools</a>
     </nav>
-
+    
     <div class="container">
-        <header class="page-header">
-            <h1>04 — Storage Strategy</h1>
-            <p class="subtitle">What to Save, How Often — Don't lose your work.</p>
-        </header>
-
-        <div class="content-section">
-            <h2>The Core Principle</h2>
+        <div class="module-num">Module 04 of 08</div>
+        <h1>Storage Strategy (What to Save, How Often)</h1>
+        <p class="subtitle">Your agent will help you generate and organize work. Don't lose it.</p>
+        
+        <p>Losing work would be stupid. Here's how to prevent that.</p>
+        
+        <h2>The Core Principle</h2>
+        
+        <div class="highlight">
             <p><strong>Don't lose your work.</strong></p>
-            <p>Pick a backup strategy that matches how you work. Start with one. You can always add more.</p>
         </div>
-
-        <div class="content-section">
-            <h2>Option 1: Git & Version Control</h2>
-            
-            <p><strong>Best for:</strong> Code, project documents, configuration files, anything that changes over time.</p>
-
-            <h3>How it works</h3>
-            <ul>
-                <li>Use Git locally and push to a remote repository (GitHub, GitLab, etc.)</li>
-                <li>Your agent can help manage commits, branches, and merges</li>
-                <li>You retain full history of changes</li>
-            </ul>
-
-            <h3>Your workflow</h3>
-            <p>Start small. Push frequently. Keep commit messages clear.</p>
-            <p>Your agent handles technical Git operations if you give it permissions.</p>
-
-            <h3>Setup commands</h3>
-            <pre><code>git init                          # Create a repo
+        
+        <p>Pick a backup strategy that matches how you work. Start with one. You can always add more.</p>
+        
+        <h2>Option 1: Git & Version Control</h2>
+        
+        <p><strong>Best for:</strong> Code, project documents, configuration files, anything that changes over time.</p>
+        
+        <h3>How it works:</h3>
+        <ul>
+            <li>Use Git locally and push to a remote repository (GitHub, GitLab, etc.)</li>
+            <li>Your agent can help manage commits, branches, and merges</li>
+            <li>You retain full history of changes</li>
+        </ul>
+        
+        <h3>Your workflow:</h3>
+        <ul>
+            <li>Start small. Push frequently. Keep commit messages clear.</li>
+            <li>Your agent handles technical Git operations if you give it permissions</li>
+            <li>You decide <em>what</em> to commit and <em>when</em></li>
+        </ul>
+        
+        <h3>Setup:</h3>
+        
+        <div class="code-block">git init                          # Create a repo
 git add .                          # Add files
 git commit -m "Clear message"      # Commit regularly
-git push origin main               # Push to remote</code></pre>
-
-            <h3>Ask your agent</h3>
-            <p>"Can you help me set up a Git repository for this project?" or "Make a commit with this message: [what changed]"</p>
+git push origin main               # Push to remote</div>
+        
+        <div class="highlight">
+            <p><strong>Ask your agent:</strong> "Can you help me set up a Git repository for this project?" or "Make a commit with this message: [what changed]"</p>
         </div>
-
-        <div class="content-section">
-            <h2>Option 2: Cloud Storage & Sync</h2>
-            
-            <p><strong>Best for:</strong> Documents, notes, media, or files that don't require version history.</p>
-
-            <h3>How it works</h3>
-            <ul>
-                <li>Google Drive, Dropbox, iCloud, OneDrive — pick one</li>
-                <li>Automatic syncing to the cloud</li>
-                <li>No manual commits needed</li>
-            </ul>
-
-            <h3>Setup</h3>
-            <ol>
-                <li>Install sync client on your machine</li>
-                <li>Create organized folders (by project, by type — your choice)</li>
-                <li>Make sure syncing is actually enabled</li>
-            </ol>
-
-            <h3>Ask your agent</h3>
-            <p>"Help me organize these files into my Google Drive structure" or "What's the best way to organize my Dropbox for easy access?"</p>
+        
+        <h2>Option 2: Cloud Storage & Sync</h2>
+        
+        <p><strong>Best for:</strong> Documents, notes, media, or files that don't require version history.</p>
+        
+        <h3>How it works:</h3>
+        <ul>
+            <li>Google Drive, Dropbox, iCloud, OneDrive — pick one</li>
+            <li>Automatic syncing to the cloud</li>
+            <li>No manual commits needed</li>
+        </ul>
+        
+        <h3>Setup:</h3>
+        <ol>
+            <li>Install sync client on your machine</li>
+            <li>Create organized folders (by project, by type — your choice)</li>
+            <li>Make sure syncing is actually enabled</li>
+        </ol>
+        
+        <h3>Your agent's role:</h3>
+        <ul>
+            <li>Can organize files into your cloud structure</li>
+            <li>Can suggest folder organization</li>
+            <li>Works within whatever system you set up</li>
+        </ul>
+        
+        <div class="highlight">
+            <p><strong>Ask your agent:</strong> "Help me organize these files into my Google Drive structure" or "What's the best way to organize my Dropbox for easy access?"</p>
         </div>
-
-        <div class="content-section">
-            <h2>Creating Documentation for Your Agent</h2>
-            <p>Your agent won't remember your backup strategy across sessions unless you document it.</p>
-
-            <h3>Create a STORAGE_MAP.md file:</h3>
-            <pre><code># Storage Map
+        
+        <h2>Option 3: Agent-Managed Backups</h2>
+        
+        <p><strong>Best for:</strong> Automated, hands-off backup to dedicated repositories.</p>
+        
+        <div class="highlight">
+            <p><strong>Important:</strong> Always have <em>at least one</em> backup independent of your agent's primary system.</p>
+        </div>
+        
+        <h2>Combining Strategies</h2>
+        
+        <p>You don't have to pick just one:</p>
+        <ul>
+            <li><strong>Use Git</strong> for code and docs that change</li>
+            <li><strong>Use cloud storage</strong> for media and final versions</li>
+            <li><strong>Have both</strong> for redundancy</li>
+        </ul>
+        
+        <h2>Creating Documentation for Your Agent</h2>
+        
+        <p>Your agent won't remember your backup strategy across sessions unless you document it.</p>
+        
+        <h3>Create a <code>STORAGE_MAP.md</code> file:</h3>
+        
+        <div class="code-block"># Storage Map
 
 ## Active Projects
 - Location: ~/workspace/projects/[project-name]
@@ -309,33 +244,32 @@ git push origin main               # Push to remote</code></pre>
 
 ## Important Docs
 - Keep: Local copy + Git + Cloud copy
-- Review before external share: Check for API keys, PII</code></pre>
-
-            <p>Point your agent to this file, and it'll know your system.</n
-            <div class="highlight-box warning">
-                <p><strong>Safety Reminders:</strong> Before your agent does anything external (email, social post, public commit):</p>
-                <ul>
-                    <li><strong>You verify</strong> it's going to the right place</li>
-                    <li><strong>You check</strong> the content (look for API keys, passwords, personal info)</li>
-                    <li><strong>You explicitly approve</strong> any external action</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="checkpoint">
-            <h3>Checkpoint</h3>
-            <ul>
-                <li>I've chosen a backup strategy (Git, cloud, or both)</li>
-                <li>I understand how my backups work</li>
-                <li>I have documentation for my agent</li>
-                <li>I'm comfortable delegating file organization to my agent</li>
-                <li>I know how to verify external actions before they happen</li>
-            </ul>
-        </div>
-
-        <div class="page-nav">
-            <a href="03-file-system.html">&larr; Previous: File System</a>
-            <a href="05-your-toolkit.html">Next: Your Toolkit &rarr;</a>
+- Review before external share: Check for API keys, PII</div>
+        
+        <p>Point your agent to this file, and it'll know your system.</p>
+        
+        <h2>Safety Reminders</h2>
+        
+        <p>Before your agent does anything external (email, social post, public commit):</p>
+        <ul>
+            <li><strong>You verify</strong> it's going to the right place</li>
+            <li><strong>You check</strong> the content (look for API keys, passwords, personal info)</li>
+            <li><strong>You explicitly approve</strong> any external action</li>
+        </ul>
+        
+        <h2>Checkpoint</h2>
+        
+        <ul>
+            <li>[ ] I've chosen a backup strategy (Git, cloud, or both)</li>
+            <li>[ ] I understand how my backups work</li>
+            <li>[ ] I have documentation for my agent</li>
+            <li>[ ] I'm comfortable delegating file organization to my agent</li>
+            <li>[ ] I know how to verify external actions before they happen</li>
+        </ul>
+        
+        <div class="footer-nav">
+            <a href="03-file-system.html">← Module 03</a>
+            <a href="05-your-toolkit.html">Module 05 →</a>
         </div>
     </div>
 </body>
