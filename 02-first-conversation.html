@@ -54,11 +54,6 @@
             color: #1a1510;
             font-weight: 600;
         }
-        .subtitle {
-            font-style: italic;
-            color: #5a4a3a;
-            margin-bottom: 2rem;
-        }
         h2 {
             font-size: 1.2rem;
             margin: 2rem 0 1rem 0;
@@ -75,39 +70,15 @@
         }
         p { margin-bottom: 1.25rem; }
         .highlight {
-            background: #f5f0e8;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-left: 3px solid #8b7355;
-        }
-        .highlight-box {
-            background: #f5f0e8;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-left: 3px solid #8b7355;
-        }
-        .highlight-box.warning {
-            border-left-color: #c45c4a;
-            background: #fdf0ed;
-        }
-        ul, ol {
-            margin: 1rem 0 1.5rem 1.5rem;
-        }
-        li { margin-bottom: 0.75rem; }
-        blockquote {
-            border-left: 3px solid #8b7355;
-            background: #f5f0e8;
-            padding: 1rem;
-            margin: 1.5rem 0;
             font-style: italic;
-        }
-        blockquote p { margin: 0; }
-        code {
+            color: #5a4a3a;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 3px solid #8b7355;
             background: #f5f0e8;
-            padding: 0.2rem 0.4rem;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.9em;
         }
+        ul, ol { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; }
         strong { color: #1a1510; }
         .footer-nav {
             margin-top: 3rem;
@@ -125,6 +96,11 @@
         .footer-nav a:hover {
             background: #f5f0e8;
             border-color: #8b7355;
+        }
+        .footer-nav .prev { margin-right: auto; }
+        .footer-nav .next {
+            font-weight: 600;
+            margin-left: auto;
         }
     </style>
 </head>
@@ -145,7 +121,10 @@
     <div class="container">
         <div class="module-num">Module 02 of 08</div>
         <h1>First Conversation with Your Agent</h1>
-        <p class="subtitle">You've got the context. Now, how do you actually start?</p>
+        
+        <div class="highlight">
+            You've got the context. Now, how do you actually start?
+        </div>
         
         <h2>Partnership Is a Verb</h2>
         
@@ -165,13 +144,9 @@
         
         <p>Don't ask your agent to solve something. Ask it to <em>explore</em> something with you.</p>
         
-        <div class="highlight-box warning">
-            <p><strong>Bad (too vague):</strong> "Help me organize my notes."</p>
-        </div>
+        <p><strong>Bad (too vague):</strong> "Help me organize my notes."</p>
         
-        <div class="highlight-box">
-            <p><strong>Better (gives context):</strong> "I have 200 notes scattered across three folders. I work on multiple projects simultaneously. Some notes span multiple projects. I can't find anything, and it's slowing me down. What structure would actually help me?"</p>
-        </div>
+        <p><strong>Better (gives context):</strong> "I have 200 notes scattered across three folders. I work on multiple projects simultaneously. Some notes span multiple projects. I can't find anything, and it's slowing me down. What structure would actually help me?"</p>
         
         <p>The difference? The second one gives your agent the actual problem, not just the surface request.</p>
         
@@ -192,15 +167,13 @@
         
         <p>You find a tool or library that might help. Instead of reading 40 pages yourself, paste the URL and say:</p>
         
-        <blockquote>
-            <p>"Read this documentation. Summarize what this tool does, then tell me how it might apply to my situation. Assume I'm at this experience level."</p>
-        </blockquote>
+        <div class="highlight">
+            "Read this documentation. Summarize what this tool does, then tell me how it might apply to my situation. Assume I'm at this experience level."
+        </div>
         
         <p>Your agent will parse the docs, extract what's relevant, translate it to your context, and highlight what you actually need to know.</p>
         
-        <div class="highlight">
-            <p><strong>This isn't cheating. It's outsourcing the reading, not the thinking.</strong> You're using your agent as a research partner. Final call is always yours.</p>
-        </div>
+        <p><strong>This isn't cheating. It's outsourcing the reading, not the thinking.</strong> You're using your agent as a research partner. Final call is always yours.</p>
         
         <h3>Ask "What Am I Missing?"</h3>
         
@@ -227,8 +200,8 @@
         <p><strong>Day 5+:</strong> Do another small thing. You'll already have the rhythm.</p>
         
         <div class="footer-nav">
-            <a href="01-what-you-got.html">← Module 01</a>
-            <a href="03-file-system.html">Module 03 →</a>
+            <a href="01-what-you-got.html" class="prev">← Module 01</a>
+            <a href="03-file-system.html" class="next">Next: File System →</a>
         </div>
     </div>
 </body>

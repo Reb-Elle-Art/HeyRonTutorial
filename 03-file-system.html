@@ -54,11 +54,6 @@
             color: #1a1510;
             font-weight: 600;
         }
-        .subtitle {
-            font-style: italic;
-            color: #5a4a3a;
-            margin-bottom: 2rem;
-        }
         h2 {
             font-size: 1.2rem;
             margin: 2rem 0 1rem 0;
@@ -75,31 +70,15 @@
         }
         p { margin-bottom: 1.25rem; }
         .highlight {
-            background: #f5f0e8;
+            font-style: italic;
+            color: #5a4a3a;
+            margin: 1.5rem 0;
             padding: 1rem;
-            margin: 1rem 0;
             border-left: 3px solid #8b7355;
-        }
-        .code-block {
             background: #f5f0e8;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-left: 3px solid #8b7355;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 14px;
-            overflow-x: auto;
-            white-space: pre;
         }
-        ul, ol {
-            margin: 1rem 0 1.5rem 1.5rem;
-        }
-        li { margin-bottom: 0.75rem; }
-        code {
-            background: #f5f0e8;
-            padding: 0.2rem 0.4rem;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.9em;
-        }
+        ul, ol { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; }
         strong { color: #1a1510; }
         .footer-nav {
             margin-top: 3rem;
@@ -117,6 +96,11 @@
         .footer-nav a:hover {
             background: #f5f0e8;
             border-color: #8b7355;
+        }
+        .footer-nav .prev { margin-right: auto; }
+        .footer-nav .next {
+            font-weight: 600;
+            margin-left: auto;
         }
     </style>
 </head>
@@ -137,7 +121,10 @@
     <div class="container">
         <div class="module-num">Module 03 of 08</div>
         <h1>Your File System (What's Where)</h1>
-        <p class="subtitle">Your agent needs to understand your environment.</p>
+        
+        <div class="highlight">
+            Your agent needs to understand your environment.
+        </div>
         
         <p>Understanding where things live — and where your agent operates — is crucial for effective collaboration.</p>
         
@@ -167,7 +154,7 @@
         </ul>
         
         <div class="highlight">
-            <p><strong>Key question to ask your agent:</strong> "What is my current working environment, and what can you access?"</p>
+            <strong>Key question to ask your agent:</strong> "What is my current working environment, and what can you access?"
         </div>
         
         <h2>Organizing Your Files</h2>
@@ -176,21 +163,21 @@
         
         <h3>Basic Structure</h3>
         
-        <div class="code-block">workspace/
-├── projects/           # Active work
-│   ├── project-1/
-│   ├── project-2/
-│   └── project-3/
-├── reference/          # Docs, examples, resources
-├── archive/            # Completed projects
-└── tools/              # Scripts, configs</div>
+        <p>A simple, expandable structure:</p>
+        
+        <ul>
+            <li><strong>projects/</strong> — Active work</li>
+            <li><strong>reference/</strong> — Docs, examples, resources</li>
+            <li><strong>archive/</strong> — Completed projects</li>
+            <li><strong>tools/</strong> — Scripts, configs</li>
+        </ul>
         
         <h3>Naming Conventions</h3>
         
-        <p>Keep file names <strong>clear and consistent</strong>:</p>
+        <p>Keep file names clear and consistent:</p>
         <ul>
-            <li><code>YYYY-MM-DD_ProjectName_Description.md</code> (for dated work)</li>
-            <li><code>ProjectName_v2_Final.md</code> (for versioned docs)</li>
+            <li><strong>Dated work:</strong> <code>YYYY-MM-DD_ProjectName_Description.md</code></li>
+            <li><strong>Versioned docs:</strong> <code>ProjectName_v2_Final.md</code></li>
             <li>Use underscores instead of spaces (easier for commands)</li>
         </ul>
         
@@ -199,7 +186,7 @@
         <p>Tell your agent your folder structure upfront:</p>
         
         <div class="highlight">
-            <p>"My workspace is organized like this: [describe it]. When I ask you to create files, put them in [appropriate folder]. When I ask you to find something, check [these locations]."</p>
+            "My workspace is organized like this: [describe it]. When I ask you to create files, put them in [appropriate folder]. When I ask you to find something, check [these locations]."
         </div>
         
         <p>Your agent will remember and work within your system.</p>
@@ -210,10 +197,11 @@
         
         <p>Keep tool docs, setup guides, and reference materials here:</p>
         
-        <div class="code-block">reference/
-├── tools/
-├── tutorials/
-└── templates/</div>
+        <ul>
+            <li><strong>reference/tools/</strong> — Tool-specific guides</li>
+            <li><strong>reference/templates/</strong> — Reusable templates</li>
+            <li><strong>reference/snippets/</strong> — Code snippets, commands</li>
+        </ul>
         
         <p>Your agent can reference these without asking you twice.</p>
         
@@ -221,14 +209,29 @@
         
         <p>Store your setup info in plain text:</p>
         
-        <div class="code-block">configs/
-├── STORAGE_MAP.md       # Where files go
-├── GIT_WORKFLOW.md      # Git conventions
-└── AGENT_REFERENCE.md   # How to work with me</div>
+        <ul>
+            <li><strong>STORAGE_MAP.md</strong> — Where files go</li>
+            <li><strong>WORKFLOW.md</strong> — How you work</li>
+            <li><strong>AGENT_REFERENCE.md</strong> — How to work with me</li>
+        </ul>
+        
+        <h2>Container Constraints</h2>
+        
+        <p>If your agent runs in a container (common with cloud setups):</p>
+        
+        <ul>
+            <li>Files may not persist between sessions</li>
+            <li>External tools may be limited</li>
+            <li>Network access may be restricted</li>
+        </ul>
+        
+        <div class="highlight">
+            <strong>Ask your agent:</strong> "What are my container limitations?" It will tell you what's possible and what's not.
+        </div>
         
         <div class="footer-nav">
-            <a href="02-first-conversation.html">← Module 02</a>
-            <a href="04-storage-strategy.html">Module 04 →</a>
+            <a href="02-first-conversation.html" class="prev">← Module 02</a>
+            <a href="04-storage-strategy.html" class="next">Next: Storage Strategy →</a>
         </div>
     </div>
 </body>
