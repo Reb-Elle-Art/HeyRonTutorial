@@ -54,14 +54,6 @@
             color: #1a1510;
             font-weight: 600;
         }
-        .tagline {
-            font-style: italic;
-            color: #5a4a3a;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            border-left: 3px solid #8b7355;
-            background: #f5f0e8;
-        }
         h2 {
             font-size: 1.2rem;
             margin: 2rem 0 1rem 0;
@@ -85,53 +77,9 @@
             border-left: 3px solid #8b7355;
             background: #f5f0e8;
         }
-        ol, ul { margin: 1rem 0 1rem 2rem; }
+        ul, ol { margin: 1rem 0 1rem 2rem; }
         li { margin-bottom: 0.5rem; }
         strong { color: #1a1510; }
-        .checkpoint {
-            background: #f5f0e8;
-            border: 1px solid #d4c4a8;
-            padding: 1.5rem;
-            margin: 2rem 0;
-        }
-        .checkpoint h3 {
-            color: #2c241b;
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-        .checkpoint ul {
-            list-style: none;
-            margin-left: 0;
-        }
-        .checkpoint li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        .checkpoint li::before {
-            content: "☐";
-            position: absolute;
-            left: 0;
-            color: #8b7355;
-        }
-        .footer-nav {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px solid #d4c4a8;
-            display: flex;
-            justify-content: space-between;
-        }
-        .footer-nav a {
-            color: #5a4a3a;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid #d4c4a8;
-        }
-        .footer-nav a:hover {
-            background: #f5f0e8;
-            border-color: #8b7355;
-        }
-        .footer-nav .next { font-weight: 600; }
     </style>
 </head>
 <body>
@@ -152,7 +100,7 @@
         <div class="module-num">Module 06 of 08</div>
         <h1>How to Work Together</h1>
         
-        <div class="tagline">
+        <div class="highlight">
             This is where the partnership actually happens.
         </div>
         
@@ -175,7 +123,6 @@
         <h2>Questions That Get Results</h2>
         
         <h3>Ask Your Agent to Think Out Loud</h3>
-        
         <ul>
             <li>"Walk me through how you'd approach this."</li>
             <li>"What are the trade-offs here?"</li>
@@ -185,7 +132,6 @@
         <p>These force your agent to show its reasoning. Half the time, you'll catch an issue. The other half, you'll understand why the approach is solid.</p>
         
         <h3>Ask It to Challenge You</h3>
-        
         <ul>
             <li>"What am I not considering?"</li>
             <li>"Where could this break?"</li>
@@ -196,20 +142,21 @@
         
         <h3>Be Specific When Something's Off</h3>
         
-        <p>Instead of: "That's not quite right."<br>
-        Say: "This part doesn't fit because [reason]. Can you adjust for [specific constraint]?"</p>
+        <p><strong>Instead of:</strong> "That's not quite right."</p>
+        
+        <p><strong>Say:</strong> "This part doesn't fit because [reason]. Can you adjust for [specific constraint]?"</p>
         
         <p>Vagueness requires guessing. Specifics are actionable.</p>
         
         <h2>Breaking Work Into Pieces</h2>
         
-        <p>Don't hand your agent a giant project. Break it into pieces.</p>
+        <p><strong>Don't start by handing your agent a giant project.</strong> Break it into pieces.</p>
         
         <p><strong>Instead of:</strong> "Build me a landing page."</p>
         
         <p><strong>Try:</strong> "I need a landing page for [thing]. Here's what's on it: [sections]. I want it to feel [tone]. Let's start with just the HTML structure and a basic stylesheet. Once that's done, we can iterate on styling."</p>
         
-        <p>Each chunk lets you:</p>
+        <p><strong>Each chunk lets you:</strong></p>
         <ul>
             <li>See what it produces before moving forward</li>
             <li>Give specific feedback</li>
@@ -217,50 +164,34 @@
             <li>Build confidence in the collaboration</li>
         </ul>
         
-        <h2>Disagreement Is Information</h2>
-        
-        <p>Your agent will suggest things you don't like. Sometimes that's taste. Sometimes that's insight.</p>
-        
-        <p><strong>If you hate it:</strong> Say why specifically. "This feels too corporate" beats "I don't like this."</p>
-        
-        <p><strong>If you're unsure:</strong> Ask it to explain the reasoning. Maybe you'll learn something. Maybe you'll confirm your instinct was right.</p>
-        
-        <p><strong>If it keeps missing the mark:</strong> It might not have enough context. Share more. Show examples. Point to things that work and ask why they work.</p>
-        
-        <h2>Knowing When to Ship</h2>
-        
-        <p>You can iterate forever. At some point, you take what you've got and ship it.</p>
-        
-        <p>Ask yourself: "Is this good enough for what I need right now?"</p>
-        
-        <p>If yes, done. If no, one more round of refinement. Then call it.</p>
-        
-        <div class="highlight">
-            <strong>Your framework isn't final.</strong> You'll rebuild it. <strong>Your document isn't perfect.</strong> Neither is the competition's. Get it out.
-        </div>
-        
         <h2>When Something Breaks</h2>
         
         <p>If a process isn't working:</p>
         
-        <p>Tell your agent: "This process isn't working because [reason]. Can we try [different approach]?"</p>
+        <p><strong>Tell your agent:</strong> "This process isn't working because [reason]. Can we try [different approach]?"</p>
         
-        <p>There's no shame in changing course — the shame is staying with a broken system because you feel committed to it.</p>
+        <p>Use your agent to change course — recognize when your system is the problem. You have complete control over the vibe by directly editing your markdown files (AGENTS.md, TOOLS.md, etc.)</p>
         
-        <div class="checkpoint">
-            <h3>Checkpoint</h3>
-            <ul>
-                <li>I understand the iteration rhythm</li>
-                <li>I can ask my agent specific, actionable questions</li>
-                <li>I know how to break work into pieces</li>
-                <li>I'm comfortable disagreeing and trying different approaches</li>
-                <li>I know when to ship vs. when to refine more</li>
-            </ul>
+        <h2>Key Takeaway</h2>
+        
+        <div class="highlight">
+            Collaboration is iterative. Start messy, refine with specifics, and move together toward something that works. And document important landmarks and decisions along the way. It will make it easier to pick back up where you left off.
         </div>
         
-        <div class="footer-nav">
-            <a href="05-your-toolkit.html">&larr; Previous: Your Toolkit</a>
-            <a href="07-sample-project.html" class="next">Next: Sample Project &rarr;</a>
+        <h2>What to Do Now</h2>
+        
+        <ol>
+            <li>Pick something you want to build with your agent</li>
+            <li>Give a rough description (first draft)</li>
+            <li>Review what it produces</li>
+            <li>Give specific feedback: "Keep X, change Y because Z"</li>
+            <li>Repeat 3-4 times</li>
+            <li>Ship it</li>
+        </ol>
+        
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #d4c4a8; display: flex; justify-content: space-between;">
+            <a href="05-your-toolkit.html" style="color: #5a4a3a; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #d4c4a8;">← Module 05</a>
+            <a href="07-sample-project.html" style="color: #5a4a3a; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #d4c4a8; font-weight: 600;">Next: Module 07 →</a>
         </div>
     </div>
 </body>
