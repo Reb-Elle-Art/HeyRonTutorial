@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>05 — Your Toolkit | Heyron Onboarding</title>
+    <title>04 — Storage Strategy | Heyron Onboarding</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -62,12 +62,6 @@
             border-bottom: 1px solid #d4c4a8;
             padding-bottom: 0.5rem;
         }
-        h3 {
-            font-size: 1.1rem;
-            margin: 1.5rem 0 0.75rem 0;
-            color: #3d3126;
-            font-weight: 600;
-        }
         p { margin-bottom: 1.25rem; }
         .highlight {
             font-style: italic;
@@ -123,8 +117,8 @@
         <a href="01-what-you-got.html">01</a>
         <a href="02-first-conversation.html">02</a>
         <a href="03-workspace.html">03</a>
-        <a href="04-storage-strategy.html">04</a>
-        <a href="05-your-toolkit.html" class="active">05</a>
+        <a href="04-storage-strategy.html" class="active">04</a>
+        <a href="05-your-toolkit.html">05</a>
         <a href="06-how-to-work-together.html">06</a>
         <a href="07-sample-project.html">07</a>
         <a href="08-troubleshooting.html">08</a>
@@ -132,118 +126,88 @@
     </nav>
     
     <div class="container">
-        <div class="module-num">Module 05 of 08</div>
-        <h1>Your Toolkit</h1>
+        <div class="module-num">Module 04 of 08</div>
+        <h1>Storage and Backup Strategy</h1>
         
         <div class="highlight">
-            Tools are the hands of our agents. They reach beyond the container.
+            You learned your files live in a container. Now let's get them somewhere you can control them.
         </div>
         
-        <h2>What Tools Do</h2>
+        <h2>Why GitHub?</h2>
         
-        <p>Your agent lives in a container — that locked workshop you learned about in Module 03. By default, it can't touch the outside world. Tools are bridges that let it reach out: send email, post to Discord, push files to GitHub.</p>
+        <p>You need somewhere permanent to keep your work. Somewhere you control. Somewhere that doesn't depend on your agent's session staying active. Somewhere that will protect your work while HeyRon.ai continues to develop.</p>
         
-        <p><strong>You control which bridges exist.</strong> Add them when you need them. Remove them when you don't.</p>
-        
-        <h2>The Toolkit Philosophy</h2>
-        
-        <p>Tools solve specific problems. You don't need every tool. Start with one that solves something <em>real</em> for you.</p>
-        
-        <p><strong>Priorities:</strong></p>
+        <p>GitHub works because:</p>
         <ul>
-            <li><strong>Use what serves you.</strong> Skip what doesn't.</li>
-            <li><strong>Be curious</strong> about the rest.</li>
-            <li><strong>Think critically</strong> about risk. Every bridge opens a door — make sure you trust what's on the other side.</li>
+            <li>It's free for personal use</li>
+            <li>Your agent can push files there automatically</li>
+            <li>You can access those files from any device, anytime</li>
+            <li>It keeps versions — so if something breaks, you can go back</li>
+            <li>It offers granular control over API access</li>
+            <li>It has a lot of other features you can grow into</li>
         </ul>
         
-        <h2>Common Tools in the Community</h2>
+        <p>You don't need to be a software developer. You just need a place to store text files, notes, documents, and projects.</p>
         
-        <h3>Essential: Backups & Storage</h3>
+        <h2>How It Works</h2>
         
-        <p><strong>Git & GitHub</strong> — Cloud storage, backups, version control, free website hosting<br>
-        Time: 10-15 min | Skill: Beginner</p>
+        <p><strong>Your agent saves your work to GitHub.</strong> You create an account. You make a private repository (think of it like a folder that only you can see). Your agent learns how to put files in that folder.</p>
         
-        <ul>
-            <li>Save work permanently</li>
-            <li>Access from any device</li>
-            <li>Keep history of changes</li>
-            <li>Give your agent a home for files</li>
-        </ul>
+        <p><strong>You access your work from anywhere.</strong> Log into GitHub from your laptop, your phone, a library computer — your files are there. Download them, read them, edit them.</p>
         
-        <h3>Communication</h3>
-        <ul>
-            <li><strong>Discord</strong> — Chat with your agent and community</li>
-            <li><strong>AgentMail</strong> — Email through your agent</li>
-            <li><strong>Telegram</strong> — Alternative to Discord</li>
-        </ul>
+        <p><strong>The flow looks like this:</strong></p>
         
-        <h3>Specialized</h3>
-        <ul>
-            <li><strong>OpenAI's Whisper</strong> — Your agent can transcribe your voice</li>
-            <li><strong>Here.Now</strong> — Free, instant web hosting</li>
-        </ul>
+        <p>Your agent creates a file → Your agent pushes it to your private GitHub repo → You log into GitHub and download it</p>
         
-        <h2>How to Pick & Set Up a Tool</h2>
+        <p>No command line required on your end. Your agent handles the technical parts. You just need to tell it: "Push my current work to GitHub."</p>
         
-        <ol>
-            <li><strong>Identify a real problem</strong> — Not "what tools exist" but "what do I actually need?"<br>
-            <em>Ask your agent: "I need to [do X]. What type of tool would help?"</em></li>
-            
-            <li><strong>Read the tool's documentation</strong> — Start with the setup section of a tool; better yet, have your agent read the documentation and summarize it at a level that matches your understanding</li>
-            
-            <li><strong>Work through setup with your agent</strong> — Ask your agent to walk you through it</li>
-            
-            <li><strong>Test it</strong> — Make sure it actually works</li>
-            
-            <li><strong>Document the setup</strong> — So your agent remembers next session</li>
-        </ol>
+        <h2>Setting It Up</h2>
         
-        <p><strong>Don't set up everything at once.</strong> One tool mastered beats five tools half-broken.</p>
+        <p><strong>Create an account.</strong> Go to github.com. Sign up with your email. Choose the free plan. This is your safe deposit box.</p>
         
-        <h2>Documenting Your Setup</h2>
+        <p><strong>Make a private repository.</strong> Once logged in, create a new repository. Name it something like "my-agent-backups" or "agent-work." Make it private — this keeps your files visible only to you.</p>
         
-        <p>Your agent resets between sessions. To help it remember, work together on a reference guide.</p>
+        <p><strong>Connect your agent.</strong> Your agent needs a way to prove it's allowed to add files to your repository. This involves something called an API key — think of it like a secure password that lets two systems talk to each other.</p>
         
-        <p><strong>Your container should have started with a TOOLS.md.</strong> If not, have your agent create one.</p>
+        <blockquote>
+            <strong>Don't know how to do this?</strong> Tell your agent to read this: https://docs.github.com/ then ask your agent for help. Give it your technical level and ask it to ask you questions if needed.
+        </blockquote>
         
-        <p><strong>Tell your agent:</strong></p>
-        <blockquote>"Document this setup in TOOLS.md so you remember it next session."</blockquote>
+        <h2>A Note on Security</h2>
         
-        <p>Then in the future:</p>
-        <blockquote>"Check TOOLS.md for how we configured GitHub."</blockquote>
+        <p><strong>Never store passwords, API keys, or sensitive personal information in your GitHub repository.</strong> Even though it's private, treat it like any cloud storage — assume someone could theoretically see it.</p>
         
-        <h2>Safety Before Any Tool</h2>
+        <p>Make sure you tell your agent this — work with your agent to come up with a documented process. Something your agent can easily access.</p>
         
-        <p>Before adding a bridge to the outside world, confirm:</p>
+        <p>Something you can point to, "Agent, read [GitHubProcessDocument].md" is easier than remembering than typing out whatever you came up with when you set up your backup process.</p>
         
-        <ul>
-            <li>[ ] <strong>I understand how it works</strong> — What does it actually do?</li>
-            <li>[ ] <strong>I've investigated the provider</strong> — Who makes this? Do I trust them?</li>
-            <li>[ ] <strong>I know how to turn it off</strong> — Can I revoke access if needed?</li>
-            <li>[ ] <strong>I store private information securely</strong> — API keys and passwords never go in plain text or public repos</li>
-        </ul>
+        <p>Always review the files in your repo. <strong>Trust yet Verify.</strong></p>
         
-        <p><strong>Not sure about a tool?</strong> Ask your agent: "What risks does setting up [tool] expose me to?"</p>
+        <h2>What About Other Storage?</h2>
+        
+        <p>Cloud storage like Google Drive or Dropbox works too. The setup depends on your specific agent configuration and platform. The principles are the same — your agent needs a way to export files from the container to somewhere you control.</p>
+        
+        <p>If GitHub feels too technical, ask in the community Discord. Someone has probably figured out a workflow that matches your comfort level.</p>
         
         <h2>Key Takeaway</h2>
         
         <div class="highlight">
-            Tools extend your agent's reach. Start with one. Document it. Do your due diligence — do you trust the provider? And remember: every bridge can be crossed in both directions — think before you build.
+            HeyRon.ai is still v1. To keep your work safe, you need a bridge to somewhere permanent. GitHub is the simplest bridge — free, reliable, and something your agent can manage for you.
         </div>
         
         <h2>What to Do Now</h2>
         
         <ol>
-            <li>Read your current TOOLS.md (or have your agent create it)</li>
-            <li>Pick <strong>one</strong> tool you actually need right now</li>
-            <li>Ask your agent: "What are the risks of [tool]?" (safety check)</li>
-            <li>Tell your agent: "Help me set up [tool] and document it in TOOLS.md"</li>
-            <li>Test it works. Stop until you need another.</li>
+            <li>Create a GitHub account (if you don't have one)</li>
+            <li>Make your first private repository</li>
+            <li>Tell your agent: "Help me connect to GitHub"</li>
+            <li>Try your first push: "Save all my current files to GitHub"</li>
+            <li>Log into GitHub and confirm your files are there</li>
         </ol>
         
         <div class="footer-nav">
-            <a href="04-storage-strategy.html" class="prev">← Module 04</a>
-            <a href="06-how-to-work-together.html" class="next">Next: Module 06 →</a>
+            <a href="03-workspace.html" class="prev">← Module 03</a>
+            <a href="05-your-toolkit.html" class="next">Next: Module 05 →</a>
         </div>
     </div>
 </body>
