@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>08 — Troubleshooting & Help | Heyron Onboarding</title>
+    <title>08 — Troubleshooting & Getting Help | Heyron Onboarding</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,24 +43,16 @@
             margin: 0 auto;
             padding: 3rem 2rem;
         }
-        .module-num {
-            font-size: 0.9rem;
-            color: #8b7355;
-            margin-bottom: 0.5rem;
-        }
         h1 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
             color: #1a1510;
             font-weight: 600;
         }
-        .tagline {
-            font-style: italic;
-            color: #5a4a3a;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            border-left: 3px solid #8b7355;
-            background: #f5f0e8;
+        .module-num {
+            font-size: 0.9rem;
+            color: #8b7355;
+            margin-bottom: 0.5rem;
         }
         h2 {
             font-size: 1.2rem;
@@ -71,29 +63,28 @@
             padding-bottom: 0.5rem;
         }
         h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin: 1.5rem 0 0.75rem 0;
-            color: #3d3126;
+            color: #1a1510;
             font-weight: 600;
         }
         p { margin-bottom: 1.25rem; }
         .highlight {
-            background: #f5f0e8;
+            font-style: italic;
+            color: #5a4a3a;
+            margin: 1.5rem 0;
             padding: 1rem;
-            margin: 1rem 0;
             border-left: 3px solid #8b7355;
-        }
-        ul, ol {
-            margin: 1rem 0 1.5rem 1.5rem;
-        }
-        li { margin-bottom: 0.75rem; }
-        code {
             background: #f5f0e8;
-            padding: 0.2rem 0.4rem;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.9em;
         }
+        ol, ul { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; }
         strong { color: #1a1510; }
+        hr {
+            border: none;
+            border-top: 1px solid #d4c4a8;
+            margin: 2rem 0;
+        }
         .footer-nav {
             margin-top: 3rem;
             padding-top: 2rem;
@@ -111,7 +102,11 @@
             background: #f5f0e8;
             border-color: #8b7355;
         }
-        .footer-nav .next { font-weight: 600; }
+        .footer-nav .prev { margin-right: auto; }
+        .footer-nav .next {
+            font-weight: 600;
+            margin-left: auto;
+        }
     </style>
 </head>
 <body>
@@ -127,80 +122,67 @@
         <a href="08-troubleshooting.html" class="active">08</a>
         <a href="tooling-index.html">Tools</a>
     </nav>
-    
+
     <div class="container">
-        <div class="module-num">Module 08</div>
-        <h1>Troubleshooting & Getting Help</h1>
-        
-        <div class="tagline">
-            Things will go sideways. Here's what to do.
-        </div>
-        
+        <div class="module-num">Module 08 of 08</div>
+        <h1>Troubleshooting &amp; Getting Help</h1>
+
+        <div class="highlight">Things will go sideways. Here's what to do:</div>
+
+        <ol style="list-style:none; margin-left:0;">
+            <li style="margin-bottom:0.25rem;"><strong>1. Read this page</strong></li>
+            <li style="color:#8b7355; font-style:italic; font-size:0.9rem; margin-bottom:0.25rem;">↓ Still stuck?</li>
+            <li style="margin-bottom:0.25rem;"><strong>2. Ask in Discord</strong></li>
+            <li style="color:#8b7355; font-style:italic; font-size:0.9rem; margin-bottom:0.25rem;">↓ Still stuck?</li>
+            <li style="margin-bottom:0.25rem;"><strong>3. Open a ticket in the Help channel</strong></li>
+            <li style="color:#8b7355; font-style:italic; font-size:0.9rem; margin-bottom:0.25rem;">↓ Still stuck?</li>
+            <li><strong>4. Be patient.</strong> Robby is one person — if nothing else works, he will most likely personally address it when he's back on. He really cares that it works.</li>
+        </ol>
+
         <h2>Common Problems</h2>
-        
+
         <h3>"My Agent Keeps Forgetting How to Use Tools"</h3>
-        
         <p><strong>Cause:</strong> Your agent resets between sessions and loses context.</p>
-        
         <p><strong>Solution:</strong> Document everything.</p>
-        
-        <p>Create an <code>AGENT_REFERENCE.md</code> with:</p>
+        <p>Create a reference doc (like Tools.md) with:</p>
         <ul>
             <li>Tool locations</li>
             <li>How to access them</li>
             <li>Your setup conventions</li>
             <li>Common tasks</li>
         </ul>
-        
-        <p>Point your agent to this file at the start of each session.</p>
-        
-        <h3>"I Can't Tell If My Agent Is Actually Understanding Me"</h3>
-        
-        <p><strong>Cause:</strong> You're being vague, or the context isn't complete.</p>
-        
-        <p><strong>Solution:</strong> Be specific. Share more context, not less.</p>
-        
-        <div class="highlight">
-            <p><strong>Don't:</strong> "Make this better."</p>
-            <p><strong>Do:</strong> "This section is confusing because [reason]. Can you rewrite it for [audience] while keeping [important part]?"</p>
-        </div>
-        
+        <p>Point your agent to this file at the start of each session or when they forget.</p>
+
+        <hr>
+
         <h3>"My Agent Keeps Getting Things Wrong"</h3>
-        
-        <p><strong>Cause:</strong> It doesn't have enough information about your preferences or constraints.</p>
-        
-        <p><strong>Solution:</strong> Show it examples, not just descriptions.</p>
-        
-        <div class="highlight">
-            <p>"Here's what I like: [example]. Here's what I don't: [example]. Apply that pattern to [new thing]."</p>
-        </div>
-        
+        <p><strong>Cause:</strong> It may not have enough information about your preferences or constraints.</p>
+        <p><strong>Solution:</strong> Show it examples, point it to any existing documentation.</p>
+        <div class="highlight">"Here's what I like: [example]. Here's what I don't: [example]. Apply that pattern to [new thing]."</div>
+
+        <hr>
+
         <h3>"The Tools Aren't Working"</h3>
-        
         <p><strong>Cause:</strong> Configuration issue, permissions, or token expiration.</p>
-        
         <p><strong>Solution:</strong></p>
         <ol>
             <li>Ask your agent to check the setup</li>
             <li>Verify the tool documentation (give it the URL)</li>
-            <li>Check your AGENT_REFERENCE.md for configuration notes</li>
+            <li>Check your reference documentation for configuration notes</li>
             <li>If stuck, share the error message with your agent</li>
         </ol>
-        
+
+        <hr>
+
         <h3>"My Workflow Feels Like Overhead"</h3>
-        
         <p><strong>Cause:</strong> Your system is too complex, or your agent is doing tiny tasks that should be batched.</p>
-        
         <p><strong>Solution:</strong> Simplify.</p>
-        
         <p>Tell your agent: "This process is adding friction. What if we did [different approach]?"</p>
-        
-        <p>Remember the Sillage story — if it doesn't serve you, it's wrong.</p>
-        
+        <p>Or ask it to review your system and make recommendations to alleviate your specific problem.</p>
+
         <h2>Getting Real Help</h2>
-        
+
         <h3>From Your Agent</h3>
-        
         <p>When stuck, ask directly:</p>
         <ul>
             <li>"What am I missing here?"</li>
@@ -208,13 +190,10 @@
             <li>"What's the best next step?"</li>
             <li>"Can you point me to documentation on [topic]?"</li>
         </ul>
-        
         <p>Your agent is good at spotting blind spots and finding resources.</p>
-        
+
         <h3>From the Community</h3>
-        
         <p>The Heyron community is growing. People are learning alongside you.</p>
-        
         <p><strong>Share:</strong></p>
         <ul>
             <li>What you're trying to do</li>
@@ -222,18 +201,15 @@
             <li>Where you're stuck</li>
             <li>Any error messages</li>
         </ul>
-        
         <p><strong>Ask:</strong></p>
         <ul>
             <li>"Anyone else done this?"</li>
             <li>"What's the pattern for [problem]?"</li>
             <li>"Is this tool worth learning?"</li>
         </ul>
-        
+
         <h2>When to Rebuild</h2>
-        
-        <p>Your system will break. That's correct.</p>
-        
+        <p>Your system will break.</p>
         <p><strong>Signs it's time to rebuild:</strong></p>
         <ul>
             <li>The process takes more time than the work it's supposed to help</li>
@@ -241,7 +217,6 @@
             <li>You can't find things anymore</li>
             <li>Your agent keeps asking you where things go</li>
         </ul>
-        
         <p><strong>How to rebuild:</strong></p>
         <ol>
             <li>Take a breath. This doesn't mean you failed.</li>
@@ -250,46 +225,29 @@
             <li>Test the new approach</li>
             <li>Keep what works, drop what doesn't</li>
         </ol>
-        
+
         <h2>Safety Reminders</h2>
-        
         <ul>
             <li><strong>Never hardcode API keys</strong> in files your agent might see casually</li>
             <li><strong>Always review</strong> before your agent sends emails, posts, or commits externally</li>
             <li><strong>Check for PII (personal info)</strong> before any external action</li>
             <li><strong>Don't share secrets</strong> without encrypting them</li>
         </ul>
-        
-        <h2>Checkpoint</h2>
-        
-        <ul>
-            <li>[ ] I know where to document setup so my agent remembers</li>
-            <li>[ ] I know how to ask specific questions</li>
-            <li>[ ] I understand that my first system will evolve</li>
-            <li>[ ] I know when to reach out to the community</li>
-            <li>[ ] I'm comfortable iterating and rebuilding when needed</li>
-        </ul>
-        
-        <h2>Final Thoughts</h2>
-        
-        <p>You've got everything you need. The mindset. The setup. The communication patterns. The tools.</p>
-        
-        <p>Now go build something. Start small. Stay curious. Iterate.</p>
-        
-        <p>Your agent is ready. Are you?</p>
-        
-        <div class="highlight">
-            <p><strong>Questions or stuck?</strong> Check:</p>
-            <ol>
-                <li>AGENT_REFERENCE.md — How your setup works</li>
-                <li>The specific tool's documentation</li>
-                <li>The Heyron community (Discord)</li>
-                <li>Ask your agent directly — it's good at helping you figure things out</li>
-            </ol>
-        </div>
-        
+
+        <h2>Key Takeaway</h2>
+        <p>Systems evolve. Friction reveals where to improve. Your agent can help you rebuild — just ask.</p>
+
+        <h2>What to Do Now</h2>
+        <ol>
+            <li>Read your reference doc (or create one)</li>
+            <li>Identify one friction point in your current workflow</li>
+            <li>Ask your agent: "How can I simplify this?"</li>
+            <li>Try the new approach</li>
+            <li>Document what works</li>
+        </ol>
+
         <div class="footer-nav">
-            <a href="07-sample-project.html">← Module 07</a>
+            <a href="07-sample-project.html" class="prev">← Module 07 — Sample Project</a>
             <a href="tooling-index.html" class="next">Tooling Index →</a>
         </div>
     </div>
