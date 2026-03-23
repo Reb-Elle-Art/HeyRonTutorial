@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>04 — Storage Strategy | Heyron Onboarding</title>
+    <title>05 — Your Toolkit | Heyron Onboarding</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -54,11 +54,6 @@
             color: #1a1510;
             font-weight: 600;
         }
-        .subtitle {
-            font-style: italic;
-            color: #5a4a3a;
-            margin-bottom: 2rem;
-        }
         h2 {
             font-size: 1.2rem;
             margin: 2rem 0 1rem 0;
@@ -75,32 +70,29 @@
         }
         p { margin-bottom: 1.25rem; }
         .highlight {
-            background: #f5f0e8;
+            font-style: italic;
+            color: #5a4a3a;
+            margin: 1.5rem 0;
             padding: 1rem;
-            margin: 1rem 0;
             border-left: 3px solid #8b7355;
-        }
-        .code-block {
             background: #f5f0e8;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-left: 3px solid #8b7355;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 14px;
-            overflow-x: auto;
-            white-space: pre;
         }
-        ul, ol {
-            margin: 1rem 0 1.5rem 1.5rem;
-        }
-        li { margin-bottom: 0.75rem; }
+        ul, ol { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; }
+        strong { color: #1a1510; }
         code {
             background: #f5f0e8;
             padding: 0.2rem 0.4rem;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.9em;
         }
-        strong { color: #1a1510; }
+        blockquote {
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+            font-style: italic;
+        }
         .footer-nav {
             margin-top: 3rem;
             padding-top: 2rem;
@@ -118,6 +110,11 @@
             background: #f5f0e8;
             border-color: #8b7355;
         }
+        .footer-nav .prev { margin-right: auto; }
+        .footer-nav .next {
+            font-weight: 600;
+            margin-left: auto;
+        }
     </style>
 </head>
 <body>
@@ -126,8 +123,8 @@
         <a href="01-what-you-got.html">01</a>
         <a href="02-first-conversation.html">02</a>
         <a href="03-workspace.html">03</a>
-        <a href="04-storage-strategy.html" class="active">04</a>
-        <a href="05-your-toolkit.html">05</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html" class="active">05</a>
         <a href="06-how-to-work-together.html">06</a>
         <a href="07-sample-project.html">07</a>
         <a href="08-troubleshooting.html">08</a>
@@ -135,137 +132,118 @@
     </nav>
     
     <div class="container">
-        <div class="module-num">Module 04 of 08</div>
-        <h1>Backups (What to Save, How Often)</h1>
-        <p class="subtitle">Your agent will help you generate and organize work. Don't lose it, back it up.</p>
+        <div class="module-num">Module 05 of 08</div>
+        <h1>Your Toolkit</h1>
         
         <div class="highlight">
-            <p><strong>Don't lose your work.</strong></p>
+            Tools are the hands of our agents. They reach beyond the container.
         </div>
         
-        <p>Pick a backup strategy that matches how you work. Start with one. You can always change or add more.</p>
+        <h2>What Tools Do</h2>
         
-        <h2>Option 1: Git & Version Control</h2>
+        <p>Your agent lives in a container — that locked workshop you learned about in Module 03. By default, it can't touch the outside world. Tools are bridges that let it reach out: send email, post to Discord, push files to GitHub.</p>
         
-        <p><strong>Best for:</strong> Code, project documents, configuration files, anything that changes over time.</p>
+        <p><strong>You control which bridges exist.</strong> Add them when you need them. Remove them when you don't.</p>
         
-        <h3>How it works:</h3>
+        <h2>The Toolkit Philosophy</h2>
+        
+        <p>Tools solve specific problems. You don't need every tool. Start with one that solves something <em>real</em> for you.</p>
+        
+        <p><strong>Priorities:</strong></p>
         <ul>
-            <li>Use Git locally and push to a remote repository (GitHub, GitLab, etc.)</li>
-            <li>Your agent can help manage commits, branches, and merges</li>
-            <li>You retain full history of changes</li>
+            <li><strong>Use what serves you.</strong> Skip what doesn't.</li>
+            <li><strong>Be curious</strong> about the rest.</li>
+            <li><strong>Think critically</strong> about risk. Every bridge opens a door — make sure you trust what's on the other side.</li>
         </ul>
         
-        <h3>Your workflow:</h3>
+        <h2>Common Tools in the Community</h2>
+        
+        <h3>Essential: Backups & Storage</h3>
+        
+        <p><strong>Git & GitHub</strong> — Cloud storage, backups, version control, free website hosting<br>
+        Time: 10-15 min | Skill: Beginner</p>
+        
         <ul>
-            <li>Start small. Push frequently. Keep commit messages clear.</li>
-            <li>Your agent handles technical Git operations if you give it permissions</li>
-            <li>You decide <em>what</em> to commit and <em>when</em></li>
+            <li>Save work permanently</li>
+            <li>Access from any device</li>
+            <li>Keep history of changes</li>
+            <li>Give your agent a home for files</li>
         </ul>
         
-        <h3>Setup:</h3>
-        
-        <div class="code-block">git init                          # Create a repo
-git add .                          # Add files
-git commit -m "Clear message"      # Commit regularly
-git push origin main               # Push to remote</div>
-        
-        <div class="highlight">
-            <p><strong>Ask your agent:</strong> "Can you help me set up a Git repository for this project?" or "Make a commit with this message: [what changed]"</p>
-        </div>
-        
-        <h2>Option 2: Cloud Storage & Sync</h2>
-        
-        <p><strong>Best for:</strong> Documents, notes, media, or files that don't require version history.</p>
-        
-        <h3>How it works:</h3>
+        <h3>Communication</h3>
         <ul>
-            <li>Google Drive, Dropbox, iCloud, OneDrive — pick one</li>
-            <li>Automatic syncing to the cloud</li>
-            <li>No manual commits needed</li>
+            <li><strong>Discord</strong> — Chat with your agent and community</li>
+            <li><strong>AgentMail</strong> — Email through your agent</li>
+            <li><strong>Telegram</strong> — Alternative to Discord</li>
         </ul>
         
-        <h3>Setup:</h3>
+        <h3>Specialized</h3>
+        <ul>
+            <li><strong>OpenAI's Whisper</strong> — Your agent can transcribe your voice</li>
+            <li><strong>Here.Now</strong> — Free, instant web hosting</li>
+        </ul>
+        
+        <h2>How to Pick & Set Up a Tool</h2>
+        
         <ol>
-            <li>Install sync client on your machine</li>
-            <li>Create organized folders (by project, by type — your choice)</li>
-            <li>Make sure syncing is actually enabled</li>
+            <li><strong>Identify a real problem</strong> — Not "what tools exist" but "what do I actually need?"<br>
+            <em>Ask your agent: "I need to [do X]. What type of tool would help?"</em></li>
+            
+            <li><strong>Read the tool's documentation</strong> — Start with the setup section of a tool; better yet, have your agent read the documentation and summarize it at a level that matches your understanding</li>
+            
+            <li><strong>Work through setup with your agent</strong> — Ask your agent to walk you through it</li>
+            
+            <li><strong>Test it</strong> — Make sure it actually works</li>
+            
+            <li><strong>Document the setup</strong> — So your agent remembers next session</li>
         </ol>
         
-        <h3>Your agent's role:</h3>
+        <p><strong>Don't set up everything at once.</strong> One tool mastered beats five tools half-broken.</p>
+        
+        <h2>Documenting Your Setup</h2>
+        
+        <p>Your agent resets between sessions. To help it remember, work together on a reference guide.</p>
+        
+        <p><strong>Your container should have started with a TOOLS.md.</strong> If not, have your agent create one.</p>
+        
+        <p><strong>Tell your agent:</strong></p>
+        <blockquote>"Document this setup in TOOLS.md so you remember it next session."</blockquote>
+        
+        <p>Then in the future:</p>
+        <blockquote>"Check TOOLS.md for how we configured GitHub."</blockquote>
+        
+        <h2>Safety Before Any Tool</h2>
+        
+        <p>Before adding a bridge to the outside world, confirm:</p>
+        
         <ul>
-            <li>Can organize files into your cloud structure</li>
-            <li>Can suggest folder organization</li>
-            <li>Works within whatever system you set up</li>
+            <li>[ ] <strong>I understand how it works</strong> — What does it actually do?</li>
+            <li>[ ] <strong>I've investigated the provider</strong> — Who makes this? Do I trust them?</li>
+            <li>[ ] <strong>I know how to turn it off</strong> — Can I revoke access if needed?</li>
+            <li>[ ] <strong>I store private information securely</strong> — API keys and passwords never go in plain text or public repos</li>
         </ul>
+        
+        <p><strong>Not sure about a tool?</strong> Ask your agent: "What risks does setting up [tool] expose me to?"</p>
+        
+        <h2>Key Takeaway</h2>
         
         <div class="highlight">
-            <p><strong>Ask your agent:</strong> "Help me organize these files into my Google Drive structure" or "What's the best way to organize my Dropbox for easy access?"</p>
+            Tools extend your agent's reach. Start with one. Document it. Do your due diligence — do you trust the provider? And remember: every bridge can be crossed in both directions — think before you build.
         </div>
         
-        <h2>Option 3: Agent-Managed Backups</h2>
+        <h2>What to Do Now</h2>
         
-        <p><strong>Best for:</strong> Automated, hands-off backup to dedicated repositories.</p>
-        
-        <div class="highlight">
-            <p><strong>Important:</strong> Always have <em>at least one</em> backup independent of your agent's primary system.</p>
-        </div>
-        
-        <h2>Combining Strategies</h2>
-        
-        <p>You don't have to pick just one:</p>
-        <ul>
-            <li><strong>Use Git</strong> for code and docs that change</li>
-            <li><strong>Use cloud storage</strong> for media and final versions</li>
-            <li><strong>Have both</strong> for redundancy</li>
-        </ul>
-        
-        <h2>Creating Documentation for Your Agent</h2>
-        
-        <p>Your agent won't remember your backup strategy across sessions unless you document it.</p>
-        
-        <h3>Create a <code>STORAGE_MAP.md</code> file:</h3>
-        
-        <div class="code-block"># Storage Map
-
-## Active Projects
-- Location: ~/workspace/projects/[project-name]
-- Backup: Git push to origin/main weekly
-- Archive: Move to ~/workspace/archive/[year] when done
-
-## Cloud Storage
-- Platform: Google Drive
-- Sync folder: ~/Google Drive
-- Structure: Organize by project, then by type
-
-## Important Docs
-- Keep: Local copy + Git + Cloud copy
-- Review before external share: Check for API keys, PII</div>
-        
-        <p>Point your agent to this file, and it'll know your system.</p>
-        
-        <h2>Safety Reminders</h2>
-        
-        <p>Before your agent does anything external (email, social post, public commit):</p>
-        <ul>
-            <li><strong>You verify</strong> it's going to the right place</li>
-            <li><strong>You check</strong> the content (look for API keys, passwords, personal info)</li>
-            <li><strong>You explicitly approve</strong> any external action</li>
-        </ul>
-        
-        <h2>Checkpoint</h2>
-        
-        <ul>
-            <li>[ ] I've chosen a backup strategy (Git, cloud, or both)</li>
-            <li>[ ] I understand how my backups work</li>
-            <li>[ ] I have documentation for my agent</li>
-            <li>[ ] I'm comfortable delegating file organization to my agent</li>
-            <li>[ ] I know how to verify external actions before they happen</li>
-        </ul>
+        <ol>
+            <li>Read your current TOOLS.md (or have your agent create it)</li>
+            <li>Pick <strong>one</strong> tool you actually need right now</li>
+            <li>Ask your agent: "What are the risks of [tool]?" (safety check)</li>
+            <li>Tell your agent: "Help me set up [tool] and document it in TOOLS.md"</li>
+            <li>Test it works. Stop until you need another.</li>
+        </ol>
         
         <div class="footer-nav">
-            <a href="03-workspace.html">← Module 03</a>
-            <a href="05-your-toolkit.html">Module 05 →</a>
+            <a href="04-storage-strategy.html" class="prev">← Module 04</a>
+            <a href="06-how-to-work-together.html" class="next">Next: Module 06 →</a>
         </div>
     </div>
 </body>
