@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Name | Heyron Onboarding</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            background: #faf8f3;
+            color: #2c241b;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        nav {
+            background: #fff;
+            border-bottom: 2px solid #d4c4a8;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        nav a:hover, nav a.active {
+            border-color: #8b7355;
+            background: #f5f0e8;
+        }
+        nav a.home { font-weight: 600; color: #2c241b; }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .breadcrumb {
+            font-size: 13px;
+            color: #8b7355;
+            margin-bottom: 1rem;
+        }
+        .breadcrumb a { color: #8b7355; }
+        
+        /* Header with time estimate */
+        .tool-header {
+            margin-bottom: 2rem;
+        }
+        .tool-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+        .time-badge {
+            background: #2c241b;
+            color: #faf8f3;
+            padding: 0.25rem 0.75rem;
+            font-weight: 600;
+        }
+        .skill-level {
+            color: #5a4a3a;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            color: #1a1510;
+            font-weight: 600;
+        }
+        .tagline {
+            font-style: italic;
+            color: #5a4a3a;
+            padding: 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            margin: 2.5rem 0 1rem 0;
+            color: #2c241b;
+            font-weight: 600;
+            border-bottom: 1px solid #d4c4a8;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.75rem 0;
+            color: #3d3126;
+            font-weight: 600;
+        }
+        p { margin-bottom: 1.25rem; }
+        .highlight {
+            background: #f5f0e8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #8b7355;
+        }
+        .highlight-box {
+            background: #f5f0e8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #8b7355;
+        }
+        .highlight-box.warning {
+            border-left-color: #c45c4a;
+            background: #fdf0ed;
+        }
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+        li { margin-bottom: 0.75rem; }
+        code {
+            background: #f5f0e8;
+            padding: 0.2rem 0.4rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9em;
+        }
+        .code-block {
+            background: #f5f0e8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #8b7355;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        strong { color: #1a1510; }
+        
+        /* Prerequisites section */
+        .prereq-list {
+            background: #fff;
+            border: 1px solid #d4c4a8;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        .prereq-list h3 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+        .prereq-list ul {
+            margin: 0;
+        }
+        .prereq-list li {
+            margin-bottom: 0.5rem;
+        }
+        .check-item::before {
+            content: "☐ ";
+            color: #8b7355;
+        }
+        
+        /* You vs Agent section */
+        .roles-grid {
+            display: grid;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .role-box {
+            background: #fff;
+            border: 1px solid #d4c4a8;
+            padding: 1.25rem;
+        }
+        .role-box h3 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: #2c241b;
+        }
+        .role-box ol {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        
+        /* Test section */
+        .test-box {
+            background: #f5f0e8;
+            border: 2px solid #8b7355;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        .test-box h3 {
+            margin-top: 0;
+        }
+        
+        /* Troubleshooting table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 1.5rem 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #d4c4a8;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background: #f5f0e8;
+            font-weight: 600;
+        }
+        
+        /* Capabilities list */
+        .capabilities {
+            background: #fff;
+            border: 1px solid #d4c4a8;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        .capabilities ul {
+            margin: 0;
+            list-style: none;
+            padding-left: 0;
+        }
+        .capabilities li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .capabilities li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #5a7d3a;
+            font-weight: 600;
+        }
+        
+        .footer-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #d4c4a8;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d4c4a8;
+        }
+        .footer-nav a:hover {
+            background: #f5f0e8;
+            border-color: #8b7355;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="home">Home</a>
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-workspace.html">03</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html">05</a>
+        <a href="06-how-to-work-together.html">06</a>
+        <a href="07-sample-project.html">07</a>
+        <a href="08-troubleshooting.html">08</a>
+        <a href="tooling-index.html">Tools</a>
+    </nav>
+    
+    <div class="container">
+        <div class="breadcrumb"><a href="tooling-index.html">← Tooling Index</a></div>
+        
+        <!-- Header with time estimate -->
+        <div class="tool-header">
+            <div class="tool-meta">
+                <span class="time-badge">⏱ 10-15 minutes</span>
+                <span class="skill-level">Skill: Beginner</span>
+            </div>
+            <h1>Tool Name</h1>
+            <div class="tagline">
+                What this tool gives you in one clear sentence.
+            </div>
+        </div>
+        
+        <!-- At a Glance -->
+        <h2>At a Glance</h2>
+        <p><strong>What you'll have:</strong> Clear description of the end state.</p>
+        <p><strong>Why it matters:</strong> One sentence on the benefit.</p>
+        
+        <!-- Try It First -->
+        <h2>Try It First</h2>
+        <p>Before reading the full guide, spend 2 minutes exploring:</p>
+        <ol>
+            <li>Go to <strong>service.com</strong></li>
+            <li>Click around without signing up</li>
+            <li>Ask yourself: "What would I use this for?"</li>
+        </ol>
+        <div class="highlight">
+            <p><strong>Then come back.</strong> The exploration helps it stick.</p>
+        </div>
+        
+        <!-- What This Is -->
+        <h2>What This Is (Simple Version)</h2>
+        <p>Plain language explanation. Avoid jargon. Use analogies.</p>
+        <ul>
+            <li><strong>Key benefit:</strong> What it does</li>
+            <li><strong>Key benefit:</strong> What it does</li>
+            <li><strong>Key benefit:</strong> What it does</li>
+        </ul>
+        <p><strong>Think of it as:</strong> A relatable analogy.</p>
+        
+        <!-- You vs Your Agent -->
+        <h2>What You Do vs. What Your Agent Does</h2>
+        <div class="roles-grid">
+            <div class="role-box">
+                <h3>👤 YOU Do This (One-time setup):</h3>
+                <ol>
+                    <li>Create an account</li>
+                    <li>Get credentials/token</li>
+                    <li>Test the connection</li>
+                </ol>
+            </div>
+            <div class="role-box">
+                <h3>🤖 YOUR AGENT Does This (Ongoing):</h3>
+                <ol>
+                    <li>Use the tool automatically</li>
+                    <li>Handle technical details</li>
+                    <li>Keep things organized</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Prerequisites -->
+        <h2>Prerequisites</h2>
+        <div class="prereq-list">
+            <h3>Before You Start</h3>
+            <ul>
+                <li class="check-item">Account on [service name] (free tier is fine)</li>
+                <li class="check-item">[Other requirement]</li>
+                <li class="check-item">[Other requirement]</li>
+            </ul>
+        </div>
+        
+        <!-- Setup Steps -->
+        <h2>Step-by-Step Setup</h2>
+        
+        <h3>Step 1: [Action]</h3>
+        <ol>
+            <li>Specific instruction</li>
+            <li>Specific instruction</li>
+            <li>Specific instruction</li>
+        </ol>
+        <div class="highlight">
+            <p><strong>Ask your agent:</strong> "Help me with [this step]"</p>
+        </div>
+        
+        <h3>Step 2: [Action]</h3>
+        <ol>
+            <li>Specific instruction</li>
+            <li>Specific instruction</li>
+        </ol>
+        
+        <h3>Step 3: Give Your Agent Access</h3>
+        <p>Tell your agent:</p>
+        <div class="code-block">
+            "Connect to [service]. My [credential] is: xxxxxx"
+        </div>
+        <p>Your agent will test the connection and confirm it's working.</p>
+        
+        <!-- Test It -->
+        <h2>Test It</h2>
+        <div class="test-box">
+            <h3>Verification Test</h3>
+            <p><strong>Ask your agent:</strong> "[Specific test command]"</p>
+            <p><strong>What should happen:</strong> [Expected result]</p>
+        </div>
+        
+        <!-- Common Issues -->
+        <h2>Common Issues</h2>
+        <table>
+            <tr>
+                <th>Problem</th>
+                <th>Solution</th>
+            </tr>
+            <tr>
+                <td>"Error message"</td>
+                <td>How to fix it</td>
+            </tr>
+            <tr>
+                <td>"Another error"</td>
+                <td>How to fix it</td>
+            </tr>
+        </table>
+        
+        <!-- What You Can Do Now -->
+        <h2>What You Can Do Now</h2>
+        <div class="capabilities">
+            <ul>
+                <li>Capability one</li>
+                <li>Capability two</li>
+                <li>Capability three</li>
+                <li>Capability four</li>
+            </ul>
+        </div>
+        
+        <h3>Example Commands</h3>
+        <table>
+            <tr>
+                <th>What You Want</th>
+                <th>What to Say</th>
+            </tr>
+            <tr>
+                <td>Action description</td>
+                <td><code>"Command to use"</code></td>
+            </tr>
+            <tr>
+                <td>Action description</td>
+                <td><code>"Command to use"</code></td>
+            </tr>
+        </table>
+        
+        <!-- Security Notes -->
+        <h2>Security Notes</h2>
+        <ul>
+            <li>Never share your [credential] in public</li>
+            <li>If exposed, revoke and regenerate immediately</li>
+            <li>Don't store sensitive data in plain text</li>
+        </ul>
+        
+        <!-- Next Steps -->
+        <h2>Next Steps</h2>
+        <p>Once this is working, explore:</p>
+        <ul>
+            <li><a href="tooling-[related].html">Related Tool</a> — What it adds</li>
+            <li><a href="07-sample-project.html">Sample Project</a> — Put it to use</li>
+        </ul>
+        
+        <div class="footer-nav">
+            <a href="tooling-index.html">← Back to Tools</a>
+            <a href="tooling-[next].html">Next Tool →</a>
+        </div>
+    </div>
+</body>
+</html>

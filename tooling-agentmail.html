@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentMail Setup | Heyron Onboarding</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            background: #faf8f3;
+            color: #2c241b;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        nav {
+            background: #fff;
+            border-bottom: 2px solid #d4c4a8;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        nav a:hover, nav a.active {
+            border-color: #8b7355;
+            background: #f5f0e8;
+        }
+        nav a.home { font-weight: 600; color: #2c241b; }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .breadcrumb {
+            font-size: 13px;
+            color: #8b7355;
+            margin-bottom: 1rem;
+        }
+        .breadcrumb a { color: #8b7355; }
+        
+        .tool-header {
+            margin-bottom: 2rem;
+        }
+        .tool-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+        .time-badge {
+            background: #2c241b;
+            color: #faf8f3;
+            padding: 0.25rem 0.75rem;
+            font-weight: 600;
+        }
+        .skill-level {
+            color: #5a4a3a;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            color: #1a1510;
+            font-weight: 600;
+        }
+        .tagline {
+            font-style: italic;
+            color: #5a4a3a;
+            padding: 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            margin: 2.5rem 0 1rem 0;
+            color: #2c241b;
+            font-weight: 600;
+            border-bottom: 1px solid #d4c4a8;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.75rem 0;
+            color: #3d3126;
+            font-weight: 600;
+        }
+        p { margin-bottom: 1.25rem; }
+        .highlight {
+            background: #f5f0e8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #8b7355;
+        }
+        .highlight-box {
+            background: #f5f0e8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #8b7355;
+        }
+        .highlight-box.warning {
+            border-left-color: #c45c4a;
+            background: #fdf0ed;
+        }
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+        li { margin-bottom: 0.75rem; }
+        code {
+            background: #f5f0e8;
+            padding: 0.2rem 0.4rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9em;
+        }
+        .code-block {
+            background: #f5f0e8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #8b7355;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        strong { color: #1a1510; }
+        
+        .prereq-list {
+            background: #fff;
+            border: 1px solid #d4c4a8;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        .prereq-list h3 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+        .prereq-list ul {
+            margin: 0;
+        }
+        .prereq-list li {
+            margin-bottom: 0.5rem;
+        }
+        .check-item::before {
+            content: "☐ ";
+            color: #8b7355;
+        }
+        
+        .roles-grid {
+            display: grid;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .role-box {
+            background: #fff;
+            border: 1px solid #d4c4a8;
+            padding: 1.25rem;
+        }
+        .role-box h3 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: #2c241b;
+        }
+        .role-box ol {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        
+        .test-box {
+            background: #f5f0e8;
+            border: 2px solid #8b7355;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        .test-box h3 {
+            margin-top: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 1.5rem 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #d4c4a8;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background: #f5f0e8;
+            font-weight: 600;
+        }
+        
+        .capabilities {
+            background: #fff;
+            border: 1px solid #d4c4a8;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        .capabilities ul {
+            margin: 0;
+            list-style: none;
+            padding-left: 0;
+        }
+        .capabilities li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .capabilities li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #5a7d3a;
+            font-weight: 600;
+        }
+        
+        .footer-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #d4c4a8;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d4c4a8;
+        }
+        .footer-nav a:hover {
+            background: #f5f0e8;
+            border-color: #8b7355;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="home">Home</a>
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-workspace.html">03</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html">05</a>
+        <a href="06-how-to-work-together.html">06</a>
+        <a href="07-sample-project.html">07</a>
+        <a href="08-troubleshooting.html">08</a>
+        <a href="tooling-index.html">Tools</a>
+    </nav>
+    
+    <div class="container">
+        <div class="breadcrumb"><a href="tooling-index.html">← Tooling Index</a></div>
+        
+        <div class="tool-header">
+            <div class="tool-meta">
+                <span class="time-badge">⏱ 5-10 minutes</span>
+                <span class="skill-level">Skill: Beginner</span>
+            </div>
+            <h1>AgentMail — Email for Your Agent</h1>
+            <div class="tagline">
+                Give your agent its own email inbox to send, receive, and manage emails.
+            </div>
+        </div>
+        
+        <h2>At a Glance</h2>
+        <p><strong>What you'll have:</strong> An email address like <code>your-agent@agentmail.to</code> that your agent can use to send and receive emails.</p>
+        <p><strong>Why it matters:</strong> Your agent can email you updates, receive documents, communicate with services, and act as an independent identity.</p>
+        
+        <h2>Try It First</h2>
+        <p>Before setting up, explore what AgentMail does:</p>
+        <ol>
+            <li>Go to <strong><a href="https://console.agentmail.to" target="_blank">console.agentmail.to</a></strong></li>
+            <li>Click around the console (you can browse before signing up)</li>
+            <li>Ask yourself: "What would my agent email me about?"</li>
+        </ol>
+        <div class="highlight">
+            <p><strong>Then come back.</strong> The exploration helps it stick.</p>
+        </div>
+        
+        <h2>What This Is (Simple Version)</h2>
+        <p>AgentMail gives your AI agent its own email inbox — just like Gmail, but built for agents.</p>
+        <ul>
+            <li><strong>Send emails:</strong> Your agent can email you, others, or services</li>
+            <li><strong>Receive emails:</strong> People can email your agent directly</li>
+            <li><strong>API-first:</strong> No complex setup, just an API key</li>
+            <li><strong>Usage-based:</strong> Pay only for what you use, not per inbox</li>
+        </ul>
+        <p><strong>Think of it as:</strong> A mailbox for your agent — it can send letters, receive replies, and manage correspondence on your behalf.</p>
+        
+        <h2>What You Do vs. What Your Agent Does</h2>
+        <div class="roles-grid">
+            <div class="role-box">
+                <h3>👤 YOU Do This (One-time setup):</h3>
+                <ol>
+                    <li>Create an AgentMail account</li>
+                    <li>Generate an API key</li>
+                    <li>Give the API key to your agent</li>
+                </ol>
+            </div>
+            <div class="role-box">
+                <h3>🤖 YOUR AGENT Does This (Ongoing):</h3>
+                <ol>
+                    <li>Create and manage email inboxes</li>
+                    <li>Send emails on your behalf</li>
+                    <li>Check for and read incoming emails</li>
+                    <li>Handle attachments and replies</li>
+                </ol>
+            </div>
+        </div>
+        
+        <h2>Prerequisites</h2>
+        <div class="prereq-list">
+            <h3>Before You Start</h3>
+            <ul>
+                <li class="check-item">An email address (for your AgentMail account)</li>
+                <li class="check-item">5 minutes to complete setup</li>
+            </ul>
+        </div>
+        
+        <h2>Step-by-Step Setup</h2>
+        
+        <h3>Step 1: Create Your AgentMail Account</h3>
+        <ol>
+            <li>Go to <strong><a href="https://console.agentmail.to" target="_blank">console.agentmail.to</a></strong></li>
+            <li>Click <strong>"Sign Up"</strong></li>
+            <li>Enter your email and create a password</li>
+            <li>Verify your email (check your inbox for a confirmation link)</li>
+        </ol>
+        <div class="highlight">
+            <p><strong>Ask your agent:</strong> "Help me set up AgentMail" if you get stuck.</p>
+        </div>
+        
+        <h3>Step 2: Generate an API Key</h3>
+        <ol>
+            <li>Log into the <strong>AgentMail Console</strong></li>
+            <li>Look for <strong>"API Keys"</strong> in the sidebar or dashboard</li>
+            <li>Click <strong>"Create New API Key"</strong></li>
+            <li>Give it a name like "My Agent" or "Heyron Setup"</li>
+            <li>Click <strong>"Create"</strong></li>
+            <li><strong>Important:</strong> Copy the API key immediately — it starts with <code>am_</code>
+                <ul>
+                    <li>This is the only time you'll see the full key</li>
+                    <li>Store it somewhere safe (you'll paste it in the next step)</li>
+                    <li>If you lose it, just create a new one</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h3>Step 3: Give Your Agent the API Key</h3>
+        <p>Tell your agent:</p>
+        <div class="code-block">
+            "Connect to AgentMail. My API key is: am_xxxxxxxxxxxx"
+        </div>
+        <p><strong>Your agent will:</strong></p>
+        <ol>
+            <li>Test the connection to AgentMail</li>
+            <li>Create its first inbox (like <code>agent-123@agentmail.to</code>)</li>
+            <li>Send you a test email to confirm everything works</li>
+            <li>Store the key securely for future use</li>
+        </ol>
+        <div class="highlight">
+            <p><strong>What just happened?</strong> Your agent now has its own email address and can send/receive emails.</p>
+        </div>
+        
+        <h2>Test It</h2>
+        <div class="test-box">
+            <h3>Verification Test</h3>
+            <p><strong>Ask your agent:</strong> "Send me a test email using AgentMail"</p>
+            <p><strong>What should happen:</strong></p>
+            <ul>
+                <li>You receive an email from your agent's address</li>
+                <li>The email appears in your regular inbox (Gmail, etc.)</li>
+                <li>Your agent confirms the send was successful</li>
+            </ul>
+        </div>
+        
+        <h3>Test Receiving Email</h3>
+        <ol>
+            <li>Ask your agent: "What's my AgentMail email address?"</li>
+            <li>Copy that address (it looks like <code>something@agentmail.to</code>)</li>
+            <li>From your regular email, send a message to that address</li>
+            <li>Tell your agent: "Check my AgentMail inbox"</li>
+        </ol>
+        <p><strong>What should happen:</strong> Your agent sees your email and can read it back to you or act on it.</p>
+        
+        <h2>Common Issues</h2>
+        <table>
+            <tr>
+                <th>Problem</th>
+                <th>Solution</th>
+            </tr>
+            <tr>
+                <td>"API key not working"</td>
+                <td>Make sure you copied the entire key starting with <code>am_</code>. If lost, generate a new one in the console.</td>
+            </tr>
+            <tr>
+                <td>"Can't create inbox"</td>
+                <td>Check your console — you may have hit the free tier limit. Delete unused inboxes or upgrade.</td>
+            </tr>
+            <tr>
+                <td>"Emails not arriving"</td>
+                <td>Check your spam folder. AgentMail emails sometimes land there initially. Mark as "Not spam" to fix.</td>
+            </tr>
+            <tr>
+                <td>"Agent says it sent email but I don't see it"</td>
+                <td>Wait 30 seconds — email delivery takes time. Check spam. Ask agent to verify the send was successful.</td>
+            </tr>
+        </table>
+        
+        <h2>Security Notes</h2>
+        <ul>
+            <li><strong>Never share your API key</strong> in public chats, Discord, or screenshots</li>
+            <li><strong>If exposed:</strong> Delete the key in the AgentMail console immediately and create a new one</li>
+            <li><strong>Your agent's emails:</strong> These are real emails — be mindful of what your agent sends</li>
+            <li><strong>Free tier limits:</strong> AgentMail has usage limits on the free plan. Check the console for your current usage</li>
+        </ul>
+        
+        <h2>What You Can Do Now</h2>
+        <div class="capabilities">
+            <ul>
+                <li>Receive daily/weekly summaries from your agent</li>
+                <li>Email documents to your agent for analysis</li>
+                <li>Get notifications when your agent completes tasks</li>
+                <li>Have your agent communicate with services that require email</li>
+                <li>Send reminders to yourself through your agent</li>
+            </ul>
+        </div>
+        
+        <h3>Example Commands</h3>
+        <table>
+            <tr>
+                <th>What You Want</th>
+                <th>What to Say</th>
+            </tr>
+            <tr>
+                <td>Send an email</td>
+                <td><code>"Email [person@example.com]: Subject line. Message body here."</code></td>
+            </tr>
+            <tr>
+                <td>Check for new emails</td>
+                <td><code>"Check my AgentMail inbox"</code></td>
+            </tr>
+            <tr>
+                <td>Get your agent's email address</td>
+                <td><code>"What's my AgentMail address?"</code></td>
+            </tr>
+            <tr>
+                <td>Send yourself a summary</td>
+                <td><code>"Email me a summary of today's work"</code></td>
+            </tr>
+        </table>
+        
+        <h2>Next Steps</h2>
+        <p>Once AgentMail is working:</p>
+        <ul>
+            <li><a href="tooling-github.html">Set up GitHub</a> — Save your agent's work permanently</li>
+            <li>Return to <a href="07-sample-project.html">Sample Project</a> — Put email to use</li>
+        </ul>
+        
+        <div class="footer-nav">
+            <a href="tooling-index.html">← Back to Tools</a>
+            <a href="tooling-github.html">GitHub Setup →</a>
+        </div>
+    </div>
+</body>
+</html>

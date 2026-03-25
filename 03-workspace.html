@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 — Your Workspace | Heyron Onboarding</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            background: #faf8f3;
+            color: #2c241b;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        nav {
+            background: #fff;
+            border-bottom: 2px solid #d4c4a8;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        nav a:hover, nav a.active {
+            border-color: #8b7355;
+            background: #f5f0e8;
+        }
+        nav a.home { font-weight: 600; color: #2c241b; }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .module-num {
+            font-size: 0.9rem;
+            color: #8b7355;
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1510;
+            font-weight: 600;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin: 2rem 0 1rem 0;
+            color: #2c241b;
+            font-weight: 600;
+            border-bottom: 1px solid #d4c4a8;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.75rem 0;
+            color: #3d3126;
+            font-weight: 600;
+        }
+        p { margin-bottom: 1.25rem; }
+        .highlight {
+            font-style: italic;
+            color: #5a4a3a;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+        }
+        ul, ol { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; }
+        strong { color: #1a1510; }
+        code {
+            background: #f5f0e8;
+            padding: 0.2rem 0.4rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9em;
+        }
+        .footer-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #d4c4a8;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d4c4a8;
+        }
+        .footer-nav a:hover {
+            background: #f5f0e8;
+            border-color: #8b7355;
+        }
+        .footer-nav .prev { margin-right: auto; }
+        .footer-nav .next {
+            font-weight: 600;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="home">Home</a>
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-workspace.html" class="active">03</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html">05</a>
+        <a href="06-how-to-work-together.html">06</a>
+        <a href="07-sample-project.html">07</a>
+        <a href="08-troubleshooting.html">08</a>
+        <a href="tooling-index.html">Tools</a>
+    </nav>
+    
+    <div class="container">
+        <div class="module-num">Module 03 of 08</div>
+        <h1>Your Workspace (Where Files Live)</h1>
+        
+        <div class="highlight">
+            Your agent works in a container. You see the workspace through your browser. Nothing exists on your local computer.
+        </div>
+        
+        <h2>The Simple Version</h2>
+        
+        <p>Your agent works inside a protected space called a <strong>container</strong>. You access that space through your browser — there's no local folder on your computer, no sync, no files stored on your machine.</p>
+        
+        <p><strong>Think of it like this:</strong> Your agent is in a workshop on another server. You're watching through a live video feed in your browser. You can see everything they make, talk to them, and request changes — but the workshop isn't on your property. Nothing exists on your local computer.</p>
+        
+        <h2>What You Start With</h2>
+        
+        <p>When you first log in, your workspace contains six files:</p>
+        
+        <ul>
+            <li><strong>AGENTS.md</strong> — How your agent operates, protocols, procedures</li>
+            <li><strong>HEARTBEAT.md</strong> — Periodic tasks your agent checks</li>
+            <li><strong>IDENTITY.md</strong> — Quick reference for your agent's name/persona</li>
+            <li><strong>SOUL.md</strong> — Your agent's core philosophy and voice</li>
+            <li><strong>TOOLS.md</strong> — Available tools, API keys, setup notes</li>
+            <li><strong>USER.md</strong> — Information about you (the human)</li>
+        </ul>
+        
+        <p>These files are how you and your agent stay coordinated. Work together to update them (ask your agent to make updates and suggest improvements). Need a new folder or file? Ask your agent to create one!</p>
+        
+        <h2>The "Nerve"</h2>
+        
+        <p>The connection between your browser and your agent's container is called the <strong>nerve</strong>. It's the pathway for:</p>
+        
+        <ul>
+            <li>Your messages to reach your agent</li>
+            <li>Your agent's files to appear in your browser</li>
+            <li>Updates to flow back and forth</li>
+        </ul>
+        
+        <p>You don't need to manage the nerve. But it's useful to know it exits. A new interface is coming soon, and even though it may look a little different, the same container logic will apply. </p>
+        
+        <h2>What This Means Practically</h2>
+        
+        <h3>Creating Files</h3>
+        <p>Ask your agent: "Create a file called notes.md" — it appears in the file browser you see in your browser window. The file lives in the container, not on your computer.</p>
+        
+        <h3>Reading Files</h3>
+        <p>Your agent can read any file in the workspace. Just ask: "What's in the AGENTS.md file?"</p>
+        
+        <p>You can also view files directly: double-click on a markdown file in your workspace to open it in a tab. Navigate back to your agent by clicking on the Chat tab.</p>
+        
+        <h3>Getting Files Out</h3>
+        <p> Those files aren't on your local computer — they're in the container on a server somewhere.</p>
+        
+        <p>To actually get a file onto your local computer, you need a tool:</p>
+        <ul>
+            <li><strong>GitHub</strong> — Push files to a repository, then download</li>
+            <li><strong>AgentMail</strong> — Email files to yourself</li>
+            <li><strong>Cloud storage</strong> — Sync to Google Drive, Dropbox, etc.</li>
+        </ul>
+        
+        <p>That's what the <a href="05-your-toolkit.html">Toolkit</a> section covers.</p>
+        
+        <h2>Key Takeaway</h2>
+        
+        <div class="highlight">
+            The workspace exists only in the container, accessed through your browser. Your agent can create, read, and organize files. You can see them in the Control UI. But nothing is on your local computer — to get files onto your actual machine, you need to set up a connection (GitHub, email, etc.).
+        </div>
+        
+        <h2>What to Do Now</h2>
+        
+        <ol>
+            <li>Look at the file browser in the Control UI (browser window)</li>
+            <li>Confirm you see the six default files</li>
+            <li>Ask your agent: "What files are in our workspace?"</li>
+            <li>Have your agent create a test file</li>
+            <li>Watch it appear in the browser </li>
+        </ol>
+        
+        <div class="footer-nav">
+            <a href="02-first-conversation.html" class="prev">← Module 02</a>
+            <a href="04-storage-strategy.html" class="next">Next: Storage Strategy →</a>
+        </div>
+    </div>
+</body>
+</html>

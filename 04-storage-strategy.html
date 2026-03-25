@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 — Storage Strategy | Heyron Onboarding</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            background: #faf8f3;
+            color: #2c241b;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        nav {
+            background: #fff;
+            border-bottom: 2px solid #d4c4a8;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        nav a:hover, nav a.active {
+            border-color: #8b7355;
+            background: #f5f0e8;
+        }
+        nav a.home { font-weight: 600; color: #2c241b; }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .module-num {
+            font-size: 0.9rem;
+            color: #8b7355;
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1510;
+            font-weight: 600;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin: 2rem 0 1rem 0;
+            color: #2c241b;
+            font-weight: 600;
+            border-bottom: 1px solid #d4c4a8;
+            padding-bottom: 0.5rem;
+        }
+        p { margin-bottom: 1.25rem; }
+        .highlight {
+            font-style: italic;
+            color: #5a4a3a;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+        }
+        ul, ol { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; }
+        strong { color: #1a1510; }
+        code {
+            background: #f5f0e8;
+            padding: 0.2rem 0.4rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9em;
+        }
+        blockquote {
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+            font-style: italic;
+        }
+        .footer-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #d4c4a8;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d4c4a8;
+        }
+        .footer-nav a:hover {
+            background: #f5f0e8;
+            border-color: #8b7355;
+        }
+        .footer-nav .prev { margin-right: auto; }
+        .footer-nav .next {
+            font-weight: 600;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="home">Home</a>
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-workspace.html">03</a>
+        <a href="04-storage-strategy.html" class="active">04</a>
+        <a href="05-your-toolkit.html">05</a>
+        <a href="06-how-to-work-together.html">06</a>
+        <a href="07-sample-project.html">07</a>
+        <a href="08-troubleshooting.html">08</a>
+        <a href="tooling-index.html">Tools</a>
+    </nav>
+    
+    <div class="container">
+        <div class="module-num">Module 04 of 08</div>
+        <h1>Storage and Backup Strategy</h1>
+        
+        <div class="highlight">
+            You learned your files live in a container. Now let's get them somewhere you can control them.
+        </div>
+        
+        <h2>Why GitHub?</h2>
+        
+        <p>You need somewhere permanent to keep your work. Somewhere you control. Somewhere that doesn't depend on your agent's session staying active. Somewhere that will protect your work while HeyRon.ai continues to develop.</p>
+        
+        <p>GitHub works because:</p>
+        <ul>
+            <li>It's free for personal use</li>
+            <li>Your agent can push files there automatically</li>
+            <li>You can access those files from any device, anytime</li>
+            <li>It keeps versions — so if something breaks, you can go back</li>
+            <li>It offers granular control over API access</li>
+            <li>It has a lot of other features you can grow into</li>
+        </ul>
+        
+        <p>You don't need to be a software developer. You just need a place to store text files, notes, documents, and projects.</p>
+        
+        <h2>How It Works</h2>
+        
+        <p><strong>Your agent saves your work to GitHub.</strong> You create an account. You make a private repository (think of it like a folder that only you can see). Your agent learns how to put files in that folder.</p>
+        
+        <p><strong>You access your work from anywhere.</strong> Log into GitHub from your laptop, your phone, a library computer — your files are there. Download them, read them, edit them.</p>
+        
+        <p><strong>The flow looks like this:</strong></p>
+        
+        <p>Your agent creates a file → Your agent pushes it to your private GitHub repo → You log into GitHub and download it</p>
+        
+        <p>No command line required on your end. Your agent handles the technical parts. You just need to tell it: "Push my current work to GitHub."</p>
+        
+        <h2>Setting It Up</h2>
+        
+        <p><strong>Create an account.</strong> Go to github.com. Sign up with your email. Choose the free plan. This is your safe deposit box.</p>
+        
+        <p><strong>Make a private repository.</strong> Once logged in, create a new repository. Name it something like "my-agent-backups" or "agent-work." Make it private — this keeps your files visible only to you.</p>
+        
+        <p><strong>Connect your agent.</strong> Your agent needs a way to prove it's allowed to add files to your repository. This involves something called an API key — think of it like a secure password that lets two systems talk to each other.</p>
+        
+        <blockquote>
+            <strong>Don't know how to do this?</strong> Tell your agent to read this: https://docs.github.com/ then ask your agent for help. Give it your technical level and ask it to ask you questions if needed.
+        </blockquote>
+        
+        <h2>A Note on Security</h2>
+        
+        <p><strong>Never store passwords, API keys, or sensitive personal information in your GitHub repository.</strong> Even though it's private, treat it like any cloud storage — assume someone could theoretically see it.</p>
+        
+        <p>Make sure you tell your agent this — work with your agent to come up with a documented process. Something your agent can easily access.</p>
+        
+        <p>Something you can point to, "Agent, read [GitHubProcessDocument].md" is easier than remembering than typing out whatever you came up with when you set up your backup process.</p>
+        
+        <p>Always review the files in your repo. <strong>Trust yet Verify.</strong></p>
+        
+        <h2>What About Other Storage?</h2>
+        
+        <p>Cloud storage like Google Drive or Dropbox works too. The setup depends on your specific agent configuration and platform. The principles are the same — your agent needs a way to export files from the container to somewhere you control.</p>
+        
+        <p>If GitHub feels too technical, ask in the community Discord. Someone has probably figured out a workflow that matches your comfort level.</p>
+        
+        <h2>Key Takeaway</h2>
+        
+        <div class="highlight">
+            HeyRon.ai is still v1. To keep your work safe, you need a bridge to somewhere permanent. GitHub is the simplest bridge — free, reliable, and something your agent can manage for you.
+        </div>
+        
+        <h2>What to Do Now</h2>
+        
+        <ol>
+            <li>Create a GitHub account (if you don't have one)</li>
+            <li>Make your first private repository</li>
+            <li>Tell your agent: "Help me connect to GitHub"</li>
+            <li>Try your first push: "Save all my current files to GitHub"</li>
+            <li>Log into GitHub and confirm your files are there</li>
+        </ol>
+        
+        <div class="footer-nav">
+            <a href="03-workspace.html" class="prev">← Module 03</a>
+            <a href="05-your-toolkit.html" class="next">Next: Module 05 →</a>
+        </div>
+    </div>
+</body>
+</html>

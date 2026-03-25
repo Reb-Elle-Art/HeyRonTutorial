@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooling Index | Heyron Onboarding</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            background: #faf8f3;
+            color: #2c241b;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        nav {
+            background: #fff;
+            border-bottom: 2px solid #d4c4a8;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        nav a:hover, nav a.active {
+            border-color: #8b7355;
+            background: #f5f0e8;
+        }
+        nav a.home { font-weight: 600; color: #2c241b; }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1510;
+            font-weight: 600;
+        }
+        .tagline {
+            font-style: italic;
+            color: #5a4a3a;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin: 2rem 0 1rem 0;
+            color: #2c241b;
+            font-weight: 600;
+            border-bottom: 1px solid #d4c4a8;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.75rem 0;
+            color: #3d3126;
+            font-weight: 600;
+        }
+        p { margin-bottom: 1.25rem; }
+        .tool-card {
+            background: #fff;
+            border: 1px solid #d4c4a8;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+        }
+        .tool-card:hover {
+            border-color: #8b7355;
+            background: #f5f0e8;
+        }
+        .tool-card a {
+            color: #2c241b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .tool-meta {
+            font-size: 13px;
+            color: #8b7355;
+            margin: 0.5rem 0;
+        }
+        .tool-desc {
+            color: #5a4a3a;
+            margin-top: 0.5rem;
+        }
+        .coming-soon {
+            opacity: 0.6;
+        }
+        .highlight {
+            background: #f5f0e8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #8b7355;
+        }
+        ul { margin: 1rem 0 1.5rem 1.5rem; }
+        li { margin-bottom: 0.75rem; }
+        strong { color: #1a1510; }
+        .footer-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #d4c4a8;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d4c4a8;
+        }
+        .footer-nav a:hover {
+            background: #f5f0e8;
+            border-color: #8b7355;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="home">Home</a>
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-workspace.html">03</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html">05</a>
+        <a href="06-how-to-work-together.html">06</a>
+        <a href="07-sample-project.html">07</a>
+        <a href="08-troubleshooting.html">08</a>
+        <a href="tooling-index.html" class="active">Tools</a>
+    </nav>
+    
+    <div class="container">
+        <h1>Tooling Index — Pick What You Need</h1>
+        
+        <div class="tagline">
+            These are optional. You don't need every tool. Start with what solves a real problem.
+        </div>
+        
+        <p>The philosophy: <strong>Use what serves you. Skip what doesn't. Be curious about the rest.</strong></p>
+        
+        <h2>Essential Tools</h2>
+        
+        <p>These cover common needs. Most people start here.</p>
+        
+        <div class="tool-card">
+            <a href="tooling-github.html">Git & GitHub</a>
+            <div class="tool-meta">Time: 10-15 minutes • Skill: Beginner</div>
+            <div class="tool-desc">
+                <strong>Purpose:</strong> Backup, version control, cloud storage for your work<br><br>
+                <strong>What it lets you do:</strong>
+                <ul>
+                    <li>Save files securely in the cloud</li>
+                    <li>Keep history of changes</li>
+                    <li>Access from any device</li>
+                    <li>Give your agent a permanent home for your work</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>Communication Tools</h2>
+        
+        <div class="tool-card">
+            <a href="tooling-agentmail.html">AgentMail</a>
+            <div class="tool-meta">Time: 5-10 minutes • Skill: Beginner</div>
+            <div class="tool-desc">
+                <strong>Purpose:</strong> Give your agent its own email inbox<br><br>
+                <strong>What it lets you do:</strong>
+                <ul>
+                    <li>Send and receive emails as your agent</li>
+                    <li>Get updates and summaries emailed to you</li>
+                    <li>Email documents for your agent to analyze</li>
+                    <li>Communicate with services that require email</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="tool-card">
+            <a href="tooling-discord.html">Discord</a>
+            <div class="tool-meta">Time: 5-10 minutes • Skill: Beginner</div>
+            <div class="tool-desc">
+                <strong>Purpose:</strong> Chat with your agent from phone, computer, or web<br><br>
+                <strong>What it lets you do:</strong>
+                <ul>
+                    <li>Message your agent anytime, anywhere</li>
+                    <li>Get notifications on your phone</li>
+                    <li>Share files and documents</li>
+                    <li>Set up team channels for alerts</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>Specialized Tools</h2>
+        
+        <div class="tool-card coming-soon">
+            <span>TTS/Voice</span>
+            <div class="tool-meta">Coming soon</div>
+            <div class="tool-desc">
+                <strong>Purpose:</strong> Listen to documents, create audio content
+            </div>
+        </div>
+        
+        <div class="tool-card coming-soon">
+            <span>Web Hosting</span>
+            <div class="tool-meta">Coming soon</div>
+            <div class="tool-desc">
+                <strong>Purpose:</strong> Publish sites instantly
+            </div>
+        </div>
+        
+        <h2>How to Use This Index</h2>
+        
+        <ol>
+            <li><strong>Pick one tool</strong> that solves a real problem you have right now</li>
+            <li><strong>Read that page</strong> — follow the steps</li>
+            <li><strong>Test it</strong> with your agent</li>
+            <li><strong>Come back</strong> for another tool when you need it</li>
+        </ol>
+        
+        <div class="highlight">
+            <p><strong>Don't try to set up everything at once.</strong> One tool, mastered, is better than five tools half-configured.</p>
+        </div>
+        
+        <h2>If You're Stuck</h2>
+        
+        <p><strong>Ask your agent:</strong> "Help me set up [tool name]"</p>
+        
+        <p>Your agent can walk you through any of these step-by-step.</p>
+        
+        <div class="footer-nav">
+            <a href="08-troubleshooting.html">← Module 08</a>
+            <a href="index.html">Home →</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 — How to Work Together | Heyron Onboarding</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            background: #faf8f3;
+            color: #2c241b;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        nav {
+            background: #fff;
+            border-bottom: 2px solid #d4c4a8;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        nav a:hover, nav a.active {
+            border-color: #8b7355;
+            background: #f5f0e8;
+        }
+        nav a.home { font-weight: 600; color: #2c241b; }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .module-num {
+            font-size: 0.9rem;
+            color: #8b7355;
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1510;
+            font-weight: 600;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin: 2rem 0 1rem 0;
+            color: #2c241b;
+            font-weight: 600;
+            border-bottom: 1px solid #d4c4a8;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.75rem 0;
+            color: #3d3126;
+            font-weight: 600;
+        }
+        p { margin-bottom: 1.25rem; }
+        .highlight {
+            font-style: italic;
+            color: #5a4a3a;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+        }
+        ul, ol { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; }
+        strong { color: #1a1510; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="home">Home</a>
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-workspace.html">03</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html">05</a>
+        <a href="06-how-to-work-together.html" class="active">06</a>
+        <a href="07-sample-project.html">07</a>
+        <a href="08-troubleshooting.html">08</a>
+        <a href="tooling-index.html">Tools</a>
+    </nav>
+    
+    <div class="container">
+        <div class="module-num">Module 06 of 08</div>
+        <h1>How to Work Together</h1>
+        
+        <div class="highlight">
+            This is where the partnership actually happens.
+        </div>
+        
+        <p>You've got the mindset. You've got your setup. Now, how do you collaborate?</p>
+        
+        <h2>The Iteration Rhythm</h2>
+        
+        <p>You won't get it right the first time. That's not failure — that's how this works.</p>
+        
+        <p><strong>First draft:</strong> "Here's what I'm thinking. What do you build from this?"</p>
+        
+        <p><strong>Review:</strong> Read what it produces. Note what works and what doesn't.</p>
+        
+        <p><strong>Refinement:</strong> "Keep the [part that works]. Change [part that doesn't] because [reason]."</p>
+        
+        <p><strong>Repeat until done.</strong></p>
+        
+        <p>The key: Each iteration should move you closer to what you actually want. If it's moving sideways, reset. Tell your agent: "This isn't the direction I want. Let's try a different approach."</p>
+        
+        <h2>Questions That Get Results</h2>
+        
+        <h3>Ask Your Agent to Think Out Loud</h3>
+        <ul>
+            <li>"Walk me through how you'd approach this."</li>
+            <li>"What are the trade-offs here?"</li>
+            <li>"What assumptions are you making?"</li>
+        </ul>
+        
+        <p>These force your agent to show its reasoning. Half the time, you'll catch an issue. The other half, you'll understand why the approach is solid.</p>
+        
+        <h3>Ask It to Challenge You</h3>
+        <ul>
+            <li>"What am I not considering?"</li>
+            <li>"Where could this break?"</li>
+            <li>"Is there a simpler way to do this?"</li>
+        </ul>
+        
+        <p>Your agent is often better at pattern-matching than you are. Use that.</p>
+        
+        <h3>Be Specific When Something's Off</h3>
+        
+        <p><strong>Instead of:</strong> "That's not quite right."</p>
+        
+        <p><strong>Say:</strong> "This part doesn't fit because [reason]. Can you adjust for [specific constraint]?"</p>
+        
+        <p>Vagueness requires guessing. Specifics are actionable.</p>
+        
+        <h2>Breaking Work Into Pieces</h2>
+        
+        <p><strong>Don't start by handing your agent a giant project.</strong> Break it into pieces.</p>
+        
+        <p><strong>Instead of:</strong> "Build me a landing page."</p>
+        
+        <p><strong>Try:</strong> "I need a landing page for [thing]. Here's what's on it: [sections]. I want it to feel [tone]. Let's start with just the HTML structure and a basic stylesheet. Once that's done, we can iterate on styling."</p>
+        
+        <p><strong>Each chunk lets you:</strong></p>
+        <ul>
+            <li>See what it produces before moving forward</li>
+            <li>Give specific feedback</li>
+            <li>Adjust direction if needed</li>
+            <li>Build confidence in the collaboration</li>
+        </ul>
+        
+        <h2>When Something Breaks</h2>
+        
+        <p>If a process isn't working:</p>
+        
+        <p><strong>Tell your agent:</strong> "This process isn't working because [reason]. Can we try [different approach]?"</p>
+        
+        <p>Use your agent to change course — recognize when your system is the problem. You have complete control over the vibe by directly editing your markdown files (AGENTS.md, TOOLS.md, etc.)</p>
+        
+        <h2>Key Takeaway</h2>
+        
+        <div class="highlight">
+            Collaboration is iterative. Start messy, refine with specifics, and move together toward something that works. And document important landmarks and decisions along the way. It will make it easier to pick back up where you left off.
+        </div>
+        
+        <h2>What to Do Now</h2>
+        
+        <ol>
+            <li>Pick something you want to build with your agent</li>
+            <li>Give a rough description (first draft)</li>
+            <li>Review what it produces</li>
+            <li>Give specific feedback: "Keep X, change Y because Z"</li>
+            <li>Repeat 3-4 times</li>
+            <li>Ship it</li>
+        </ol>
+        
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #d4c4a8; display: flex; justify-content: space-between;">
+            <a href="05-your-toolkit.html" style="color: #5a4a3a; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #d4c4a8;">← Module 05</a>
+            <a href="07-sample-project.html" style="color: #5a4a3a; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #d4c4a8; font-weight: 600;">Next: Module 07 →</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 — Your Toolkit | Heyron Onboarding</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            background: #faf8f3;
+            color: #2c241b;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        nav {
+            background: #fff;
+            border-bottom: 2px solid #d4c4a8;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        nav a:hover, nav a.active {
+            border-color: #8b7355;
+            background: #f5f0e8;
+        }
+        nav a.home { font-weight: 600; color: #2c241b; }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .module-num {
+            font-size: 0.9rem;
+            color: #8b7355;
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1510;
+            font-weight: 600;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin: 2rem 0 1rem 0;
+            color: #2c241b;
+            font-weight: 600;
+            border-bottom: 1px solid #d4c4a8;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.75rem 0;
+            color: #3d3126;
+            font-weight: 600;
+        }
+        p { margin-bottom: 1.25rem; }
+        .highlight {
+            font-style: italic;
+            color: #5a4a3a;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+        }
+        ul, ol { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; }
+        strong { color: #1a1510; }
+        code {
+            background: #f5f0e8;
+            padding: 0.2rem 0.4rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9em;
+        }
+        blockquote {
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            border-left: 3px solid #8b7355;
+            background: #f5f0e8;
+            font-style: italic;
+        }
+        .footer-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #d4c4a8;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-nav a {
+            color: #5a4a3a;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d4c4a8;
+        }
+        .footer-nav a:hover {
+            background: #f5f0e8;
+            border-color: #8b7355;
+        }
+        .footer-nav .prev { margin-right: auto; }
+        .footer-nav .next {
+            font-weight: 600;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="home">Home</a>
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-workspace.html">03</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html" class="active">05</a>
+        <a href="06-how-to-work-together.html">06</a>
+        <a href="07-sample-project.html">07</a>
+        <a href="08-troubleshooting.html">08</a>
+        <a href="tooling-index.html">Tools</a>
+    </nav>
+    
+    <div class="container">
+        <div class="module-num">Module 05 of 08</div>
+        <h1>Your Toolkit</h1>
+        
+        <div class="highlight">
+            Tools are the hands of our agents. They reach beyond the container.
+        </div>
+        
+        <h2>What Tools Do</h2>
+        
+        <p>Your agent lives in a container — that locked workshop you learned about in Module 03. By default, it can't touch the outside world. Tools are bridges that let it reach out: send email, post to Discord, push files to GitHub.</p>
+        
+        <p><strong>You control which bridges exist.</strong> Add them when you need them. Remove them when you don't.</p>
+        
+        <h2>The Toolkit Philosophy</h2>
+        
+        <p>Tools solve specific problems. You don't need every tool. Start with one that solves something <em>real</em> for you.</p>
+        
+        <p><strong>Priorities:</strong></p>
+        <ul>
+            <li><strong>Use what serves you.</strong> Skip what doesn't.</li>
+            <li><strong>Be curious</strong> about the rest.</li>
+            <li><strong>Think critically</strong> about risk. Every bridge opens a door — make sure you trust what's on the other side.</li>
+        </ul>
+        
+        <h2>Common Tools in the Community</h2>
+        
+        <h3>Essential: Backups & Storage</h3>
+        
+        <p><strong>Git & GitHub</strong> — Cloud storage, backups, version control, free website hosting<br>
+        Time: 10-15 min | Skill: Beginner</p>
+        
+        <ul>
+            <li>Save work permanently</li>
+            <li>Access from any device</li>
+            <li>Keep history of changes</li>
+            <li>Give your agent a home for files</li>
+        </ul>
+        
+        <h3>Communication</h3>
+        <ul>
+            <li><strong>Discord</strong> — Chat with your agent and community</li>
+            <li><strong>AgentMail</strong> — Email through your agent</li>
+            <li><strong>Telegram</strong> — Alternative to Discord</li>
+        </ul>
+        
+        <h3>Specialized</h3>
+        <ul>
+            <li><strong>OpenAI's Whisper</strong> — Your agent can transcribe your voice</li>
+            <li><strong>Here.Now</strong> — Free, instant web hosting</li>
+        </ul>
+        
+        <h2>How to Pick & Set Up a Tool</h2>
+        
+        <ol>
+            <li><strong>Identify a real problem</strong> — Not "what tools exist" but "what do I actually need?"<br>
+            <em>Ask your agent: "I need to [do X]. What type of tool would help?"</em></li>
+            
+            <li><strong>Read the tool's documentation</strong> — Start with the setup section of a tool; better yet, have your agent read the documentation and summarize it at a level that matches your understanding</li>
+            
+            <li><strong>Work through setup with your agent</strong> — Ask your agent to walk you through it</li>
+            
+            <li><strong>Test it</strong> — Make sure it actually works</li>
+            
+            <li><strong>Document the setup</strong> — So your agent remembers next session</li>
+        </ol>
+        
+        <p><strong>Don't set up everything at once.</strong> One tool mastered beats five tools half-broken.</p>
+        
+        <h2>Documenting Your Setup</h2>
+        
+        <p>Your agent resets between sessions. To help it remember, work together on a reference guide.</p>
+        
+        <p><strong>Your container should have started with a TOOLS.md.</strong> If not, have your agent create one.</p>
+        
+        <p><strong>Tell your agent:</strong></p>
+        <blockquote>"Document this setup in TOOLS.md so you remember it next session."</blockquote>
+        
+        <p>Then in the future:</p>
+        <blockquote>"Check TOOLS.md for how we configured GitHub."</blockquote>
+        
+        <h2>Safety Before Any Tool</h2>
+        
+        <p>Before adding a bridge to the outside world, confirm:</p>
+        
+        <ul>
+            <li>[ ] <strong>I understand how it works</strong> — What does it actually do?</li>
+            <li>[ ] <strong>I've investigated the provider</strong> — Who makes this? Do I trust them?</li>
+            <li>[ ] <strong>I know how to turn it off</strong> — Can I revoke access if needed?</li>
+            <li>[ ] <strong>I store private information securely</strong> — API keys and passwords never go in plain text or public repos</li>
+        </ul>
+        
+        <p><strong>Not sure about a tool?</strong> Ask your agent: "What risks does setting up [tool] expose me to?"</p>
+        
+        <h2>Key Takeaway</h2>
+        
+        <div class="highlight">
+            Tools extend your agent's reach. Start with one. Document it. Do your due diligence — do you trust the provider? And remember: every bridge can be crossed in both directions — think before you build.
+        </div>
+        
+        <h2>What to Do Now</h2>
+        
+        <ol>
+            <li>Read your current TOOLS.md (or have your agent create it)</li>
+            <li>Pick <strong>one</strong> tool you actually need right now</li>
+            <li>Ask your agent: "What are the risks of [tool]?" (safety check)</li>
+            <li>Tell your agent: "Help me set up [tool] and document it in TOOLS.md"</li>
+            <li>Test it works. Stop until you need another.</li>
+        </ol>
+        
+        <div class="footer-nav">
+            <a href="04-storage-strategy.html" class="prev">← Module 04</a>
+            <a href="06-how-to-work-together.html" class="next">Next: Module 06 →</a>
+        </div>
+    </div>
+</body>
+</html>
