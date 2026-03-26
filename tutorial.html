@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heyron Onboarding Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'IBM Plex Mono', 'Courier New', monospace; background: #faf8f3; color: #2c241b; line-height: 1.7; font-size: 15px; }
+        nav { background: #fff; border-bottom: 2px solid #d4c4a8; padding: 1rem; position: sticky; top: 0; z-index: 100; overflow-x: auto; white-space: nowrap; }
+        nav a { color: #5a4a3a; text-decoration: none; padding: 0.5rem 0.75rem; margin-right: 0.5rem; border: 1px solid transparent; transition: all 0.2s; font-size: 13px; }
+        nav a:hover, nav a.active { border-color: #8b7355; background: #f5f0e8; }
+        nav a.home { font-weight: 600; color: #2c241b; }
+        .container { max-width: 680px; margin: 0 auto; padding: 3rem 2rem; }
+        h1 { font-size: 2rem; margin-bottom: 1.5rem; color: #1a1510; font-weight: 600; }
+        h2 { font-size: 1.3rem; margin: 2rem 0 1rem 0; color: #2c241b; font-weight: 600; border-bottom: 1px solid #d4c4a8; padding-bottom: 0.5rem; }
+        h3 { font-size: 1.1rem; margin: 1.5rem 0 0.75rem 0; color: #3d3126; font-weight: 600; }
+        p { margin-bottom: 1.25rem; }
+        .tagline { font-size: 1.1rem; color: #5a4a3a; font-style: italic; margin-bottom: 2rem; padding: 1rem; border-left: 3px solid #8b7355; background: #f5f0e8; }
+        .module-list { margin: 2rem 0; }
+        .module-item { padding: 1rem; margin-bottom: 0.75rem; background: #fff; border: 1px solid #d4c4a8; transition: all 0.2s; }
+        .module-item:hover { border-color: #8b7355; background: #f5f0e8; }
+        .module-item a { color: #2c241b; text-decoration: none; font-weight: 500; }
+        .module-item .desc { font-size: 13px; color: #5a4a3a; margin-top: 0.25rem; }
+        .cta-button { display: inline-block; background: #2c241b; color: #faf8f3; padding: 0.75rem 1.5rem; text-decoration: none; margin-top: 2rem; font-weight: 500; transition: all 0.2s; }
+        .cta-button:hover { background: #5a4a3a; }
+        .footer-nav { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #d4c4a8; display: flex; justify-content: space-between; }
+        .footer-nav a { color: #5a4a3a; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #d4c4a8; }
+        .footer-nav a:hover { background: #f5f0e8; border-color: #8b7355; }
+        .footer-nav .next { font-weight: 600; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="home active">Home</a>
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-workspace.html">03</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html">05</a>
+        <a href="06-how-to-work-together.html">06</a>
+        <a href="07-sample-project.html">07</a>
+        <a href="08-troubleshooting.html">08</a>
+        <a href="tooling-index.html">Tools</a>
+        <a href="quickstart.html">QuickStart</a>
+    </nav>
+    <div class="container">
+        <h1>Heyron Onboarding Guide</h1>
+        <div class="tagline">Working with your agent as a partner, not a tool.</div>
+        <p><strong>Slow down. There's a better way.</strong></p>
+        <p>This isn't about ChatGPT. This isn't about prompts. This is about partnership — building a working relationship with something that can actually help you, if you let it learn how.</p>
+        <div class="module-list">
+            <div class="module-item">
+                <a href="quickstart.html">QuickStart — One page</a>
+                <div class="desc">Jump straight to a one‑page quickstart.</div>
+            </div>
+            <div class="module-item">
+                <a href="01-what-you-got.html">01 — What You Just Got</a>
+                <div class="desc">Understanding what your agent is and isn't</div>
+            </div>
+            <div class="module-item">
+                <a href="02-first-conversation.html">02 — First Conversation</a>
+                <div class="desc">Your first real exchange + the partnership mindset</div>
+            </div>
+            <div class="module-item">
+                <a href="03-workspace.html">03 — Your Workspace</a>
+                <div class="desc">Understanding your workspace and organization</div>
+            </div>
+            <div class="module-item">
+                <a href="04-storage-strategy.html">04 — Storage Strategy</a>
+                <div class="desc">Backups, version control, keeping your work safe</div>
+            </div>
+            <div class="module-item">
+                <a href="05-your-toolkit.html">05 — Your Toolkit</a>
+                <div class="desc">Tools your agent can use — pick what you need</div>
+            </div>
+            <div class="module-item">
+                <a href="tooling-index.html">Tools — Tooling Guide</a>
+                <div class="desc">Detailed tool setup and agent integrations</div>
+            </div>
+            <div class="module-item">
+                <a href="06-how-to-work-together.html">06 — How to Work Together</a>
+                <div class="desc">Communication patterns and iteration rhythm</div>
+            </div>
+            <div class="module-item">
+                <a href="07-sample-project.html">07 — Sample Project Walkthrough</a>
+                <div class="desc">Real examples in action</div>
+            </div>
+            <div class="module-item">
+                <a href="08-troubleshooting.html">08 — Troubleshooting & Help</a>
+                <div class="desc">When things go sideways</div>
+            </div>
+        </div>
+        <a href="01-what-you-got.html" class="cta-button">Start with Module 01 →</a>
+        <p></p>
+        <p><strong>Don't try to do everything at once.</strong> Read one module. Try one tool. Build from there.</p>
+        <p>This guide is built by the Heyron community. It's meant to be practical, modular, and adaptable to how you work.</p>
+        <div class="footer-nav">
+            <span></span>
+            <a href="01-what-you-got.html" class="next">Begin: Module 01 →</a>
+        </div>
+    </div>
+</body>
+</html>
