@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tool: Cloudflare Platform</title>
+  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;padding:20px;max-width:860px;margin:0 auto;color:#111}h1{margin-bottom:6px}pre{background:#f7fafc;padding:12px;border-radius:8px;border:1px solid #e6eef6;overflow:auto}</style>
+</head>
+<body>
+  <h1>Cloudflare Platform — Overview & Setup</h1>
+  <p>Purpose: Edge serverless hosting, Workers, Pages, KV, Durable Objects, and secrets management for agent tooling.</p>
+
+  <h2>Skill</h2>
+  <p>Intermediate → Advanced</p>
+
+  <h2>Estimated time</h2>
+  <p>15–60 minutes depending on services used</p>
+
+  <h2>What this card covers</h2>
+  <ul>
+    <li>Workers (serverless functions)</li>
+    <li>Pages (static hosting + functions)</li>
+    <li>KV and Durable Objects (storage options)</li>
+    <li>Secrets and Wrangler usage</li>
+  </ul>
+
+  <h2>Quick setup checklist</h2>
+  <ol>
+    <li>Create a Cloudflare account and a Worker/Pages project.</li>
+    <li>Install Wrangler (or use Cloudflare Dashboard) — example install:
+      <pre>npm install -g wrangler</pre>
+    </li>
+    <li>Store secrets locally using Wrangler:
+      <pre>npx wrangler secret put CLAUDE_API_KEY</pre>
+    </li>
+    <li>Deploy the Worker:
+      <pre>npx wrangler deploy</pre>
+    </li>
+    <li>Use KV for simple key/value storage and Durable Objects for stronger consistency/use cases.</li>
+  </ol>
+
+  <h2>Verification</h2>
+  <p>Call the deployed Worker URL (or use /api/health endpoints) to confirm the service is responding.</p>
+
+  <h2>Notes & best practices</h2>
+  <ul>
+    <li>Secrets: Use Wrangler secrets rather than committing env files.</li>
+    <li>Permissions: Create API tokens with minimum required scopes for automation.</li>
+    <li>Local dev: Use Wrangler dev for local testing before deploy.</li>
+    <li>Cost/limits: Workers have limits — check Cloudflare docs for CPU and request limits at the edge.</li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li>Deploy fails: confirm account, zone, and API token scopes.</li>
+    <li>Secrets not available: ensure they were added to the correct environment in Wrangler.</li>
+  </ul>
+
+  <p><a href="tooling-index.html">← Back to Tools</a></p>
+</body>
+</html>

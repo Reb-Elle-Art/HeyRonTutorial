@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tool: AgentMail</title>
+  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;padding:20px;max-width:760px;margin:0 auto;color:#111}h1{margin-bottom:6px}pre{background:#f7fafc;padding:12px;border-radius:8px;border:1px solid #e6eef6}</style>
+</head>
+<body>
+  <h1>AgentMail — Setup</h1>
+  <p>Purpose: Send and receive project emails from an agent-managed inbox. Great for notifications and small automated replies.</p>
+
+  <h2>Skill</h2>
+  <p>Beginner — API key and inbox creation required.</p>
+
+  <h2>Estimated time</h2>
+  <p>10–20 minutes</p>
+
+  <h2>Steps</h2>
+  <ol>
+    <li>Open your workspace <code>.env</code> and ensure <code>AGENTMAIL_API_KEY</code> is set.</li>
+    <li>Use the provided wrapper to send a test email:
+      <pre>bash t-agentmail/send-email.sh "to@example.com" "Subject" "Body"</pre>
+    </li>
+    <li>Verify delivery and check the inbox via the AgentMail dashboard or using the check script:
+      <pre>bash t-agentmail/checkemail.sh</pre>
+    </li>
+  </ol>
+
+  <h2>Verification</h2>
+  <p>Successful send returns HTTP 200 and shows the message in the inbox; check agent logs for delivery confirmation.</p>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li>Missing API key: ensure .env is sourced before running scripts.</li>
+    <li>Delivery failures: check spam/quarantine and logs from AgentMail provider.</li>
+  </ul>
+
+  <p><a href="tooling-index.html">← Back to Tools</a></p>
+</body>
+</html>

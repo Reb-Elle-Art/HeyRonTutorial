@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuickStart — Sillage</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+    :root{
+      --bg:#0a0a0a;
+      --surface:#141414;
+      --surface-highlight:#1e1e1e;
+      --text:#e0e0e0;
+      --text-dim:#707070;
+      --accent:#e8c547;
+      --accent-dim:#c9a73a;
+      --border:#2a2a2a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'IBM Plex Mono',monospace;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      font-size:15px;
+    }
+    a{color:inherit;text-decoration:none}
+    
+    body::before{
+      content:"";
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
+      pointer-events:none;
+      z-index:999;
+    }
+    
+    nav{
+      background:var(--surface);
+      border-bottom:1px solid var(--border);
+      padding:14px 20px;
+      display:flex;
+      gap:2px;
+    }
+    nav a{
+      color:var(--text-dim);
+      text-decoration:none;
+      padding:8px 14px;
+      border:1px solid transparent;
+      font-size:13px;
+      font-weight:500;
+    }
+    nav a.home{color:var(--text);font-weight:600}
+    nav a:hover,nav a.active{background:var(--surface-highlight);border-color:var(--accent-dim);color:var(--accent)}
+    
+    .wrap{max-width:800px;margin:0 auto;padding:40px 24px}
+    
+    h1{font-size:1.8rem;font-weight:600;margin:0 0 8px}
+    h2{font-size:1.3rem;font-weight:500;margin:32px 0 12px}
+    
+    p{margin:0 0 16px}
+    li{margin-bottom:10px;color:var(--text)}
+    
+    .lead{color:var(--accent);font-size:1.1rem;margin-bottom:24px;padding:12px 16px;border-left:3px solid var(--accent);background:rgba(232,197,71,0.05)}
+    
+    code{background:var(--surface-highlight);padding:2px 6px;font-size:13px;border-radius:2px}
+    pre{background:var(--surface);border:1px solid var(--border);padding:16px;overflow-x:auto;font-size:13px}
+    
+    .step{background:var(--surface);border:1px solid var(--border);padding:20px;margin-bottom:16px}
+    .step strong{display:block;margin-bottom:8px;color:var(--accent)}
+    
+    .footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text-dim);font-size:12px}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="home">Sillage_</a>
+    <a href="00-Tutorial.html">Tutorial</a>
+    <a href="quickstart.html" class="active">QuickStart</a>
+    <a href="tooling-index.html">Tools</a>
+  </nav>
+  
+  <main class="wrap">
+    <h1>QuickStart_</h1>
+    <p class="lead">One-page action plan to get an agent partnership running in 15–30 minutes.</p>
+    
+    <div class="step">
+      <strong>> 01 — First minute: orient</strong>
+      <p>Start the conversation with a short framing line:</p>
+      <code>"Hello — I want to work together. I prefer concise, task-focused replies."</code>
+      <p style="margin-top:12px">Then give one concrete task (e.g., "Fetch case 393 Mass. 564").</p>
+    </div>
+    
+    <div class="step">
+      <strong>> 02 — First hour: try one module</strong>
+      <p>Pick one area to practice: Workspace, Tools, or First Conversation. Read the short module and run one task from it (connect a single tool, fetch one file, or create one checklist).</p>
+    </div>
+    
+    <div class="step">
+      <strong>> 03 — Tools: start small</strong>
+      <p>Allow one tool at a time. Give a clear goal and constraints:</p>
+      <pre>Goal: [what]
+Context: [project, files]
+Constraints: [what to avoid]</pre>
+    </div>
+    
+    <div class="step">
+      <strong>> 04 — Workspace basics</strong>
+      <ul>
+        <li>Keep project files in a single folder the agent can read.</li>
+        <li>Use a simple structure: <code>project/ → drafts/, final/, archive/</code>.</li>
+        <li>Never auto-publish sensitive files — require explicit confirmation before pushing public repos.</li>
+      </ul>
+    </div>
+    
+    <div class="step">
+      <strong>> 05 — Communication pattern</strong>
+      <p>Use short commands for routine tasks and one descriptive sentence for new tasks. Ask for progress checks only when needed. Correct the agent concisely — it will learn.</p>
+    </div>
+    
+    <div class="step">
+      <strong>> 06 — Sample micro-project</strong>
+      <p>Goal: Create a 1-page summary of a document.</p>
+      <ol>
+        <li>Agent: fetch the document</li>
+        <li>Agent: extract 5 key points</li>
+        <li>Agent: write a 3-sentence summary</li>
+        <li>You: review and mark the process repeatable</li>
+      </ol>
+    </div>
+    
+    <div class="step">
+      <strong>> 07 — Troubleshooting</strong>
+      <ol>
+        <li>Ask the agent to show what it did (logs / commands / files)</li>
+        <li>Re-run with stricter constraints</li>
+        <li>If still failing, stop any publish actions and ask for a short failure report</li>
+      </ol>
+    </div>
+    
+    <div class="step">
+      <strong>> 08 — Next steps</strong>
+      <p>Add one new tool or module per week. Keep a short "how we work" note in the project root.</p>
+    </div>
+    
+    <div class="footer">
+      Sillage v1.0 — wake up. leave your wake.
+    </div>
+  </main>
+</body>
+</html>

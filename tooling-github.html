@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tool: GitHub Tooling</title>
+  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;padding:20px;max-width:760px;margin:0 auto;color:#111}h1{margin-bottom:6px}pre{background:#f7fafc;padding:12px;border-radius:8px;border:1px solid #e6eef6}</style>
+</head>
+<body>
+  <h1>GitHub Tooling — Setup</h1>
+  <p>Purpose: Repo workflows, tokens, Pages deployment, and safe push practices for agent-driven workflows.</p>
+
+  <h2>Skill</h2>
+  <p>Beginner–Intermediate</p>
+
+  <h2>Estimated time</h2>
+  <p>15–30 minutes</p>
+
+  <h2>Setup checklist</h2>
+  <ol>
+    <li>Create two GitHub tokens in <a href="https://github.com/settings/tokens">Personal access tokens</a>:
+      <ul>
+        <li><strong>GITHUB_TOKEN_CLASSIC</strong> (classic PAT) — for git operations (push/pull via HTTPS).</li>
+        <li><strong>GITHUB_TOKEN_API</strong> (fine‑grained) — for API calls and automation.</li>
+      </ul>
+    </li>
+    <li>Add tokens to your workspace <code>.env</code> file as <code>GITHUB_TOKEN_CLASSIC</code> and <code>GITHUB_TOKEN_API</code>.</li>
+    <li>In repo operations, use the CLASSIC token embedded in the remote URL for scripted pushes:
+      <pre>git remote set-url origin https://Reb-Elle-Art:${GITHUB_TOKEN_CLASSIC}@github.com/Reb-Elle-Art/REPO.git
+      git push origin main</pre>
+    </li>
+    <li>Before any public push, confirm checklist: no API keys, no personal data, and explicit approval. (User preference: agent must ask.)</li>
+  </ol>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li>Authentication failures: verify token scopes and that the token is the classic PAT for git operations.</li>
+    <li>Pages not publishing: ensure GitHub Pages settings are enabled and branch is selected in repo Settings → Pages.</li>
+  </ul>
+
+  <p><a href="tooling-index.html">← Back to Tools</a></p>
+</body>
+</html>
