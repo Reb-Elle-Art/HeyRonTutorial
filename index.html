@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>begin_ — >how you start shapes where you go_</title>
+  <title>begin_ — how you start shapes where you go</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
     :root{
@@ -36,61 +36,47 @@
       z-index:999;
     }
     
-    nav{
-      background:var(--surface);
-      border-bottom:1px solid var(--border);
-      padding:14px 20px;
-      display:flex;
-      gap:2px;
-      align-items:stretch;
-    }
-    nav a{
-      color:var(--text-dim);
-      text-decoration:none;
-      padding:8px 14px;
-      border:1px solid transparent;
-      font-size:13px;
-      font-weight:500;
-      transition:all 0.15s;
-    }
-    nav a.home{color:var(--text);font-weight:600}
-    nav a:hover,nav a.active{
-      background:var(--surface-highlight);
-      border-color:var(--accent-dim);
-      color:var(--accent);
-    }
-    
-    .wrap{max-width:900px;margin:0 auto;padding:40px 24px}
+    .wrap{max-width:900px;margin:0 auto;padding:60px 24px}
     
     h1{
-      font-size:1.8rem;
+      font-size:2.2rem;
       font-weight:600;
       margin:0 0 8px;
       color:var(--text);
       letter-spacing:-0.5px;
     }
+    h1 .cursor{
+      display:inline-block;
+      width:10px;
+      height:18px;
+      background:var(--accent);
+      animation:blink 1s step-end infinite;
+      vertical-align:middle;
+    }
+    @keyframes blink{50%{opacity:0}}
     
     .tagline{
-      color:var(--accent);
-      font-size:1.1rem;
-      margin-bottom:32px;
-      padding:12px 16px;
-      border-left:3px solid var(--accent);
-      background:rgba(232,197,71,0.05);
+      color:var(--text-dim);
+      font-size:1rem;
+      margin-bottom:48px;
+      font-family:'IBM Plex Mono',monospace;
     }
+    .tagline .prompt{color:var(--accent)}
+    .tagline .cursor{color:var(--accent)}
     
     .ascii-divider{
       color:var(--text-dim);
       font-size:11px;
       white-space:pre;
-      margin:24px 0;
+      margin:32px 0;
       opacity:0.35;
     }
     
-    .grid{
+    /* Terminal-style cards */
+    .cards{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:16px;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:20px;
     }
     
     .card{
@@ -106,9 +92,22 @@
       border-color:var(--accent-dim);
       background:var(--surface-highlight);
     }
-    .card h3{
+    
+    /* Terminal prompt card */
+    .card .prompt-line{
+      color:var(--text-dim);
+      font-size:14px;
+      margin-bottom:12px;
+    }
+    .card .prompt-line .user{
+      color:var(--accent);
+      font-weight:500;
+    }
+    .card .prompt-line .prompt{color:var(--text-dim)}
+    
+    .card h2{
       margin:0 0 8px;
-      font-size:1rem;
+      font-size:1.2rem;
       font-weight:500;
       color:var(--text);
     }
@@ -118,8 +117,37 @@
       font-size:13px;
     }
     
-    .footer{
+    /* Progress dots */
+    .progress{
+      display:flex;
+      gap:8px;
       margin-top:48px;
+      justify-content:center;
+    }
+    .progress .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--border);
+      transition:all 0.2s;
+    }
+    .progress .dot.active{
+      background:var(--accent);
+    }
+    .progress .dot:hover{
+      background:var(--accent-dim);
+    }
+    
+    .progress-labels{
+      display:flex;
+      justify-content:space-between;
+      margin-top:8px;
+      color:var(--text-dim);
+      font-size:11px;
+    }
+    
+    .footer{
+      margin-top:64px;
       padding-top:20px;
       border-top:1px solid var(--border);
       color:var(--text-dim);
@@ -128,57 +156,64 @@
       justify-content:space-between;
     }
     
-    .cursor{
-      display:inline-block;
-      width:8px;
-      height:15px;
-      background:var(--accent);
-      animation:blink 1s step-end infinite;
-      vertical-align:middle;
-      margin-left:2px;
-    }
-    @keyframes blink{50%{opacity:0}}
-    
     @media (max-width:520px){
-      .wrap{padding:20px 16px}
-      nav{flex-wrap:wrap}
+      .wrap{padding:40px 16px}
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html" class="home">begin_</a>
-    <a href="00-Tutorial.html">Tutorial</a>
-    <a href="quickstart.html">QuickStart</a>
-    <a href="tooling-index.html">Tools</a>
-  </nav>
-  
   <main class="wrap">
     <h1>begin_<span class="cursor"></span></h1>
-    <div class="tagline">>how you start shapes where you go_</div>
+    <div class="tagline"><span class="prompt">></span> how you start shapes where you go<span class="cursor">_</span></div>
     
     <div class="ascii-divider">┌─────────────────────────────────────────┐
 │  > INITIALIZING COLLABORATION_PROTOCOL  │
 └─────────────────────────────────────────┘</div>
     
-    <div class="grid">
-      <a href="quickstart.html" class="card">
-        <h3>> QuickStart_</h3>
-        <p>One-page guide to get up and running with your agent.</p>
+    <div class="cards">
+      <a href="00-walkthrough.html" class="card">
+        <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~wake up</span></div>
+        <h2>[01] What you got</h2>
+        <p>Understanding your agent's context — what it can see, access, and reference.</p>
       </a>
-      <a href="00-Tutorial.html" class="card">
-        <h3>> Tutorial_</h3>
-        <p>The full walkthrough: workspace, storage, toolkit, and troubleshooting.</p>
+      
+      <a href="01-first-conversation.html" class="card">
+        <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~say hello</span></div>
+        <h2>[02] First conversation</h2>
+        <p>How to frame your first session for best results.</p>
       </a>
+      
+      <a href="02-workspace.html" class="card">
+        <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~make it yours</span></div>
+        <h2>[03] Workspace</h2>
+        <p>Project structure, naming, and file management.</p>
+      </a>
+      
       <a href="tooling-index.html" class="card">
-        <h3>> Tools_</h3>
+        <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~tools</span></div>
+        <h2>Tools_</h2>
         <p>AgentMail, Whisper, here.now, GitHub — setup & usage.</p>
       </a>
     </div>
     
+    <div class="progress">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="progress-labels">
+      <span>[01] What You Got</span>
+      <span>[08] Troubleshooting</span>
+    </div>
+    
     <div class="footer">
-      <span>begin_ v1.0 — Human-agent collaboration philosophy</span>
-      <span>wake up. leave your wake.</span>
+      <span>begin_ v1.0 — human-agent collaboration philosophy</span>
+      <span>>how you start shapes where you go_</span>
     </div>
   </main>
 </body>
