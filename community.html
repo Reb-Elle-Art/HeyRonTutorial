@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tools — begin_</title>
+  <title>Community — begin_</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
     :root{
@@ -59,47 +59,41 @@
       opacity:0.35;
     }
     
-    p{margin:0 0 16px}
+    h2{
+      font-size:1.2rem;
+      font-weight:500;
+      margin:32px 0 12px;
+      color:var(--accent);
+    }
     
-    .card{
+    p{margin:0 0 16px}
+    li{margin-bottom:8px}
+    
+    .section{
       background:var(--surface);
       border:1px solid var(--border);
-      padding:16px 20px;
-      margin-bottom:12px;
-      transition:all 0.2s;
+      padding:20px;
+      margin-bottom:16px;
     }
-    .card:hover{
-      border-color:var(--accent-dim);
-      background:var(--surface-highlight);
-    }
+    .section:hover{border-color:var(--accent-dim)}
     
-    .card-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:8px;
-    }
-    .card h3{
-      margin:0;
+    .section h3{
+      margin:0 0 12px;
       font-size:1rem;
       font-weight:500;
-      color:var(--text);
     }
-    .card .badge{
-      font-size:11px;
-      padding:2px 8px;
-      background:var(--surface-highlight);
-      border:1px solid var(--border);
-      color:var(--text-dim);
-    }
-    .card p{
-      margin:0 0 8px;
+    .section p{
       color:var(--text-dim);
       font-size:13px;
+      margin:0;
     }
-    .card .meta{
-      font-size:12px;
-      color:var(--accent);
+    
+    .placeholder{
+      color:var(--text-dim);
+      font-size:13px;
+      font-style:italic;
+      padding:16px;
+      border:1px dashed var(--border);
     }
     
     .back-link{
@@ -123,60 +117,65 @@
 </head>
 <body>
   <main class="wrap">
-    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~tools</span></div>
+    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~community</span></div>
     
-    <h1>Tools_</h1>
+    <h1>Community_</h1>
     
-    <p>Your toolkit for human-agent collaboration.</p>
+    <p>Tips, FAQ, and resources from the HeyRon community.</p>
     
     <div class="ascii-divider">┌─────────────────────────────────────────┐
-│  > LOADING TOOL_MODULES...           │
+│  > LOADING COMMUNITY RESOURCES       │
 └─────────────────────────────────────────┘</div>
     
-    <a href="tooling-agentmail.html" class="card">
-      <div class="card-header">
-        <h3>AgentMail</h3>
-        <span class="badge">email</span>
-      </div>
-      <p>Your agent's inbox. Send and receive emails through your agent.</p>
-      <span class="meta">→ Setup Guide</span>
-    </a>
+    <h2>Tips_</h2>
     
-    <a href="tooling-whisper.html" class="card">
-      <div class="card-header">
-        <h3>Whisper</h3>
-        <span class="badge">speech</span>
-      </div>
-      <p>Voice-to-text transcription. Send voice memos to your agent.</p>
-      <span class="meta">→ Setup Guide</span>
-    </a>
+    <div class="section">
+      <h3>Start with one tool</h3>
+      <p>Don't enable everything at once. Master one tool before adding the next.</p>
+    </div>
     
-    <a href="tooling-here-now.html" class="card">
-      <div class="card-header">
-        <h3>here.now</h3>
-        <span class="badge">hosting</span>
-      </div>
-      <p>Instant static web hosting. Publish files and folders to a live URL.</p>
-      <span class="meta">→ Setup Guide</span>
-    </a>
+    <div class="section">
+      <h3>Be specific in your prompts</h3>
+      <p>"Build a website" is not a spec. What's the purpose? Who's the audience?</p>
+    </div>
     
-    <a href="tooling-github.html" class="card">
-      <div class="card-header">
-        <h3>GitHub</h3>
-        <span class="badge">storage</span>
-      </div>
-      <p>Version control and backup. Your agent can push and pull from repos.</p>
-      <span class="meta">→ Setup Guide</span>
-    </a>
+    <div class="section">
+      <h3>Correct concisely</h3>
+      <p>Don't let the agent go down the wrong path. Course-correct early.</p>
+    </div>
     
-    <a href="tooling-cloudflare.html" class="card">
-      <div class="card-header">
-        <h3>Cloudflare Worker</h3>
-        <span class="badge">backend</span>
-      </div>
-      <p>Serverless backend. Handles API calls and custom workflows.</p>
-      <span class="meta">→ Setup Guide</span>
-    </a>
+    <div class="section">
+      <h3>End-of-session backups</h3>
+      <p>Make it a habit: after every sillage, run a backup. Future you will thank you.</p>
+    </div>
+    
+    <h2>FAQ_</h2>
+    
+    <div class="section">
+      <h3>Can the agent access my local files?</h3>
+      <p>Only files inside the workspace folder. It can't see your local browser or other apps.</p>
+    </div>
+    
+    <div class="section">
+      <h3>How do I reset the conversation?</h3>
+      <p>Start a new session. The agent has no memory of previous sessions unless you explicitly load context.</p>
+    </div>
+    
+    <div class="section">
+      <h3>What if the agent gives wrong information?</h3>
+      <p>Correct it immediately. Be specific about what changed. The agent learns from corrections.</p>
+    </div>
+    
+    <div class="section">
+      <h3>Can I use this for public projects?</h3>
+      <p>Yes! But be careful with what you share. Never push credentials or secrets to public repos.</p>
+    </div>
+    
+    <h2>Resources_</h2>
+    
+    <div class="placeholder">
+      Coming soon: links to community discussions, Discord, examples...
+    </div>
     
     <a href="index.html" class="back-link">← back to begin_</a>
     
