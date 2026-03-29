@@ -1,265 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sample Project — begin_</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-    :root{
-      --bg:#0a0a0a;
-      --surface:#141414;
-      --surface-highlight:#1e1e1e;
-      --text:#e0e0e0;
-      --text-dim:#707070;
-      --accent:#e8c547;
-      --accent-dim:#c9a73a;
-      --border:#2a2a2a;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'IBM Plex Mono',monospace;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-      font-size:15px;
-    }
-    a{color:inherit;text-decoration:none}
-    
-    body::before{
-      content:"";
-      position:fixed;
-      top:0;left:0;right:0;bottom:0;
-      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
-      pointer-events:none;
-      z-index:999;
-    }
-    
-    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
-    
-    h1{
-      font-size:1.8rem;
-      font-weight:600;
-      margin:0 0 8px;
-    }
-    
-    .prompt-line{
-      color:var(--text-dim);
-      font-size:14px;
-      margin-bottom:32px;
-    }
-    .prompt-line .user{color:var(--accent);font-weight:500}
-    
-    h2{
-      font-size:1.2rem;
-      font-weight:500;
-      margin:28px 0 12px;
-      color:var(--accent);
-    }
-    
-    p{margin:0 0 16px}
-    li{margin-bottom:8px}
-    ol{padding-left:20px}
-    ol li{margin-bottom:12px}
-    
-    .highlight{
-      color:var(--accent);
-      font-size:14px;
-      margin:16px 0;
-      padding:12px 16px;
-      border-left:3px solid var(--accent);
-      background:rgba(232,197,71,0.05);
-    }
-    
-    code{background:var(--surface-highlight);padding:2px 6px;font-size:13px}
-    
-    .nav-links{
-      display:flex;
-      justify-content:space-between;
-      margin-top:48px;
-      padding-top:24px;
-      border-top:1px solid var(--border);
-    }
-    .nav-links a{color:var(--accent);font-size:13px}
-    .nav-links .next{ margin-left:auto}
-    
-    .footer{
-      margin-top:48px;}
-    .navbar-right{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin-left:auto;
-    }
-    .navbar-right a{
-      color:var(--text-dim);
-    }
-    .navbar-right a:hover{
-      color:var(--accent);
-    }
-      padding-top:20px;
-      border-top:1px solid var(--border);
-      color:var(--text-dim);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-    
-    /* Navbar */
-    .navbar{
-      position:sticky;
-      top:0;
-      background:var(--bg);
-      border-bottom:1px solid var(--border);
-      padding:16px 24px;
-      z-index:100;
-      backdrop-filter:blur(2px);
-    }
-    .navbar-content{
-      max-width:900px;
-      margin:0 auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      font-size:12px;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .navbar-left{
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .navbar-left a{
-      color:var(--accent);
-      font-weight:500;
-    }
-    .navbar-left a:hover{
-      color:var(--text);
-    }
-    .navbar-left .sep{
-      color:var(--text-dim);
-    }
-    .navbar-center{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
-    .navbar-center a{
-      color:var(--text-dim);
-      font-weight:400;
-    }
-    .navbar-center a:hover{
-      color:var(--text);
-    }
-    .navbar-center a.active{
-      color:var(--accent);
-      font-weight:500;
-    }
-    .navbar-center a.active::before{
-      content:">";
-      color:var(--accent);
-      margin-right:4px;
-      animation:cursor-blink 1s step-end infinite;
-    }
-    @keyframes cursor-blink{50%{opacity:0}}
-    .navbar-right{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin-left:auto;
-    }
-    .navbar-right a{
-      color:var(--text-dim);
-    }
-    .navbar-right a:hover{
-      color:var(--accent);
-    }
-
-    /* Cards - clickable content blocks */
-    .card{
-      background:var(--surface);
-      border:1px solid var(--border);
-      padding:24px;
-      border-radius:2px;
-      transition:all 0.2s;
-      cursor:pointer;
-      display:block;
-      margin:16px 0;
-    }
-    .card:hover{
-      border-color:var(--accent-dim);
-      background:var(--surface-highlight);
-    }
-    .card h3{
-      margin:0 0 8px;
-      font-size:1.1rem;
-      font-weight:500;
-      color:var(--text);
-    }
-    .card p{
-      margin:0;
-      color:var(--text);
-      font-size:13px;
-    }
-    }
-  </style>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>Sample Project Walkthrough — begin_</title>
+ <style>
+ @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+ :root{
+ --bg:#0a0a0a;
+ --surface:#141414;
+ --surface-highlight:#1e1e1e;
+ --text:#e0e0e0;
+ --text-dim:#707070;
+ --accent:#e8c547;
+ --accent-dim:#c9a73a;
+ --border:#2a2a2a;
+ --user-color:#64b5f6;
+ --agent-color:#81c784;
+ }
+ *{box-sizing:border-box}
+ body{
+ margin:0;
+ font-family:'IBM Plex Mono',monospace;
+ background:var(--bg);
+ color:var(--text);
+ line-height:1.6;
+ font-size:15px;
+ }
+ a{color:inherit;text-decoration:none}
+ 
+ body::before{
+ content:"";
+ position:fixed;
+ top:0;left:0;right:0;bottom:0;
+ background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
+ pointer-events:none;
+ z-index:999;
+ }
+ 
+ .wrap{max-width:800px;margin:0 auto;padding:60px 24px}
+ 
+ h1{
+ font-size:1.8rem;
+ font-weight:600;
+ margin:0 0 8px;
+ }
+ 
+ .prompt-line{
+ color:var(--text-dim);
+ font-size:14px;
+ margin-bottom:32px;
+ }
+ .prompt-line .user{color:var(--accent);font-weight:500}
+ 
+ h2{
+ font-size:1.2rem;
+ font-weight:500;
+ margin:32px 0 16px;
+ color:var(--accent);
+ border-bottom:1px solid var(--border);
+ padding-bottom:8px;
+ }
+ 
+ p{margin:0 0 16px}
+ li{margin-bottom:8px}
+ 
+ .conversation{
+ background:var(--surface);
+ border:1px solid var(--border);
+ padding:20px;
+ margin:24px 0;
+ border-left:4px solid var(--accent);
+ }
+ 
+ .msg{
+ margin-bottom:16px;
+ padding:12px;
+ background:var(--surface-highlight);
+ border-radius:2px;
+ }
+ 
+ .msg.user-msg{
+ border-left:3px solid var(--user-color);
+ }
+ 
+ .msg.agent-msg{
+ border-left:3px solid var(--agent-color);
+ }
+ 
+ .msg-header{
+ font-weight:600;
+ font-size:12px;
+ margin-bottom:4px;
+ }
+ 
+ .msg.user-msg .msg-header{
+ color:var(--user-color);
+ }
+ 
+ .msg.agent-msg .msg-header{
+ color:var(--agent-color);
+ }
+ 
+ .msg-content{
+ color:var(--text);
+ font-size:14px;
+ line-height:1.5;
+ }
+ 
+ .code-block{
+ background:var(--bg);
+ border:1px solid var(--border);
+ padding:12px;
+ margin:8px 0;
+ font-size:13px;
+ overflow-x:auto;
+ color:var(--accent);
+ }
+ 
+ .outcome{
+ background:rgba(129,199,132,0.1);
+ border-left:3px solid var(--agent-color);
+ padding:12px;
+ margin:12px 0;
+ color:var(--text);
+ font-size:13px;
+ }
+ 
+ .highlight{
+ color:var(--accent);
+ font-size:14px;
+ margin:16px 0;
+ padding:12px 16px;
+ border-left:3px solid var(--accent);
+ background:rgba(232,197,71,0.05);
+ }
+ 
+ code{background:var(--surface-highlight);padding:2px 6px;font-size:13px}
+ 
+ .nav-links{
+ display:flex;
+ justify-content:space-between;
+ margin-top:48px;
+ padding-top:24px;
+ border-top:1px solid var(--border);
+ }
+ .nav-links a{color:var(--accent);font-size:13px}
+ .nav-links .next{ margin-left:auto}
+ 
+ .footer{
+ margin-top:48px;
+ padding-top:20px;
+ border-top:1px solid var(--border);
+ color:var(--text-dim);
+ font-size:12px;
+ display:flex;
+ justify-content:space-between;
+ }
+ 
+ /* Navbar */
+ .navbar{
+ position:sticky;
+ top:0;
+ background:var(--bg);
+ border-bottom:1px solid var(--border);
+ padding:16px 24px;
+ z-index:100;
+ backdrop-filter:blur(2px);
+ }
+ .navbar-content{
+ max-width:900px;
+ margin:0 auto;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ font-size:12px;
+ gap:12px;
+ flex-wrap:wrap;
+ }
+ .navbar-left{
+ display:flex;
+ align-items:center;
+ gap:8px;
+ }
+ .navbar-left a{
+ color:var(--accent);
+ font-weight:500;
+ }
+ .navbar-left a:hover{
+ color:var(--text);
+ }
+ .navbar-left .sep{
+ color:var(--text-dim);
+ }
+ .navbar-left .tutorial-link{
+ color:var(--text-dim);
+ }
+ .navbar-left .tutorial-link:hover{
+ color:var(--accent);
+ }
+ .navbar-center{
+ display:flex;
+ gap:8px;
+ align-items:center;
+ }
+ .navbar-center a{
+ color:var(--text-dim);
+ font-weight:400;
+ }
+ .navbar-center a:hover{
+ color:var(--text);
+ }
+ .navbar-center a.active{
+ color:var(--accent);
+ font-weight:500;
+ }
+ .navbar-center a.active::before{
+ content:">";
+ color:var(--accent);
+ margin-right:4px;
+ animation:cursor-blink 1s step-end infinite;
+ }
+ @keyframes cursor-blink{50%{opacity:0}}
+ .navbar-right{
+ display:flex;
+ gap:12px;
+ align-items:center;
+ margin-left:auto;
+ }
+ .navbar-right a{
+ color:var(--text-dim);
+ }
+ .navbar-right a:hover{
+ color:var(--accent);
+ }
+ </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="navbar-content">
-      <div class="navbar-left">
-        <a href="index.html">heyron@partner</a>
-        <span class="sep">></span>
-        <a href="00-Tutorial.html" class="tutorial-link">tutorial</a>
-      </div>
-      <div class="navbar-center">
-        <a href="01-what-you-got.html">01</a>
-        <a href="02-first-conversation.html">02</a>
-        <a href="03-workspace.html">03</a>
-        <a href="04-storage-strategy.html">04</a>
-        <a href="05-your-toolkit.html">05</a>
-        <a href="06-sample-project.html" class="active">06</a>
-        <a href="07-troubleshooting.html">07</a>
-      </div>
-      <div class="navbar-right">
-        <a href="quickstart-v2.html">QuickStart</a>
-        <a href="tooling-index.html">Tools</a>
-      </div>
-    </div>
-  </nav>
-  <main class="wrap">
-    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~load-module sample-project</span></div>
-    
-    <h1>06 Sample Project_</h1>
-    
-    <p>A concrete example that puts everything together. Follow the steps and see the workflow in action.</p>
-    
-    <h2>Goal</h2>
-    <p>Create a small static site, push it to a GitHub repo, and publish via here.now.</p>
-    
-    <h2>Steps</h2>
-    <ol>
-      <li>Initialize a new folder <code>my-sample</code> with an <code>index.html</code> file.</li>
-      <li>Write a short paragraph introducing the project.</li>
-      <li>Run <code>git init</code> and add the file.</li>
-      <li>Commit with a clear message.</li>
-      <li>Push to the backup repo (confirm before push).</li>
-      <li>Publish the folder with <code>here.now</code> (confirm).</li>
-      <li>Review the live URL and note the <em>wake</em> you leave behind.</li>
-    </ol>
-    
-    <div class="highlight">Tip: Use the same naming convention for folders and GitHub repos to keep the "wake" traceable.</div>
-    
-    <div class="nav-links">
-      <a href="06-how-to-work-together.html" class="back">← previous</a>
-      <a href="08-troubleshooting.html" class="next">next: Troubleshooting →</a>
-    </div>
-    
-    <div class="footer">
-      <span>begin_ v1.0</span>
-      <span>>how you start shapes where you go_</span>
-    </div>
-  </main>
+ <nav class="navbar">
+ <div class="navbar-content">
+ <div class="navbar-left">
+ <a href="index.html">heyron@partner</a>
+ <span class="sep">></span>
+ <a href="00-Tutorial.html" class="tutorial-link">tutorial</a>
+ </div>
+ <div class="navbar-center">
+ <a href="01-what-you-got.html">01</a>
+ <a href="02-first-conversation.html">02</a>
+ <a href="03-workspace.html">03</a>
+ <a href="04-storage-strategy.html">04</a>
+ <a href="05-your-toolkit.html">05</a>
+ <a href="06-sample-project.html" class="active">06</a>
+ </div>
+ <div class="navbar-right">
+ <a href="quickstart-v2.html">QuickStart</a>
+ <a href="tooling-index.html">Tools</a>
+ </div>
+ </div>
+ </nav>
+ <main class="wrap">
+ <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~load-module sample-project-walkthrough</span></div>
+ 
+ <h1>06 Sample Project Walkthrough_</h1>
+ 
+ <p>A real conversation showing how you and your agent build something together. In this case: a website to sell handmade jewelry.</p>
+ 
+ <h2>The Project: Jewel & Co. Website</h2>
+ 
+ <div class="conversation">
+ <div class="msg user-msg">
+ <div class="msg-header">≫ You</div>
+ <div class="msg-content">I make jewelry. I want a simple website where people can see what I make and buy it. Nothing too fancy—just show my pieces and link to my Etsy shop.</div>
+ </div>
+ 
+ <div class="msg agent-msg">
+ <div class="msg-header">࿔ Agent</div>
+ <div class="msg-content">Got it. Let me scope this out:
+ <ul>
+ <li>Static HTML site (no backend needed)</li>
+ <li>Portfolio of your jewelry pieces (gallery)</li>
+ <li>Link to Etsy for purchases</li>
+ <li>Mobile-responsive</li>
+ </ul>
+ We'll build it in your workspace, back it up to Github, and publish live with here.now. Start?</div>
+ </div>
+ 
+ <div class="msg user-msg">
+ <div class="msg-header">≫ You</div>
+ <div class="msg-content">Yes. Let's do it.</div>
+ </div>
+ </div>
+ 
+ <h2>Step 1: Planning</h2>
+ 
+ <div class="conversation">
+ <div class="msg agent-msg">
+ <div class="msg-header">࿔ Agent</div>
+ <div class="msg-content">I've created a folder structure:
+ <div class="code-block">
+p-jewel-co/<br>
+├── index.html<br>
+├── styles.css<br>
+├── images/<br>
+│ ├── piece-01.jpg<br>
+│ ├── piece-02.jpg<br>
+│ └── piece-03.jpg<br>
+└── README.md<br>
+ </div>
+ What I need from you: 3-5 images of your jewelry and a short bio (2-3 sentences about you and your aesthetic).
+ </div>
+ </div>
+ 
+ <div class="msg user-msg">
+ <div class="msg-header">≫ You</div>
+ <div class="msg-content">I'll send you the images via Telegram and here is my intro: "Handcrafted jewelry with intention. Each piece uses recycled metals and ethically sourced stones. I work with form and meaning— every design tells a story."</div>
+ </div>
+ 
+ <div class="msg agent-msg">
+ <div class="msg-header">࿔ Agent</div>
+ <div class="msg-content">Perfect. I've added the images to the folder and created a draft HTML. Here's what it includes:
+ <ul>
+ <li>Clean header with your name/brand</li>
+ <li>Your bio</li>
+ <li>Gallery grid (3 columns on desktop, 1 on mobile)</li>
+ <li>Gallery descriptions</li>
+ <li>Link to your Etsy shop</li>
+ <li>Footer with contact email</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ 
+ <h2>Step 2: Building</h2>
+ 
+ <div class="conversation">
+ <div class="msg user-msg">
+ <div class="msg-header">≫ You</div>
+ <div class="msg-content">Can you show me what it looks like so far?</div>
+ </div>
+ 
+ <div class="msg agent-msg">
+ <div class="msg-header">࿔ Agent</div>
+ <div class="msg-content">Here's a preview of the HTML structure:
+ <div class="code-block">
+&lt;header&gt;<br>
+ &lt;h1&gt;Jewel & Co.&lt;/h1&gt;<br>
+ &lt;p&gt;Handcrafted jewelry with intention.&lt;/p&gt;<br>
+&lt;/header&gt;<br>
+<br>
+&lt;section class="gallery"&gt;<br>
+ &lt;div class="piece"&gt;<br>
+ &lt;img src="images/piece-01.jpg" alt="Ring: Copper & Agate"&gt;<br>
+ &lt;h3&gt;Ring: Copper & Agate&lt;/h3&gt;<br>
+ &lt;p&gt;Minimalist form with earthy stone.&lt;/p&gt;<br>
+ &lt;/div&gt;<br>
+ ...<br>
+&lt;/section&gt;<br>
+<br>
+&lt;footer&gt;<br>
+ &lt;a href="https://etsy.com/shop/jewel-co"&gt;Shop on Etsy&lt;/a&gt;<br>
+ &lt;p&gt;hello@jewelco.com&lt;/p&gt;<br>
+&lt;/footer&gt;<br>
+ </div>
+ The CSS uses a dark theme (like this site) with gold accents. Responsive design built in. Want me to adjust anything?
+ </div>
+ </div>
+ 
+ <div class="msg user-msg">
+ <div class="msg-header">≫ You</div>
+ <div class="msg-content">The dark theme is good. Can you make the gold accents more prominent on hover? And add a "About" section before the gallery.</div>
+ </div>
+ 
+ <div class="msg agent-msg">
+ <div class="msg-header">࿔ Agent</div>
+ <div class="msg-content">Done. Added stronger hover effects and an "About" section with your bio. The section appears between the header and gallery. Here's the updated structure:
+ <div class="code-block">
+&lt;section class="about"&gt;<br>
+ &lt;h2&gt;About&lt;/h2&gt;<br>
+ &lt;p&gt;[Your bio]&lt;/p&gt;<br>
+&lt;/section&gt;<br>
+ </div>
+ <div class="outcome">
+ ✓ About section inserted<br>
+ ✓ Hover effects enhanced (gold border + background)<br>
+ ✓ Gallery items more interactive
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <h2>Step 3: Publishing</h2>
+ 
+ <div class="conversation">
+ <div class="msg user-msg">
+ <div class="msg-header">≫ You</div>
+ <div class="msg-content">This looks good. Let's push it live.</div>
+ </div>
+ 
+ <div class="msg agent-msg">
+ <div class="msg-header">࿔ Agent</div>
+ <div class="msg-content">Before I push, confirm these steps:
+ <ol>
+ <li>Create a GitHub repo called <code>jewel-co</code> (private)</li>
+ <li>Push the project folder</li>
+ <li>Publish with here.now to get a live URL</li>
+ <li>Share that URL with you</li>
+ </ol>
+ All good?</div>
+ </div>
+ 
+ <div class="msg user-msg">
+ <div class="msg-header">≫ You</div>
+ <div class="msg-content">Yes. Do it.</div>
+ </div>
+ 
+ <div class="msg agent-msg">
+ <div class="msg-header">࿔ Agent</div>
+ <div class="msg-content">
+ <div class="outcome">
+ ✓ GitHub repo created: github.com/YourUsername/jewel-co<br>
+ ✓ Project pushed to main branch<br>
+ ✓ Published with here.now
+ </div>
+ <strong>Your site is live:</strong><br>
+ <code>https://jewel-co.here.now</code><br><br>
+ The site is now live. People can find it, see your work, and click through to buy on Etsy. You own the GitHub repo for future updates, and the here.now link is yours to share.
+ </div>
+ </div>
+ </div>
+ 
+ <h2>Key Takeaways</h2>
+ 
+ <div class="highlight">This workflow shows the full cycle: scoping → building → publishing. At each stage, your agent handles the technical work while you guide the direction. The version is backed up on GitHub, and the URL is live on here.now.</div>
+ 
+ <p><strong>What you did:</strong></p>
+ <ul>
+ <li>Defined the goal clearly</li>
+ <li>Provided content (images, bio)</li>
+ <li>Gave feedback on design choices</li>
+ <li>Approved the final publish</li>
+ </ul>
+ 
+ <p><strong>What the agent did:</strong></p>
+ <ul>
+ <li>Scoped the technical requirements</li>
+ <li>Built the HTML/CSS structure</li>
+ <li>Managed GitHub and here.now</li>
+ <li>Handled all version control and deployment</li>
+ </ul>
+ 
+ <div class="nav-links">
+ <a href="05-your-toolkit.html" class="back">← previous</a>
+ <a href="00-Tutorial.html" class="next">← back to tutorial</a>
+ </div>
+ 
+ <div class="footer">
+ <span>begin_ v1.0</span>
+ <span>>how you start shapes where you go_</span>
+ </div>
+ </main>
 </body>
 </html>
