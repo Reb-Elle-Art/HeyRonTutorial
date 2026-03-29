@@ -5,125 +5,130 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>01 — What You Got | HeyRon Tutorial</title>
   <style>
-    :root {
-      --bg: #faf9f7;
-      --text: #2d2d2d;
-      --muted: #6b6b6b;
-      --accent: #e85d04;
-      --border: #e0deda;
-      --code-bg: #f4f3f1;
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+    :root{
+      --bg:#0a0a0a;
+      --surface:#141414;
+      --surface-highlight:#1e1e1e;
+      --text:#e0e0e0;
+      --text-dim:#707070;
+      --accent:#e8c547;
+      --accent-dim:#c9a73a;
+      --border:#2a2a2a;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.7;
-      color: var(--text);
-      background: var(--bg);
-      padding: 2rem;
-      max-width: 720px;
-      margin: 0 auto;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'IBM Plex Mono',monospace;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      font-size:15px;
     }
-    h1 {
-      font-size: 1.9rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
+    a{color:inherit;text-decoration:none}
+    
+    body::before{
+      content:"";
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
+      pointer-events:none;
+      z-index:999;
     }
-    h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin: 2rem 0 1rem;
-      letter-spacing: -0.01em;
+    
+    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
+    
+    h1{
+      font-size:1.8rem;
+      font-weight:600;
+      margin:0 0 8px;
     }
-    h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin: 1.5rem 0 0.5rem;
+    
+    .prompt-line{
+      color:var(--text-dim);
+      font-size:14px;
+      margin-bottom:32px;
     }
-    p { margin-bottom: 1rem; }
-    .subtitle {
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
+    .prompt-line .user{color:var(--accent);font-weight:500}
+    
+    h2{
+      font-size:1.2rem;
+      font-weight:500;
+      margin:28px 0 12px;
+      color:var(--accent);
     }
-    .highlight {
-      background: linear-gradient(120deg, #fff8e1 0%, #ffecb3 100%);
-      padding: 0.15em 0.3em;
-      border-radius: 3px;
+    
+    h3{
+      font-size:1rem;
+      font-weight:500;
+      margin:16px 0 8px;
+      color:var(--text);
     }
-    .callout {
-      background: #f0f4f8;
-      border-left: 4px solid #1976d2;
-      padding: 1rem 1.25rem;
-      margin: 1.5rem 0;
-      border-radius: 0 6px 6px 0;
+    
+    p{margin:0 0 16px}
+    li{margin-bottom:8px}
+    
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin:16px 0;
+      font-size:14px;
     }
-    .callout.warning {
-      background: #fff3e0;
-      border-left-color: #f57c00;
+    
+    th,td{
+      text-align:left;
+      padding:12px;
+      border-bottom:1px solid var(--border);
     }
-    .callout.tip {
-      background: #e8f5e9;
-      border-left-color: #43a047;
+    
+    th{font-weight:600;color:var(--accent)}
+    
+    .highlight{
+      color:var(--accent);
+      font-size:14px;
+      margin:16px 0;
+      padding:12px 16px;
+      border-left:3px solid var(--accent);
+      background:rgba(232,197,71,0.05);
     }
-    code {
-      background: var(--code-bg);
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-      font-size: 0.9em;
-      font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    
+    code{
+      background:var(--surface-highlight);
+      padding:2px 6px;
+      border-radius:3px;
+      font-size:13px;
     }
-    pre {
-      background: var(--code-bg);
-      padding: 1rem;
-      border-radius: 6px;
-      overflow-x: auto;
-      margin: 1rem 0;
+    
+    .nav-links{
+      display:flex;
+      justify-content:space-between;
+      margin-top:48px;
+      padding-top:24px;
+      border-top:1px solid var(--border);
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-size: 0.95rem;
+    .nav-links a{color:var(--accent);font-size:13px}
+    .nav-links .next{ margin-left:auto}
+    
+    .footer{
+      margin-top:48px;
+      padding-top:20px;
+      border-top:1px solid var(--border);
+      color:var(--text-dim);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
     }
-    th, td {
-      text-align: left;
-      padding: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    th { font-weight: 600; }
-    ul, ol { margin: 1rem 0 1rem 1.5rem; }
-    li { margin-bottom: 0.5rem; }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.95rem;
-    }
-    .nav a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .nav a:hover { text-decoration: underline; }
-    .module-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
+    
+    ul,ol{margin:12px 0 12px 24px}
   </style>
 </head>
 <body>
-
-<span class="module-tag">Module 01</span>
-<h1>What You Actually Got</h1>
-<p class="subtitle">A lot more — and a lot less — than you think.</p>
+  <main class="wrap">
+    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~load-module what-you-got</span></div>
+    
+    <h1>What You Actually Got_</h1>
+    
+    <p>A lot more — and a lot less — than you think.</p>
 
 <h2>The Unboxing</h2>
 
@@ -168,15 +173,13 @@
 
 <p>That's what this guide is about. Moving from "tool I use" to "partner I work with."</p>
 
-<div class="callout tip">
-  <strong>What This Takes</strong>
-  <ul style="margin-top: 0.5rem; margin-bottom: 0;">
-    <li><strong>Curiosity</strong> — Willing to explore how your agent thinks</li>
-    <li><strong>Openness</strong> — Trying approaches you didn't think of</li>
-    <li><strong>Clarity</strong> — Being specific about what you actually need</li>
-    <li><strong>Iteration</strong> — Accepting that v1 won't be perfect</li>
-    <li><strong>Patience</strong> — A working relationship takes a few conversations</li>
-  </ul>
+<div class="highlight">
+  <strong>What This Takes</strong><br>
+  <strong>Curiosity</strong> — Willing to explore how your agent thinks<br>
+  <strong>Openness</strong> — Trying approaches you didn't think of<br>
+  <strong>Clarity</strong> — Being specific about what you actually need<br>
+  <strong>Iteration</strong> — Accepting that v1 won't be perfect<br>
+  <strong>Patience</strong> — A working relationship takes a few conversations
 </div>
 
 <h2>What Your Agent Can Do (Without Adding Anything)</h2>
@@ -220,7 +223,7 @@
   </tr>
 </table>
 
-<div class="callout warning">
+<div class="highlight">
   <strong>The Honest Limits</strong><br>
   Your agent can't see your screen (unless you show it something), doesn't know what time it is (you have to tell it), won't ask questions unless you ask first, and won't remember between sessions unless you build that memory. Every "failure" mode comes back to one of these. It's not stubborn — it's waiting for you to be precise.
 </div>
@@ -240,11 +243,11 @@
 
 <p>But here's the key distinction:</p>
 
-<div class="callout">
-  <strong>Tools ≠ Skills</strong><br><br>
-  <strong>Tools</strong> are permissions — they're what your agent <em>can</em> do (enabled in your config).<br>
-  <strong>Skills</strong> are knowledge — they're what your agent <em>knows how</em> to do (auto-load based on what's installed).<br><br>
-  A skill is a manual, not a permission. Just because the agent knows <em>how</em> to use GitHub doesn't mean it <em>can</em> — you still need to connect your account.
+<div class="highlight">
+  <strong>Tools ≠ Skills</strong><br>
+  <strong>Tools</strong> are permissions — what your agent <em>can</em> do (enabled in config).<br>
+  <strong>Skills</strong> are knowledge — what your agent <em>knows how</em> to do (auto-load if installed).<br>
+  A skill is a manual, not a permission. Knowing how to use GitHub doesn't mean it can — you still need to connect your account.
 </div>
 
 <h3>What Requires Extra Setup</h3>
@@ -289,10 +292,15 @@
 
 <p>Next up: the first conversation — the onboarding that teaches your agent who you are.</p>
 
-<div class="nav">
-  <a href="index.html">← Index</a>
-  <a href="02-first-conversation.html">02 — The First Conversation →</a>
-</div>
-
+    <div class="nav-links">
+      <a href="index.html" class="back">← index</a>
+      <a href="02-first-conversation.html" class="next">next: The First Conversation →</a>
+    </div>
+    
+    <div class="footer">
+      <span>begin_ v1.0</span>
+      <span>>how you start shapes where you go_</span>
+    </div>
+  </main>
 </body>
 </html>
