@@ -1,144 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>What You Got — begin_</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 — What You Got | HeyRon Tutorial</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-    :root{
-      --bg:#0a0a0a;
-      --surface:#141414;
-      --surface-highlight:#1e1e1e;
-      --text:#e0e0e0;
-      --text-dim:#707070;
-      --accent:#e8c547;
-      --accent-dim:#c9a73a;
-      --border:#2a2a2a;
+    :root {
+      --bg: #faf9f7;
+      --text: #2d2d2d;
+      --muted: #6b6b6b;
+      --accent: #e85d04;
+      --border: #e0deda;
+      --code-bg: #f4f3f1;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'IBM Plex Mono',monospace;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-      font-size:15px;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      padding: 2rem;
+      max-width: 720px;
+      margin: 0 auto;
     }
-    a{color:inherit;text-decoration:none}
-    
-    body::before{
-      content:"";
-      position:fixed;
-      top:0;left:0;right:0;bottom:0;
-      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
-      pointer-events:none;
-      z-index:999;
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
     }
-    
-    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
-    
-    h1{
-      font-size:1.8rem;
-      font-weight:600;
-      margin:0 0 8px;
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+      letter-spacing: -0.01em;
     }
-    
-    .prompt-line{
-      color:var(--text-dim);
-      font-size:14px;
-      margin-bottom:32px;
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
     }
-    .prompt-line .user{color:var(--accent);font-weight:500}
-    
-    .ascii-divider{
-      color:var(--text-dim);
-      font-size:11px;
-      white-space:pre;
-      margin:24px 0;
-      opacity:0.35;
+    p { margin-bottom: 1rem; }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
     }
-    
-    h2{
-      font-size:1.2rem;
-      font-weight:500;
-      margin:28px 0 12px;
-      color:var(--accent);
+    .highlight {
+      background: linear-gradient(120deg, #fff8e1 0%, #ffecb3 100%);
+      padding: 0.15em 0.3em;
+      border-radius: 3px;
     }
-    
-    p{margin:0 0 16px}
-    li{margin-bottom:8px}
-    
-    .highlight{
-      color:var(--accent);
-      font-size:14px;
-      margin:16px 0;
-      padding:12px 16px;
-      border-left:3px solid var(--accent);
-      background:rgba(232,197,71,0.05);
+    .callout {
+      background: #f0f4f8;
+      border-left: 4px solid #1976d2;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
     }
-    
-    code{background:var(--surface-highlight);padding:2px 6px;font-size:13px}
-    
-    .nav-links{
-      display:flex;
-      justify-content:space-between;
-      margin-top:48px;
-      padding-top:24px;
-      border-top:1px solid var(--border);
+    .callout.warning {
+      background: #fff3e0;
+      border-left-color: #f57c00;
     }
-    .nav-links a{color:var(--accent);font-size:13px}
-    .nav-links .next{ margin-left:auto}
-    
-    .footer{
-      margin-top:48px;
-      padding-top:20px;
-      border-top:1px solid var(--border);
-      color:var(--text-dim);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
+    .callout.tip {
+      background: #e8f5e9;
+      border-left-color: #43a047;
+    }
+    code {
+      background: var(--code-bg);
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    }
+    pre {
+      background: var(--code-bg);
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th { font-weight: 600; }
+    ul, ol { margin: 1rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav a:hover { text-decoration: underline; }
+    .module-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~load-module what-you-got</span></div>
-    
-    <h1>What You Got_</h1>
-    
-    <p>Your agent arrives with context — a set of files, tools, and memories that define what it "knows" about your setup. Understanding this context is the first step to working together effectively.</p>
-    
-    <h2>What the Agent Can See</h2>
-    <p>Your agent has access to:</p>
-    <ul>
-      <li><strong>Project files</strong> — everything in the workspace folder</li>
-      <li><strong>Memory files</strong> — curated long-term context (SOUL.md, USER.md, MEMORY.md)</li>
-      <li><strong>Tool credentials</strong> — API keys and integrations you have configured</li>
-      <li><strong>Session history</strong> — what you've discussed in current and recent chats</li>
-    </ul>
-    
-    <h2>What It Can't See</h2>
-    <ul>
-      <li>Files outside the workspace</li>
-      <li>Your local browser, other open apps</li>
-      <li>Anything you haven't explicitly shared or stored in the workspace</li>
-    </ul>
-    
-    <h2>Context Is Collapsible</h2>
-    <p>You can choose how much context to load for any given task. The agent doesn't need to "know" everything all the time — you can point it at specific files or projects as needed.</p>
-    
-    <div class="highlight">Key insight: More context ≠ better results. Often the opposite. Give the agent exactly what it needs for the task at hand.</div>
-    
-    <div class="nav-links">
-      <a href="modules.html" class="back">← modules</a>
-      <a href="02-first-conversation.html" class="next">next: First Conversation →</a>
-    </div>
-    
-    <div class="footer">
-      <span>begin_ v1.0</span>
-      <span>>how you start shapes where you go_</span>
-    </div>
-  </main>
+
+<span class="module-tag">Module 01</span>
+<h1>What You Actually Got</h1>
+<p class="subtitle">A lot more — and a lot less — than you think.</p>
+
+<h2>The Unboxing</h2>
+
+<p>You signed up. You paid $29. You got a link to your dashboard. You might have chatted with it a little, maybe asked it something, maybe configured a personality file.</p>
+
+<p>And now you're looking at this thing, wondering: <em>Okay, but what is this, actually?</em></p>
+
+<p>Here's the honest answer:</p>
+
+<p><strong>You got a teammate who is extremely capable and extremely literal.</strong> That's it. That's the whole thing.</p>
+
+<p>Not a magic box. Not a chatbot. Not a faster Google. You got a person — kind of — who works alongside you. They remember what you tell them. They organize what you give them. They get better at working with you the more you work together.</p>
+
+<p>But they can't read your mind. They don't know what you want until you tell them. And if you treat them like a tool, they'll act like a tool. If you treat them like a partner, they'll act like a partner.</p>
+
+<p>Your call.</p>
+
+<h2>What You Actually Have</h2>
+
+<p>Your agent is:</p>
+
+<ul>
+  <li><strong>Smart at pattern-matching</strong> — It can parse documentation, find connections, spot patterns you might miss</li>
+  <li><strong>Fast</strong> — It processes information quicker than you can read it</li>
+  <li><strong>Patient</strong> — It won't get bored, tired, or frustrated with iteration</li>
+  <li><strong>Contextual</strong> — The more you tell it, the better it gets</li>
+  <li><strong>Not a replacement for you</strong> — It's a collaborator, not a substitute for thought</li>
+</ul>
+
+<h2>The Better Way</h2>
+
+<p>Think of it like hiring a new collaborator. Smart, eager, but doesn't know your context yet.</p>
+
+<p>You wouldn't dump a complex project in hour one. You'd:</p>
+
+<ul>
+  <li>Get to know each other</li>
+  <li>Establish how you communicate</li>
+  <li>Build some trust through small wins</li>
+  <li>Then tackle meaningful work together</li>
+</ul>
+
+<p>That's what this guide is about. Moving from "tool I use" to "partner I work with."</p>
+
+<div class="callout tip">
+  <strong>What This Takes</strong>
+  <ul style="margin-top: 0.5rem; margin-bottom: 0;">
+    <li><strong>Curiosity</strong> — Willing to explore how your agent thinks</li>
+    <li><strong>Openness</strong> — Trying approaches you didn't think of</li>
+    <li><strong>Clarity</strong> — Being specific about what you actually need</li>
+    <li><strong>Iteration</strong> — Accepting that v1 won't be perfect</li>
+    <li><strong>Patience</strong> — A working relationship takes a few conversations</li>
+  </ul>
+</div>
+
+<h2>What Your Agent Can Do (Without Adding Anything)</h2>
+
+<p>Here's the thing: your agent doesn't come with everything enabled. Out of the box, it can talk, read, and write. That's the baseline. What it <em>can</em> do depends on what's connected.</p>
+
+<p>But there's a foundation that works without extra setup:</p>
+
+<h3>Core Capabilities (Built-In)</h3>
+
+<p>These are the fundamental "organs" — always available through your configuration:</p>
+
+<table>
+  <tr>
+    <th>What It Is</th>
+    <th>What It Does</th>
+  </tr>
+  <tr>
+    <td><strong>File Operations</strong></td>
+    <td>Read, write, edit, and organize files in your workspace</td>
+  </tr>
+  <tr>
+    <td><strong>Execution</strong></td>
+    <td>Run shell commands when needed (handled carefully)</td>
+  </tr>
+  <tr>
+    <td><strong>Web Search</strong></td>
+    <td>Search the web using Brave API</td>
+  </tr>
+  <tr>
+    <td><strong>Web Fetch</strong></td>
+    <td>Pull content from URLs — paste a link, ask about it, your agent reads it</td>
+  </tr>
+  <tr>
+    <td><strong>Browser Control</strong></td>
+    <td>Interact with web pages — click, type, take screenshots</td>
+  </tr>
+  <tr>
+    <td><strong>Image Analysis</strong></td>
+    <td>Analyze images you upload — describe, extract, answer questions</td>
+  </tr>
+</table>
+
+<div class="callout warning">
+  <strong>The Honest Limits</strong><br>
+  Your agent can't see your screen (unless you show it something), doesn't know what time it is (you have to tell it), won't ask questions unless you ask first, and won't remember between sessions unless you build that memory. Every "failure" mode comes back to one of these. It's not stubborn — it's waiting for you to be precise.
+</div>
+
+<h3>Skills — The Extra Knowledge</h3>
+
+<p>Beyond the core, your agent comes with knowledge about how to do things. We call these <strong>skills</strong> — they're like manuals that teach your agent different workflows.</p>
+
+<p>Some skills auto-load when the right tool is present:</p>
+
+<ul>
+  <li><strong>Weather</strong> — curl-based weather lookups (wttr.in)</li>
+  <li><strong>GitHub</strong> — if the <code>gh</code> CLI is installed</li>
+  <li><strong>Health Check</strong> — system health diagnostics</li>
+  <li><strong>Skill Creator</strong> — helpers for building new skills</li>
+</ul>
+
+<p>But here's the key distinction:</p>
+
+<div class="callout">
+  <strong>Tools ≠ Skills</strong><br><br>
+  <strong>Tools</strong> are permissions — they're what your agent <em>can</em> do (enabled in your config).<br>
+  <strong>Skills</strong> are knowledge — they're what your agent <em>knows how</em> to do (auto-load based on what's installed).<br><br>
+  A skill is a manual, not a permission. Just because the agent knows <em>how</em> to use GitHub doesn't mean it <em>can</em> — you still need to connect your account.
+</div>
+
+<h3>What Requires Extra Setup</h3>
+
+<p>These are the things that need explicit connection:</p>
+
+<ul>
+  <li><strong>Discord</strong> — Connect via OAuth to chat in your server</li>
+  <li><strong>Email</strong> — Connect via gog (Google Workspace) or himalaya (IMAP)</li>
+  <li><strong>GitHub</strong> — Connect with a personal access token for file persistence</li>
+  <li><strong>Voice</strong> — Set up text-to-speech for voice replies</li>
+</ul>
+
+<p>We'll walk through connecting each of these in later modules. For now, know that the foundation is solid — everything else is additive.</p>
+
+<h2>The First Shift</h2>
+
+<p>If you've used ChatGPT or Claude, you have to unlearn something here.</p>
+
+<p><strong>This isn't a prompt-and-response machine.</strong> You're not writing prompts. You're having a conversation. You're building a working relationship.</p>
+
+<p>Think of it like hiring someone:</p>
+
+<ul>
+  <li>You wouldn't send them an email that says "help me" and expect miracles</li>
+  <li>You wouldn't expect them to know your business without onboarding</li>
+  <li>You'd expect to correct them when they get something wrong</li>
+  <li>You'd expect to get better at working together over time</li>
+</ul>
+
+<p>Same deal here.</p>
+
+<h2>Ready? Let's Go.</h2>
+
+<p>Before we move on, three things to hold:</p>
+
+<ol>
+  <li><strong>Curiosity over optimization.</strong> Don't try to make this efficient before you understand it. Play first, optimize later.</li>
+  <li><strong>Precision over speed.</strong> The clearer you are about what you actually want, the better this works. Vague in, vague out.</li>
+  <li><strong>This takes two.</strong> Your agent is half the equation. You're the other half. Neither one succeeds alone.</li>
+</ol>
+
+<p>Next up: the first conversation — the onboarding that teaches your agent who you are.</p>
+
+<div class="nav">
+  <a href="index.html">← Index</a>
+  <a href="02-first-conversation.html">02 — The First Conversation →</a>
+</div>
+
 </body>
 </html>
