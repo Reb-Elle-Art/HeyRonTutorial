@@ -36,6 +36,83 @@
  z-index:999;
  }
  
+ /* Navbar */
+ .navbar{
+ position:sticky;
+ top:0;
+ background:var(--bg);
+ border-bottom:1px solid var(--border);
+ padding:16px 24px;
+ z-index:100;
+ backdrop-filter:blur(2px);
+ }
+ .navbar-content{
+ max-width:900px;
+ margin:0 auto;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ font-size:12px;
+ gap:12px;
+ flex-wrap:wrap;
+ }
+ .navbar-left{
+ display:flex;
+ align-items:center;
+ gap:8px;
+ }
+ .navbar-left a{
+ color:var(--accent);
+ font-weight:500;
+ }
+ .navbar-left a:hover{
+ color:var(--text);
+ }
+ .navbar-left .sep{
+ color:var(--text-dim);
+ }
+ .navbar-left .tutorial-link{
+ color:var(--text-dim);
+ }
+ .navbar-left .tutorial-link:hover{
+ color:var(--accent);
+ }
+ .navbar-center{
+ display:flex;
+ gap:8px;
+ align-items:center;
+ }
+ .navbar-center a{
+ color:var(--text-dim);
+ font-weight:400;
+ }
+ .navbar-center a:hover{
+ color:var(--text);
+ }
+ .navbar-center a.active{
+ color:var(--accent);
+ font-weight:500;
+ }
+ .navbar-center a.active::before{
+ content:">";
+ color:var(--accent);
+ margin-right:4px;
+ animation:cursor-blink 1s step-end infinite;
+ }
+ @keyframes cursor-blink{50%{opacity:0}}
+ .navbar-right{
+ display:flex;
+ gap:12px;
+ align-items:center;
+ margin-left:auto;
+ }
+ .navbar-right a{
+ color:var(--text-dim);
+ }
+ .navbar-right a:hover{
+ color:var(--accent);
+ }
+ 
  .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
  
  h1{
@@ -100,7 +177,7 @@
       <div class="navbar-left">
         <a href="index.html">heyron@partner</a>
         <span class="sep">></span>
-        <span style="color:var(--text-dim)">tutorial</span>
+        <a href="00-Tutorial.html" class="tutorial-link">tutorial</a>
       </div>
       <div class="navbar-center">
         <a href="01-what-you-got.html">01</a>
