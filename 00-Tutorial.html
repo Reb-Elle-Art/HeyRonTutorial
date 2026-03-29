@@ -36,24 +36,71 @@
       z-index:999;
     }
     
-    nav{
-      background:var(--surface);
+    /* Navbar */
+    .navbar{
+      position:sticky;
+      top:0;
+      background:var(--bg);
       border-bottom:1px solid var(--border);
-      padding:14px 20px;
-      display:flex;
-      gap:2px;
-      overflow-x:auto;
+      padding:16px 24px;
+      z-index:100;
+      backdrop-filter:blur(2px);
     }
-    nav a{
-      color:var(--text-dim);
-      text-decoration:none;
-      padding:8px 14px;
-      border:1px solid transparent;
-      font-size:13px;
+    .navbar-content{
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:12px;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .navbar-left{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .navbar-left a{
+      color:var(--accent);
       font-weight:500;
     }
-    nav a.home{color:var(--text);font-weight:600}
-    nav a:hover,nav a.active{background:var(--surface-highlight);border-color:var(--accent-dim);color:var(--accent)}
+    .navbar-left a:hover{
+      color:var(--text);
+    }
+    .navbar-left .sep{
+      color:var(--text-dim);
+    }
+    .navbar-left .tutorial-link{
+      color:var(--text-dim);
+    }
+    .navbar-left .tutorial-link:hover{
+      color:var(--accent);
+    }
+    .navbar-center{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .navbar-center a{
+      color:var(--text-dim);
+      font-weight:400;
+    }
+    .navbar-center a:hover{
+      color:var(--text);
+    }
+    .navbar-right{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-left:auto;
+    }
+    .navbar-right a{
+      color:var(--text-dim);
+    }
+    .navbar-right a:hover{
+      color:var(--accent);
+    }
     
     .wrap{max-width:800px;margin:0 auto;padding:40px 24px}
     
@@ -71,9 +118,15 @@
       padding:16px 20px;
       margin-bottom:12px;
       transition:all 0.2s;
+      cursor:pointer;
+      display:block;
+      color:var(--text);
+      font-weight:500;
     }
-    .module-item:hover{border-color:var(--accent-dim)}
-    .module-item a{color:var(--text);font-weight:500;display:block}
+    .module-item:hover{
+      border-color:var(--accent-dim);
+      background:var(--surface-highlight);
+    }
     .module-item .desc{color:var(--text-dim);font-size:13px;margin-top:4px}
     .module-item .num{color:var(--accent);font-size:12px;margin-right:8px}
     
@@ -81,11 +134,27 @@
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html" class="home">begin_</a>
-    <a href="00-Tutorial.html" class="active">Tutorial</a>
-    <a href="quickstart.html">QuickStart</a>
-    <a href="tooling-index.html">Tools</a>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="navbar-left">
+        <a href="index.html">heyron@partner</a>
+        <span class="sep">></span>
+        <a href="00-Tutorial.html" class="tutorial-link">tutorial</a>
+      </div>
+      <div class="navbar-center">
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-workspace.html">03</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html">05</a>
+        <a href="06-sample-project.html">06</a>
+        <a href="07-troubleshooting.html">07</a>
+      </div>
+      <div class="navbar-right">
+        <a href="quickstart-v2.html">QuickStart</a>
+        <a href="tooling-index.html">Tools</a>
+      </div>
+    </div>
   </nav>
   
   <main class="wrap">
@@ -95,38 +164,34 @@
     <p>The full walkthrough to working with your agent as a partner, not a tool.</p>
     
     <div class="module-list">
-      <div class="module-item">
-        <a href="01-what-you-got.html"><span class="num">[01]</span> What You Got — Understanding your agent's context</a>
+      <a href="01-what-you-got.html" class="module-item">
+        <span class="num">[01]</span> What You Got — Understanding your agent's context
         <p class="desc">What the agent can see, access, and reference at any time.</p>
-      </div>
-      <div class="module-item">
-        <a href="02-first-conversation.html"><span class="num">[02]</span> First Conversation — Setting the foundation</a>
+      </a>
+      <a href="02-first-conversation.html" class="module-item">
+        <span class="num">[02]</span> First Conversation — Setting the foundation
         <p class="desc">How to frame your first session for best results.</p>
-      </div>
-      <div class="module-item">
-        <a href="03-workspace.html"><span class="num">[03]</span> Workspace — Organizing your files</a>
+      </a>
+      <a href="03-workspace.html" class="module-item">
+        <span class="num">[03]</span> Workspace — Organizing your files
         <p class="desc">Project structure, naming, and file management.</p>
-      </div>
-      <div class="module-item">
-        <a href="04-storage-strategy.html"><span class="num">[04]</span> Storage Strategy — Where things live</a>
+      </a>
+      <a href="04-storage-strategy.html" class="module-item">
+        <span class="num">[04]</span> Storage Strategy — Where things live
         <p class="desc">Memory, backups, and persistent storage patterns.</p>
-      </div>
-      <div class="module-item">
-        <a href="05-your-toolkit.html"><span class="num">[05]</span> Your Toolkit — Tools and integrations</a>
+      </a>
+      <a href="05-your-toolkit.html" class="module-item">
+        <span class="num">[05]</span> Your Toolkit — Tools and integrations
         <p class="desc">AgentMail, Whisper, here.now, GitHub, and more.</p>
-      </div>
-      <div class="module-item">
-        <a href="06-how-to-work-together.html"><span class="num">[06]</span> How to Work Together — Collaboration patterns</a>
-        <p class="desc">Commands, feedback loops, and partnership rhythms.</p>
-      </div>
-      <div class="module-item">
-        <a href="07-sample-project.html"><span class="num">[07]</span> Sample Project — Putting it into practice</a>
+      </a>
+      <a href="06-sample-project.html" class="module-item">
+        <span class="num">[06]</span> Sample Project — Putting it into practice
         <p class="desc">A real-world example to learn from and adapt.</p>
-      </div>
-      <div class="module-item">
-        <a href="08-troubleshooting.html"><span class="num">[08]</span> Troubleshooting — When things go sideways</a>
+      </a>
+      <a href="07-troubleshooting.html" class="module-item">
+        <span class="num">[07]</span> Troubleshooting — When things go sideways
         <p class="desc">Common issues and how to work through them.</p>
-      </div>
+      </a>
     </div>
     
     <div class="footer">
