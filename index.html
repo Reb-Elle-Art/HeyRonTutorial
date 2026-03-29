@@ -69,7 +69,7 @@
       font-size:11px;
       white-space:pre;
       margin:32px 0;
-      opacity:0.35;
+      opacity:0.65;
     }
     
     /* Single column - terminal aesthetic */
@@ -114,7 +114,7 @@
     }
     .card p{
       margin:0;
-      color:var(--text-dim);
+      color:var(--text);
       font-size:13px;
     }
     
@@ -128,12 +128,43 @@
       justify-content:space-between;
     }
     
+    /* Navbar */
+    .navbar{
+      position:sticky;
+      top:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
+      padding:16px 24px;
+      z-index:100;
+      backdrop-filter:blur(2px);
+    }
+    .navbar-content{
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:13px;
+    }
+    .navbar a{
+      color:var(--accent);
+      font-weight:500;
+    }
+    .navbar a:hover{
+      color:var(--text);
+    }
+    
     @media (max-width:520px){
       .wrap{padding:40px 16px}
     }
   </style>
 </head>
 <body>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="index.html">heyron@partner</a>
+    </div>
+  </nav>
   <main class="wrap">
     <h1>begin_<span class="cursor"></span></h1>
     <div class="tagline"><span class="prompt">></span> how you start shapes where you go<span class="cursor">_</span></div>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>Quickstart — begin_</title>
+ <style>
+ @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+ :root{
+ --bg:#0a0a0a;
+ --surface:#141414;
+ --surface-highlight:#1e1e1e;
+ --text:#e0e0e0;
+ --text-dim:#707070;
+ --accent:#e8c547;
+ --accent-dim:#c9a73a;
+ --border:#2a2a2a;
+ }
+ *{box-sizing:border-box}
+ body{
+ margin:0;
+ font-family:'IBM Plex Mono',monospace;
+ background:var(--bg);
+ color:var(--text);
+ line-height:1.6;
+ font-size:15px;
+ }
+ a{color:inherit;text-decoration:none}
+ 
+ body::before{
+ content:"";
+ position:fixed;
+ top:0;left:0;right:0;bottom:0;
+ background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
+ pointer-events:none;
+ z-index:999;
+ }
+ 
+ .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
+ 
+ h1{
+ font-size:2rem;
+ font-weight:600;
+ margin:0 0 8px;
+ }
+ 
+ .tagline{
+ color:var(--text-dim);
+ font-size:0.95rem;
+ margin-bottom:40px;
+ font-style:italic;
+ }
+ 
+ .prompt-line{
+ color:var(--text-dim);
+ font-size:14px;
+ margin-bottom:32px;
+ }
+ .prompt-line .user{color:var(--accent);font-weight:500}
+ 
+ h2{
+ font-size:1.2rem;
+ font-weight:500;
+ margin:32px 0 12px;
+ color:var(--accent);
+ }
+ 
+ h3{
+ font-size:1rem;
+ font-weight:500;
+ margin:20px 0 8px;
+ color:var(--text);
+ }
+ 
+ p{margin:0 0 16px}
+ li{margin-bottom:8px}
+ 
+ .highlight{
+ color:var(--accent);
+ font-size:14px;
+ margin:16px 0;
+ padding:12px 16px;
+ border-left:3px solid var(--accent);
+ background:rgba(232,197,71,0.05);
+ }
+ 
+ code{background:var(--surface-highlight);padding:2px 6px;font-size:13px}
+ pre{background:var(--surface-highlight);padding:12px 16px;margin:16px 0;font-size:13px;overflow-x:auto;border-left:3px solid var(--accent-dim)}
+ 
+ .section-break{
+ margin:40px 0;
+ padding:20px 0;
+ border-top:1px solid var(--border);
+ }
+ 
+ .nav-links{
+ display:flex;
+ justify-content:space-between;
+ margin-top:48px;
+ padding-top:24px;
+ border-top:1px solid var(--border);
+ }
+ .nav-links a{color:var(--accent);font-size:13px}
+ .nav-links .next{ margin-left:auto}
+ 
+ .footer{
+ margin-top:48px;
+ padding-top:20px;
+ border-top:1px solid var(--border);
+ color:var(--text-dim);
+ font-size:12px;
+ display:flex;
+ justify-content:space-between;
+ }
+ </style>
+</head>
+<body>
+ <main class="wrap">
+ <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~quickstart</span></div>
+ 
+ <h1>Quickstart_</h1>
+ 
+ <p class="tagline">Everything you need to begin working with your agent. The full philosophy condensed into one page.</p>
+ 
+ <h2>The Mindset First</h2>
+ <p><em>Partner is a verb.</em> You share context. You ask it to show its work. You iterate together. The partnership emerges from real work, not from pre-planning.</p>
+ 
+ <h2>Before You Start</h2>
+ <p>Your agent sees: everything in your workspace folder, memory files (SOUL.md, USER.md, MEMORY.md), tool credentials, and session history.</p>
+ 
+ <p>Your agent does NOT see: files outside the workspace, your browser, or anything you don't explicitly share.</p>
+ 
+ <p>Keep your workspace intentional. Clarity about what you're sharing teaches you to be precise about what you need.</p>
+ 
+ <div class="section-break"></div>
+ 
+ <h2>Your First Conversation</h2>
+ 
+ <h3>Be Direct</h3>
+ <p>"I want to work with you as a partner, not a tool. I'll give you real work, and I'll correct you when needed. I expect the same directness back."</p>
+ 
+ <h3>Tell It About You</h3>
+ <ul>
+ <li>Your tempo: slow and deliberate or fast and iterative?</li>
+ <li>Your style: short answers or full context?</li>
+ <li>What matters: accuracy or speed?</li>
+ <li>Your technical level: where are you starting?</li>
+ <li>What you're building: the project or the learning?</li>
+ </ul>
+ 
+ <h3>Give It Real Work</h3>
+ <p>Don't test—work. Ask it to read a file, organize something, solve a real problem. The agent learns by doing.</p>
+ 
+ <p><strong>Bad:</strong> "Help me organize my notes."</p>
+ <p><strong>Better:</strong> "I have 200 notes scattered across three folders. Some span multiple projects. I can't find anything. What structure would help?"</p>
+ 
+ <h3>Correct It</h3>
+ <p>Say, "Actually, I prefer X" or "That's not quite right—here's why." Watch how it responds. That tells you everything about how feedback works between you.</p>
+ 
+ <p>If it apologizes excessively, tell it you don't want apologies. Ask: Did it update SOUL.md? Memory only exists if the agent makes a file. You're calibrating the rhythm together.</p>
+ 
+ <div class="section-break"></div>
+ 
+ <h2>Curiosity as Practice</h2>
+ 
+ <p>Ask your agent to read documentation for you. Paste a URL: "Summarize what this does, then tell me how it applies to my situation. Assume I'm at [experience level]."</p>
+ 
+ <p>Ask "What am I missing?" when stuck. Ask it why. Half the time you'll realize you left out context. Half the time you'll catch yourself being stubborn. When it's wrong: Catch it, correct it, move on.</p>
+ 
+ <p>When it mentions something interesting, follow the thread. You're not just solving today's problem—you're building your understanding.</p>
+ 
+ <div class="section-break"></div>
+ 
+ <h2>How to Organize Your Workspace</h2>
+ 
+ <p>Simple is better than complex:</p>
+ <pre>workspace/
+├── SOUL.md              ← Who I am
+├── USER.md              ← Who you are
+├── MEMORY.md            ← Long-term wisdom
+├── AGENTS.md            ← How we work
+├── memory/
+│   ├── daily/           ← Session logs
+│   └── projects/        ← Project notes
+├── p-projects/          ← Active work
+└── archive/             ← Finished work</pre>
+ 
+ <p>Naming: Use dashes instead of spaces. Prefix with status: <code>draft-</code>, <code>final-</code>. Dates as YYYY-MM-DD.</p>
+ 
+ <h2>Persistence & Memory</h2>
+ 
+ <p><strong>Session memory:</strong> What's in the current chat.</p>
+ <p><strong>File memory:</strong> What's in the workspace.</p>
+ <p><strong>Curated memory:</strong> Long-term context your agent learns about you.</p>
+ 
+ <p>Set up a GitHub backup repo. Use it for end-of-session snapshots, before major changes, and archives of completed work.</p>
+ 
+ <div class="section-break"></div>
+ 
+ <h2>Your Tools</h2>
+ 
+ <p><strong>AgentMail:</strong> Send/receive emails through your agent.</p>
+ <p><strong>Whisper:</strong> Voice-to-text transcription.</p>
+ <p><strong>here.now:</strong> Instant static web hosting.</p>
+ <p><strong>GitHub:</strong> Version control and backups.</p>
+ 
+ <p>Don't enable everything at once. Pick one, master it, add the next. Each tool should have a clear purpose.</p>
+ 
+ <div class="section-break"></div>
+ 
+ <h2>The Rhythm of Partnership</h2>
+ 
+ <p><strong>Commands:</strong> Short, routine. "Check my emails." "Publish this."</p>
+ <p><strong>Conversations:</strong> New territory. "Here's what I'm trying to do..."</p>
+ 
+ <p>Correct concisely: "Actually, I prefer X. Let's do it that way." Don't apologize, don't over-explain. Just state and move forward.</p>
+ 
+ <div class="section-break"></div>
+ 
+ <h2>What Slowness Looks Like</h2>
+ 
+ <p>Don't establish all the rules at once. Show up, do real work, correct as you go. Let the partnership define itself through actual interaction.</p>
+ 
+ <p>You're learning how <em>you</em> work with an agent. A system you invent now, before you know your rhythm, will need reimagining later. Start with the work. Let the system emerge.</p>
+ 
+ <p>Rushing this—trying to "optimize" before you actually work together—breaks something. It turns the agent into a tool you're configuring instead of a collaborator you're meeting.</p>
+ 
+ <div class="section-break"></div>
+ 
+ <h2>A Simple First Project</h2>
+ 
+ <ol>
+ <li>Create a folder <code>my-sample</code> with an <code>index.html</code> file.</li>
+ <li>Write a short paragraph introducing it.</li>
+ <li>Initialize git and commit.</li>
+ <li>Push to GitHub (confirm first).</li>
+ <li>Publish with <code>here.now</code> (confirm).</li>
+ <li>Note the wake you leave behind.</li>
+ </ol>
+ 
+ <div class="highlight">Use the same naming for folders and repos to keep the trail traceable. That's part of your wake.</div>
+ 
+ <div class="section-break"></div>
+ 
+ <h2>When Something Breaks</h2>
+ 
+ <p>Ask the agent to list your workspace contents. Check <code>.herenow/state.json</code> for recent actions. Review <code>AGENTS.md</code> and <code>HEARTBEAT.md</code> if context feels off.</p>
+ 
+ <p>If something fails, ask for a short error report and retry with tighter constraints. Most issues are context drift or permission problems—both fixable by starting smaller.</p>
+ 
+ <div class="nav-links">
+ <a href="index.html" class="back">← back to begin_</a>
+ <a href="modules.html" class="next">full modules →</a>
+ </div>
+ 
+ <div class="footer">
+ <span>begin_ v1.0 — quickstart v2</span>
+ <span>>how you start shapes where you go_</span>
+ </div>
+ </main>
+</body>
+</html>

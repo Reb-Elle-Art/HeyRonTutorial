@@ -11,7 +11,7 @@
  --surface:#141414;
  --surface-highlight:#1e1e1e;
  --text:#e0e0e0;
- --text-dim:#707070;
+ --text-dim:#909090;
  --accent:#e8c547;
  --accent-dim:#c9a73a;
  --border:#2a2a2a;
@@ -50,6 +50,7 @@
  margin-bottom:32px;
  }
  .prompt-line .user{color:var(--accent);font-weight:500}
+ .prompt-line .user a{text-decoration:none;cursor:pointer}
  
  h2{
  font-size:1.2rem;
@@ -102,10 +103,33 @@
  </style>
 </head>
 <body>
- <main class="wrap">
- <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~load-module your-toolkit</span></div>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="navbar-left">
+        <a href="index.html">heyron@partner</a>
+        <span class="sep">></span>
+        <span style="color:var(--text-dim)">tutorial</span>
+      </div>
+      <div class="navbar-center">
+        <a href="01-what-you-got.html">01</a>
+        <a href="02-first-conversation.html">02</a>
+        <a href="03-workspace.html">03</a>
+        <a href="04-storage-strategy.html">04</a>
+        <a href="05-your-toolkit.html" class="active">05</a>
+        <a href="06-sample-project.html">06</a>
+        <a href="07-troubleshooting.html">07</a>
+      </div>
+      <div class="navbar-right">
+        <a href="quickstart-v2.html">QuickStart</a>
+        <a href="tooling-index.html">Tools</a>
+      </div>
+    </div>
+  </nav>
  
- <h1>Your Toolkit_</h1>
+ <main class="wrap">
+ <div class="prompt-line"><span class="user"><a href="index.html">HeyRon@partner</a></span> <span class="prompt">$ ~load-module your-toolkit</span></div>
+ 
+ <h1>05 Your Toolkit_</h1>
  
  <p>Your agent has built-in <strong>skills</strong>. Tools are optional add-ons you install to extend those skills. You don't know what you don't know — so part of the work is discovering what's possible.</p>
  
@@ -151,7 +175,7 @@
  
  <div class="nav-links">
  <a href="04-storage-strategy.html" class="back">← previous</a>
- <a href="06-how-to-work-together.html" class="next">next: How to Work Together →</a>
+ <a href="06-sample-project.html" class="next">next: Sample Project →</a>
  </div>
  
  <div class="footer">

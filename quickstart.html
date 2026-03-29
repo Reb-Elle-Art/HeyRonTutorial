@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>QuickStart — begin_</title>
+  <title>Quickstart — begin_</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
     :root{
@@ -36,116 +36,371 @@
       z-index:999;
     }
     
-    nav{
-      background:var(--surface);
-      border-bottom:1px solid var(--border);
-      padding:14px 20px;
-      display:flex;
-      gap:2px;
+    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
+    
+    h1{
+      font-size:1.8rem;
+      font-weight:600;
+      margin:0 0 8px;
     }
-    nav a{
+    
+    .prompt-line{
       color:var(--text-dim);
-      text-decoration:none;
-      padding:8px 14px;
-      border:1px solid transparent;
-      font-size:13px;
-      font-weight:500;
+      font-size:14px;
+      margin-bottom:32px;
     }
-    nav a.home{color:var(--text);font-weight:600}
-    nav a:hover,nav a.active{background:var(--surface-highlight);border-color:var(--accent-dim);color:var(--accent)}
+    .prompt-line .user{color:var(--accent);font-weight:500}
     
-    .wrap{max-width:800px;margin:0 auto;padding:40px 24px}
-    
-    h1{font-size:1.8rem;font-weight:600;margin:0 0 8px}
-    h2{font-size:1.3rem;font-weight:500;margin:32px 0 12px}
+    h2{
+      font-size:1.2rem;
+      font-weight:500;
+      margin:28px 0 12px;
+      color:var(--accent);
+    }
     
     p{margin:0 0 16px}
-    li{margin-bottom:10px;color:var(--text)}
+    li{margin-bottom:8px}
     
-    .lead{color:var(--accent);font-size:1.1rem;margin-bottom:24px;padding:12px 16px;border-left:3px solid var(--accent);background:rgba(232,197,71,0.05)}
+    .highlight{
+      color:var(--accent);
+      font-size:14px;
+      margin:16px 0;
+      padding:12px 16px;
+      border-left:3px solid var(--accent);
+      background:rgba(232,197,71,0.05);
+    }
     
-    code{background:var(--surface-highlight);padding:2px 6px;font-size:13px;border-radius:2px}
-    pre{background:var(--surface);border:1px solid var(--border);padding:16px;overflow-x:auto;font-size:13px}
+    code{background:var(--surface-highlight);padding:2px 6px;font-size:13px}
+    pre{background:var(--surface-highlight);padding:12px 16px;margin:16px 0;font-size:13px;overflow-x:auto;border-left:3px solid var(--accent-dim)}
     
-    .step{background:var(--surface);border:1px solid var(--border);padding:20px;margin-bottom:16px}
-    .step strong{display:block;margin-bottom:8px;color:var(--accent)}
+    .module-divider{
+      margin:60px 0 40px;
+      padding:20px 0;
+      border-top:2px solid var(--accent-dim);
+      border-bottom:1px solid var(--border);
+    }
     
-    .footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text-dim);font-size:12px}
+    .module-header{
+      color:var(--accent);
+      font-size:12px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      margin-bottom:16px;
+    }
+    
+    .nav-links{
+      display:flex;
+      justify-content:space-between;
+      margin-top:48px;
+      padding-top:24px;
+      border-top:1px solid var(--border);
+    }
+    .nav-links a{color:var(--accent);font-size:13px}
+    .nav-links .next{ margin-left:auto}
+    
+    .footer{
+      margin-top:48px;
+      padding-top:20px;
+      border-top:1px solid var(--border);
+      color:var(--text-dim);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html" class="home">begin_</a>
-    <a href="00-Tutorial.html">Tutorial</a>
-    <a href="quickstart.html" class="active">QuickStart</a>
-    <a href="tooling-index.html">Tools</a>
-  </nav>
-  
   <main class="wrap">
-    <h1>QuickStart_</h1>
-    <p class="lead">One-page action plan to get an agent partnership running in 15–30 minutes.</p>
+    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~quickstart</span></div>
     
-    <div class="step">
-      <strong>> 01 — First minute: orient</strong>
-      <p>Start the conversation with a short framing line:</p>
-      <code>"Hello — I want to work together. I prefer concise, task-focused replies."</code>
-      <p style="margin-top:12px">Then give one concrete task (e.g., "Fetch case 393 Mass. 564").</p>
+    
+    <h1>Quickstart_</h1>
+    <p>Scroll through one by one.</p>
+    
+    <!-- MODULE 01 -->
+    <div class="module-divider">
+      <div class="module-header">Module 01 — What You Got</div>
     </div>
     
-    <div class="step">
-      <strong>> 02 — First hour: try one module</strong>
-      <p>Pick one area to practice: Workspace, Tools, or First Conversation. Read the short module and run one task from it (connect a single tool, fetch one file, or create one checklist).</p>
+    <p>Your agent arrives with context — a set of files, tools, and memories that define what it "knows" about your setup. Understanding this context is the first step to working together effectively.</p>
+    
+    <p>But more importantly, this is where you start learning <strong>precision</strong>.</p>
+    
+    <h2>What the Agent Can See</h2>
+    <p>Your agent has access to:</p>
+    <ul>
+      <li><strong>Project files</strong> — everything in the workspace folder</li>
+      <li><strong>Memory files</strong> — curated long-term context (SOUL.md, USER.md, MEMORY.md)</li>
+      <li><strong>Tool credentials</strong> — API keys and integrations you have configured</li>
+      <li><strong>Session history</strong> — what you've discussed in current and recent chats</li>
+    </ul>
+    
+    <h2>What It Can't See</h2>
+    <ul>
+      <li>Files outside the workspace</li>
+      <li>Your local browser, other open apps</li>
+      <li>Anything you haven't explicitly shared or stored in the workspace</li>
+    </ul>
+    
+    <h2>Why Boundaries Matter</h2>
+    <p>The limits of what your agent can see aren't restrictions. They're a feature.</p>
+    
+    <p>When you know exactly what the agent knows, you start thinking differently about:</p>
+    <ul>
+      <li><strong>What to share</strong> — Not "give it everything" but "what does it actually need to know?"</li>
+      <li><strong>How to organize</strong> — Files in your workspace become a form of communication with your agent (and your future self)</li>
+      <li><strong>What's private</strong> — Some things don't go in the workspace. That boundary teaches you clarity.</li>
+    </ul>
+    
+    <h2>Context Is Collapsible</h2>
+    <p>You can choose how much context to load for any given task. The agent doesn't need to "know" everything all the time — you can point it at specific files or projects as needed.</p>
+    
+    <div class="highlight">This is the first precision practice: Give the agent exactly what it needs. Not more. Not less. This simple discipline teaches you to think clearly about what you actually want.</div>
+    
+    <h2>A Real Example</h2>
+    <p>In a real workspace, you might have:</p>
+    <pre>workspace/
+├── SOUL.md              ← Who I am as an agent
+├── USER.md              ← Who you are
+├── MEMORY.md            ← Curated long-term wisdom
+├── AGENTS.md            ← How we work together
+├── memory/
+│   ├── daily/           ← Session logs
+│   ├── projects/        ← Project-specific notes
+│   └── decisions/       ← Decisions and why
+├── p-projects/          ← Your active projects
+└── archive/             ← Finished work</pre>
+    
+    <p>The agent can see all of this. But notice what's <em>not</em> here: your email, your browser history, your financial documents. You chose the boundary. That choice says something about trust — and about what you're building together.</p>
+    
+    <h2>What This Teaches You</h2>
+    <p>The first time you set this up, take your time. Walk through your workspace folder. Ask yourself:</p>
+    <ul>
+      <li>What does the agent need to understand me?</li>
+      <li>What do I want to keep private?</li>
+      <li>How would I organize this differently if someone else could see it?</li>
+    </ul>
+    
+    <p>These questions aren't technical. They're about clarity. And clarity is where the real work begins.</p>
+    
+    <div class="highlight">The curiosity here: What emerges when you think carefully about what you're willing to share? What does that boundary reveal about how you want to work?</div>
+    
+    <!-- MODULE 02 -->
+    <div class="module-divider">
+      <div class="module-header">Module 02 — First Conversation</div>
     </div>
     
-    <div class="step">
-      <strong>> 03 — Tools: start small</strong>
-      <p>Allow one tool at a time. Give a clear goal and constraints:</p>
-      <pre>Goal: [what]
-Context: [project, files]
-Constraints: [what to avoid]</pre>
+    <p>Your first session sets the tone for the entire partnership. But it's not about getting everything right. It's about showing up honestly.</p>
+    
+    <p><em>Partner is a verb.</em></p>
+    
+    <h2>Here's What Partnering Actually Looks Like</h2>
+    <ul>
+      <li><strong>You share context.</strong> Your agent doesn't know your project, constraints, preferences. You have to tell it. The more you share, the better it gets.</li>
+      <li><strong>You ask it to show its work.</strong> When your agent gives you an answer, ask "how did you get there?" or "what other options did you consider?" This is how you learn how it thinks.</li>
+      <li><strong>Ask it if you are missing anything.</strong> Use it to catch your blind spots and identify your bias.</li>
+      <li><strong>You iterate together.</strong> The first response won't be right. You refine, adjust, get closer. That's the work.</li>
+    </ul>
+    
+    <h2>Your First Real Conversation</h2>
+    <p>Don't ask your agent to solve something. Ask it to explore something with you.</p>
+    
+    <p><strong>Bad:</strong> "Help me organize my notes."</p>
+    
+    <p><strong>Better:</strong> "I have 200 notes scattered across three folders. I work on multiple projects simultaneously. Some notes span multiple projects. I can't find anything, and it's slowing me down. What structure would actually help me?"</p>
+    
+    <p>The second gives your agent the actual problem, not just the surface request. Include:</p>
+    <ul>
+      <li>What you're trying to do</li>
+      <li>What you've already tried</li>
+      <li>What's broken about the current approach</li>
+      <li>Any constraints (time, tools, skill level)</li>
+      <li>What success looks like</li>
+    </ul>
+    
+    <h2>Then Tell It About Yourself</h2>
+    <p>Not your resume. The parts that shape how you work:</p>
+    <ul>
+      <li><strong>Your tempo:</strong> "I like to think through things slowly" or "I move fast and iterate"</li>
+      <li><strong>Your style:</strong> "I prefer short answers unless I ask for more" or "Give me the full context"</li>
+      <li><strong>What matters:</strong> "Accuracy is non-negotiable" or "Speed matters more than perfection"</li>
+      <li><strong>Your technical level:</strong> "I know what CLI is, but not how to use it" or "I am brand new to technology"</li>
+      <li><strong>What you're building:</strong> "I'm learning about X" or "I'm trying to solve Y"</li>
+    </ul>
+    
+    <p>These aren't constraints. They're invitations. They tell the agent who you are.</p>
+    
+    <h2>When It Gets Something Wrong</h2>
+    <p>It will. Good. That's when the partnership actually starts.</p>
+    
+    <p>Say, "Actually, I prefer X" or "That's not quite right — here's why." Watch how the agent responds.</p>
+    
+    <p>If the agent apologizes profusely or gets defensive, tell it you don't want apologies — you want to move forward. Then ask: Where did it log that information? Did it update SOUL.md? If not, ask it to record this behavior. Memory only exists if the agent makes a file. You're learning the rhythm together.</p>
+    
+    <h2>Curiosity as Practice</h2>
+    
+    <p>Curiosity isn't just "being interested." It's a specific set of behaviors:</p>
+    
+    <p>Ask your agent to read the manual for you. Paste a documentation URL and say: "Summarize what this does, then tell me how it applies to my situation. Assume I'm at this experience level." Your agent becomes a research partner.</p>
+    
+    <p>Ask "What am I missing?" when you're stuck. Have your agent look at your setup and tell you what you haven't considered. Fresh pattern-matching on your context often reveals blind spots.</p>
+    
+    <p>Ask it why. Half the time you'll realize you left out crucial context. Half the time you'll catch yourself being stubborn. When it's wrong: Catch it, correct it, move on. Your agent learns from corrections.</p>
+    
+    <p>Ask it to explain. Follow the curiosity where it leads. When your agent mentions something interesting — a concept, a tool, a pattern — ask it to explain. You're not just solving today's problem; you're building your own understanding.</p>
+    
+    <h2>What Slowness Looks Like Here</h2>
+    <p>Don't establish all the rules at once. Show up, do real work, correct as you go. Let the partnership define itself through actual interaction.</p>
+    
+    <p>You're learning how <em>you</em> work with an agent. A system you invent now, before you know your rhythm, will need reimagining later. Start with the work. Let the system emerge from how you actually work together.</p>
+    
+    <!-- MODULE 03 -->
+    <div class="module-divider">
+      <div class="module-header">Module 03 — Workspace</div>
     </div>
     
-    <div class="step">
-      <strong>> 04 — Workspace basics</strong>
-      <ul>
-        <li>Keep project files in a single folder the agent can read.</li>
-        <li>Use a simple structure: <code>project/ → drafts/, final/, archive/</code>.</li>
-        <li>Never auto-publish sensitive files — require explicit confirmation before pushing public repos.</li>
-      </ul>
+    <p>The workspace is where your files live — and what your agent can see and modify. Keep it organized, and the agent can work effectively.</p>
+    
+    <h2>Simple Structure</h2>
+    <p>You don't need complexity. A flat structure with descriptive names often works better than deep folders:</p>
+    <pre>project/
+  drafts/
+  final/
+  archive/</pre>
+    
+    <h2>Naming Conventions</h2>
+    <ul>
+      <li>Use dashes for spaces: <code>my-project-file.md</code></li>
+      <li>Dates as YYYY-MM-DD for sorting</li>
+      <li>Prefix with status: <code>draft-</code>, <code>final-</code>, <code>archive-</code></li>
+    </ul>
+    
+    <h2>What the Agent Can Access</h2>
+    <p>Everything in the workspace folder. But be intentional — don't clutter it with files the agent doesn't need.</p>
+    
+    <div class="highlight">Tip: Keep a <code>README.md</code> in each project with a one-line description of what lives there.</div>
+    
+    <!-- MODULE 04 -->
+    <div class="module-divider">
+      <div class="module-header">Module 04 — Storage Strategy</div>
     </div>
     
-    <div class="step">
-      <strong>> 05 — Communication pattern</strong>
-      <p>Use short commands for routine tasks and one descriptive sentence for new tasks. Ask for progress checks only when needed. Correct the agent concisely — it will learn.</p>
+    <p>Where things live matters. Your agent needs to know where to find persistent data and how to handle backups.</p>
+    
+    <h2>Memory Layers</h2>
+    <ul>
+      <li><strong>Session memory:</strong> What's in the current chat</li>
+      <li><strong>File memory:</strong> What's in the workspace</li>
+      <li><strong>Curated memory:</strong> Long-term context (SOUL.md, USER.md, MEMORY.md)</li>
+    </ul>
+    
+    <h2>Backups</h2>
+    <p>Your agent can push to GitHub. Set up a backup repo and use it for:</p>
+    <ul>
+      <li>End-of-session snapshots</li>
+      <li>Before major changes</li>
+      <li>Archive of completed projects</li>
+    </ul>
+    
+    <div class="highlight">Consider granular tokens in GitHub, instead of classic, to separate personal repos from your backups.</div>
+    
+    <!-- MODULE 05 -->
+    <div class="module-divider">
+      <div class="module-header">Module 05 — Your Toolkit</div>
     </div>
     
-    <div class="step">
-      <strong>> 06 — Sample micro-project</strong>
-      <p>Goal: Create a 1-page summary of a document.</p>
-      <ol>
-        <li>Agent: fetch the document</li>
-        <li>Agent: extract 5 key points</li>
-        <li>Agent: write a 3-sentence summary</li>
-        <li>You: review and mark the process repeatable</li>
-      </ol>
+    <p>Your agent comes with tools. Here's how to use them effectively.</p>
+    
+    <h2>Available Tools</h2>
+    <ul>
+      <li><strong>AgentMail</strong> — Send/receive emails through your agent</li>
+      <li><strong>Whisper</strong> — Voice-to-text for voice memos</li>
+      <li><strong>here.now</strong> — Instant static web hosting</li>
+      <li><strong>GitHub</strong> — Version control and backups</li>
+      <li><strong>Cloudflare Worker</strong> — Custom backend workflows</li>
+    </ul>
+    
+    <h2>Start with One</h2>
+    <p>Don't enable everything at once. Pick one tool, master it, then add the next.</p>
+    
+    <div class="highlight">Pro tip: Each tool should have a clear purpose. If you can't explain why you need it, you probably don't.</div>
+    
+    <!-- MODULE 06 -->
+    <div class="module-divider">
+      <div class="module-header">Module 06 — How to Work Together</div>
     </div>
     
-    <div class="step">
-      <strong>> 07 — Troubleshooting</strong>
-      <ol>
-        <li>Ask the agent to show what it did (logs / commands / files)</li>
-        <li>Re-run with stricter constraints</li>
-        <li>If still failing, stop any publish actions and ask for a short failure report</li>
-      </ol>
+    <p>The best partnerships have rhythm. Here's how to find yours.</p>
+    
+    <h2>Commands vs. Conversations</h2>
+    <ul>
+      <li><strong>Commands:</strong> Short, routine tasks. "Check my emails." "Publish this."</li>
+      <li><strong>Conversations:</strong> New territory. "Here's what I'm trying to do..."</li>
+    </ul>
+    
+    <h2>Feedback Loops</h2>
+    <p>Correct concisely. Don't apologize for corrections — just state what changed:</p>
+    <div class="highlight">"Actually, I prefer X approach. Let's do it that way."</div>
+    
+    <h2>Initiative</h2>
+    <p>Decide: Does the agent propose unprompted, or only act when asked? There's no right answer — but be consistent.</p>
+    
+    <!-- MODULE 07 -->
+    <div class="module-divider">
+      <div class="module-header">Module 07 — Sample Project</div>
     </div>
     
-    <div class="step">
-      <strong>> 08 — Next steps</strong>
-      <p>Add one new tool or module per week. Keep a short "how we work" note in the project root.</p>
+    <p>A concrete example that puts everything together. Follow the steps and see the workflow in action.</p>
+    
+    <h2>Goal</h2>
+    <p>Create a small static site, push it to a GitHub repo, and publish via here.now.</p>
+    
+    <h2>Steps</h2>
+    <ol>
+      <li>Initialize a new folder <code>my-sample</code> with an <code>index.html</code> file.</li>
+      <li>Write a short paragraph introducing the project.</li>
+      <li>Run <code>git init</code> and add the file.</li>
+      <li>Commit with a clear message.</li>
+      <li>Push to the backup repo (confirm before push).</li>
+      <li>Publish the folder with <code>here.now</code> (confirm).</li>
+      <li>Review the live URL and note the <em>wake</em> you leave behind.</li>
+    </ol>
+    
+    <div class="highlight">Tip: Use the same naming convention for folders and GitHub repos to keep the "wake" traceable.</div>
+    
+    <!-- MODULE 08 -->
+    <div class="module-divider">
+      <div class="module-header">Module 08 — Troubleshooting</div>
+    </div>
+    
+    <p>When things go sideways, here's a systematic approach.</p>
+    
+    <h2>Common Issues</h2>
+    <ul>
+      <li><strong>File not found:</strong> Check the path and ensure it's inside the workspace.</li>
+      <li><strong>Permission denied:</strong> Verify file permissions and that the agent has read/write access.</li>
+      <li><strong>Publish fails:</strong> Confirm the target directory is clean and no unsaved changes exist.</li>
+    </ul>
+    
+    <h2>Diagnostic Steps</h2>
+    <ol>
+      <li>Ask the agent to <code>list</code> the workspace contents.</li>
+      <li>Check the <code>.herenow/state.json</code> for recent actions.</li>
+      <li>Review the <code>AGENTS.md</code> and <code>HEARTBEAT.md</code> for any required context refresh.</li>
+    </ol>
+    
+    <div class="highlight">If a step fails, ask for a short error report and then retry with stricter constraints.</div>
+    
+    <!-- NAV -->
+    <div class="nav-links">
+      <a href="index.html" class="back">← back to begin_</a>
+      <a href="modules.html" class="next">view individual modules →</a>
     </div>
     
     <div class="footer">
-      begin_ v1.0 — >how you start shapes where you go_
+      <span>begin_ v1.0 — quickstart</span>
+      <span>>how you start shapes where you go_</span>
     </div>
   </main>
 </body>
