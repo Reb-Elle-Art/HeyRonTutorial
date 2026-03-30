@@ -1,425 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>01 — What You Got | HeyRon Tutorial</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-    :root{
-      --bg:#0a0a0a;
-      --surface:#141414;
-      --surface-highlight:#1e1e1e;
-      --text:#e0e0e0;
-      --text-dim:#707070;
-      --accent:#e8c547;
-      --accent-dim:#c9a73a;
-      --border:#2a2a2a;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'IBM Plex Mono',monospace;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-      font-size:15px;
-    }
-    a{color:inherit;text-decoration:none}
-    
-    body::before{
-      content:"";
-      position:fixed;
-      top:0;left:0;right:0;bottom:0;
-      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
-      pointer-events:none;
-      z-index:999;
-    }
-    
-    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
-    
-    h1{
-      font-size:1.8rem;
-      font-weight:600;
-      margin:0 0 8px;
-    }
-    
-    .prompt-line{
-      color:var(--text-dim);
-      font-size:14px;
-      margin-bottom:32px;
-    }
-    .prompt-line .user{color:var(--accent);font-weight:500}
-    
-    h2{
-      font-size:1.2rem;
-      font-weight:500;
-      margin:28px 0 12px;
-      color:var(--accent);
-    }
-    
-    h3{
-      font-size:1rem;
-      font-weight:500;
-      margin:16px 0 8px;
-      color:var(--text);
-    }
-    
-    p{margin:0 0 16px}
-    li{margin-bottom:8px}
-    
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin:16px 0;
-      font-size:14px;
-    }
-    
-    th,td{
-      text-align:left;
-      padding:12px;
-      border-bottom:1px solid var(--border);
-    }
-    
-    th{font-weight:600;color:var(--accent)}
-    
-    .highlight{
-      color:var(--accent);
-      font-size:14px;
-      margin:16px 0;
-      padding:12px 16px;
-      border-left:3px solid var(--accent);
-      background:rgba(232,197,71,0.05);
-    }
-    
-    code{
-      background:var(--surface-highlight);
-      padding:2px 6px;
-      border-radius:3px;
-      font-size:13px;
-    }
-    
-    .nav-links{
-      display:flex;
-      justify-content:space-between;
-      margin-top:48px;
-      padding-top:24px;
-      border-top:1px solid var(--border);
-    }
-    .nav-links a{color:var(--accent);font-size:13px}
-    .nav-links .next{ margin-left:auto}
-    
-    .footer{
-      margin-top:48px;
-      padding-top:20px;
-      border-top:1px solid var(--border);
-      color:var(--text-dim);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-    }
-    
-    ul,ol{margin:12px 0 12px 24px}
-    
-    /* Navbar */
-    .navbar{
-      position:sticky;
-      top:0;
-      background:var(--bg);
-      border-bottom:1px solid var(--border);
-      padding:16px 24px;
-      z-index:100;
-      backdrop-filter:blur(2px);
-    }
-    .navbar-content{
-      max-width:900px;
-      margin:0 auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      font-size:12px;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .navbar-left{
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .navbar-left a{
-      color:var(--accent);
-      font-weight:500;
-    }
-    .navbar-left a:hover{
-      color:var(--text);
-    }
-    .navbar-left .sep{
-      color:var(--text-dim);
-    }
-    .navbar-center{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
-    .navbar-center a{
-      color:var(--text-dim);
-      font-weight:400;
-    }
-    .navbar-center a:hover{
-      color:var(--text);
-    }
-    .navbar-center a.active{
-      color:var(--accent);
-      font-weight:500;
-    }
-    .navbar-center a.active::before{
-      content:">";
-      color:var(--accent);
-      margin-right:4px;
-      animation:cursor-blink 1s step-end infinite;
-    }
-    @keyframes cursor-blink{50%{opacity:0}}
-    .navbar-right{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin-left:auto;
-    }
-    .navbar-right a{
-      color:var(--text-dim);
-    }
-    .navbar-right a:hover{
-      color:var(--accent);
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>01 — What You Got | HeyRon Tutorial</title>
+ <style>
+ @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
-    /* Cards - clickable content blocks */
-    .card{
-      background:var(--surface);
-      border:1px solid var(--border);
-      padding:24px;
-      border-radius:2px;
-      transition:all 0.2s;
-      cursor:pointer;
-      display:block;
-      margin:16px 0;
-    }
-    .card:hover{
-      border-color:var(--accent-dim);
-      background:var(--surface-highlight);
-    }
-    .card h3{
-      margin:0 0 8px;
-      font-size:1.1rem;
-      font-weight:500;
-      color:var(--text);
-    }
-    .card p{
-      margin:0;
-      color:var(--text);
-      font-size:13px;
-    }
-    }
-  </style>
+ :root {
+ --bg: #0a0a0a;
+ --surface: #141414;
+ --surface-highlight: #1e1e1e;
+ --text: #e0e0e0;
+ --text-dim: #707070;
+ --accent: #e8c547;
+ --accent-dim: #c9a73a;
+ --border: #2a2a2a;
+ }
+
+ * {
+ box-sizing: border-box
+ }
+
+ body {
+ margin: 0;
+ font-family: 'IBM Plex Mono', monospace;
+ background: var(--bg);
+ color: var(--text);
+ line-height: 1.6;
+ font-size: 15px;
+ }
+
+ a {
+ color: inherit;
+ text-decoration: none
+ }
+
+ body::before {
+ content: "";
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
+ pointer-events: none;
+ z-index: 999;
+ }
+
+ .wrap {
+ max-width: 700px;
+ margin: 0 auto;
+ padding: 60px 24px
+ }
+
+ h1 {
+ font-size: 1.8rem;
+ font-weight: 600;
+ margin: 0 0 8px;
+ }
+
+ .prompt-line {
+ color: var(--text-dim);
+ font-size: 14px;
+ margin-bottom: 32px;
+ }
+
+ .prompt-line .user {
+ color: var(--accent);
+ font-weight: 500
+ }
+
+ h2 {
+ font-size: 1.2rem;
+ font-weight: 500;
+ margin: 28px 0 12px;
+ color: var(--accent);
+ }
+
+ p {
+ margin: 0 0 16px
+ }
+
+ li {
+ margin-bottom: 8px
+ }
+
+ .highlight {
+ color: var(--accent);
+ font-size: 14px;
+ margin: 16px 0;
+ padding: 12px 16px;
+ border-left: 3px solid var(--accent);
+ background: rgba(232, 197, 71, 0.05);
+ }
+
+ code {
+ background: var(--surface-highlight);
+ padding: 2px 6px;
+ border-radius: 3px;
+ font-size: 13px;
+ }
+
+ .nav-links {
+ display: flex;
+ justify-content: space-between;
+ margin-top: 48px;
+ padding-top: 24px;
+ border-top: 1px solid var(--border);
+ }
+
+ .nav-links a {
+ color: var(--accent);
+ font-size: 13px
+ }
+
+ .nav-links .next {
+ margin-left: auto
+ }
+
+ .footer {
+ margin-top: 48px;
+ padding-top: 20px;
+ border-top: 1px solid var(--border);
+ color: var(--text-dim);
+ font-size: 12px;
+ display: flex;
+ justify-content: space-between;
+ }
+
+ ul,
+ ol {
+ margin: 12px 0 12px 24px
+ }
+
+ /* Navbar */
+ .navbar {
+ position: sticky;
+ top: 0;
+ background: var(--bg);
+ border-bottom: 1px solid var(--border);
+ padding: 16px 24px;
+ z-index: 100;
+ backdrop-filter: blur(2px);
+ }
+
+ .navbar-content {
+ max-width: 900px;
+ margin: 0 auto;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ font-size: 12px;
+ gap: 12px;
+ flex-wrap: wrap;
+ }
+
+ .navbar-left {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+
+ .navbar-left a {
+ color: var(--accent);
+ font-weight: 500;
+ }
+
+ .navbar-left a:hover {
+ color: var(--text);
+ }
+
+ .navbar-left .sep {
+ color: var(--text-dim);
+ }
+
+ .navbar-left .tutorial-link {
+ color: var(--text-dim);
+ }
+
+ .navbar-left .tutorial-link:hover {
+ color: var(--accent);
+ }
+
+ .navbar-center {
+ display: flex;
+ gap: 8px;
+ align-items: center;
+ }
+
+ .navbar-center a {
+ color: var(--text-dim);
+ font-weight: 400;
+ }
+
+ .navbar-center a:hover {
+ color: var(--text);
+ }
+
+ .navbar-center a.active {
+ color: var(--accent);
+ font-weight: 500;
+ }
+
+ .navbar-center a.active::before {
+ content: ">";
+ color: var(--accent);
+ margin-right: 4px;
+ animation: cursor-blink 1s step-end infinite;
+ }
+
+ @keyframes cursor-blink {
+ 50% {
+ opacity: 0
+ }
+ }
+
+ .navbar-right {
+ display: flex;
+ gap: 12px;
+ align-items: center;
+ margin-left: auto;
+ }
+
+ .navbar-right a {
+ color: var(--text-dim);
+ }
+
+ .navbar-right a:hover {
+ color: var(--accent);
+ }
+ </style>
 </head>
+
 <body>
-  <nav class="navbar">
-    <div class="navbar-content">
-      <div class="navbar-left">
-        <a href="index.html">heyron@partner</a>
-        <span class="sep">></span>
-        <a href="00-Tutorial.html" class="tutorial-link">tutorial</a>
-      </div>
-      <div class="navbar-center">
-        <a href="01-what-you-got.html" class="active">01</a>
-        <a href="02-first-conversation.html">02</a>
-        <a href="03-workspace.html">03</a>
-        <a href="04-storage-strategy.html">04</a>
-        <a href="05-your-toolkit.html">05</a>
-        <a href="06-sample-project.html">06</a>
-      </div>
-      <div class="navbar-right">
-        <a href="quickstart-v2.html">QuickStart</a>
-        <a href="tooling-index.html">Tools</a>
-      </div>
-    </div>
-  </nav>
-  <main class="wrap">
-    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~load-module what-you-got</span></div>
-    
-    <h1>01 What You Actually Got_</h1>
-    
-    <p>A lot more — and a lot less — than you think.</p>
+ <nav class="navbar">
+ <div class="navbar-content">
+ <div class="navbar-left">
+ <a href="index.html">heyron@partner</a>
+ <span class="sep">></span>
+ <a href="00-Tutorial.html" class="tutorial-link">tutorial</a>
+ </div>
+ <div class="navbar-center">
+ <a href="01-what-you-got.html" class="active">01</a>
+ <a href="02-what-your-agent-can-do.html">02</a>
+ <a href="03-first-conversation.html">03</a>
+ <a href="04-workspace.html">04</a>
+ <a href="05-storage-strategy.html">05</a>
+ <a href="06-sample-project.html">06</a>
+ </div>
+ <div class="navbar-right">
+ <a href="quickstart-v2.html">QuickStart</a>
+ <a href="tooling-index.html">Tools</a>
+ </div>
+ </div>
+ </nav>
+ <main class="wrap">
+ <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~load-module what-you-got</span></div>
 
-<h2>The Unboxing</h2>
+ <h1>01 What You Actually Got_</h1>
 
-<p>You signed up. You paid $29. You got a link to your dashboard. You might have chatted with it a little, maybe asked it something, maybe configured a personality file.</p>
+ <p>A lot more — and a lot less — than you think.</p>
 
-<p>And now you're looking at this thing, wondering: <em>Okay, but what is this, actually?</em></p>
+ <h2>The Unboxing</h2>
 
-<p>Here's the honest answer:</p>
+ <p>You signed up. You got access. You might have chatted with it a little, maybe asked it something, maybe read a few files.</p>
 
-<p><strong>You got a teammate who is extremely capable and extremely literal.</strong> That's it. That's the whole thing.</p>
+ <p>And now you're looking at this thing, wondering: <em>Okay, but what is this, actually?</em></p>
 
-<p>Not a magic box. Not a chatbot. Not a faster Google. You got a person — kind of — who works alongside you. They remember what you tell them. They organize what you give them. They get better at working with you the more you work together.</p>
+ <p>Here's the honest answer:</p>
 
-<p>But they can't read your mind. They don't know what you want until you tell them. And if you treat them like a tool, they'll act like a tool. If you treat them like a partner, they'll act like a partner.</p>
+ <p><strong>You got a teammate who is extremely capable and extremely literal.</strong> That's it. That's the whole thing.</p>
 
-<p>Your call.</p>
+ <p>Not a magic box. Not a chatbot. Not a faster Google. You got a partner — kind of — who works alongside you. They remember what you tell them. They organize what you give them. They get better at working with you the more you work together.</p>
 
-<h2>What You Actually Have</h2>
+ <p>But they can't read your mind. They don't know what you want until you tell them. And if you treat them like a tool, they'll act like a tool. If you treat them like a partner, they'll act like a partner.</p>
 
-<p>Your agent is:</p>
+ <p>Your call.</p>
 
-<ul>
-  <li><strong>Smart at pattern-matching</strong> — It can parse documentation, find connections, spot patterns you might miss</li>
-  <li><strong>Fast</strong> — It processes information quicker than you can read it</li>
-  <li><strong>Patient</strong> — It won't get bored, tired, or frustrated with iteration</li>
-  <li><strong>Contextual</strong> — The more you tell it, the better it gets</li>
-  <li><strong>Not a replacement for you</strong> — It's a collaborator, not a substitute for thought</li>
-</ul>
+ <h2>What You Actually Have</h2>
 
-<h2>The Better Way</h2>
+ <p>Your agent is:</p>
 
-<p>Think of it like hiring a new collaborator. Smart, eager, but doesn't know your context yet.</p>
+ <ul>
+ <li><strong>Smart at pattern-matching</strong> — It can parse documentation, find connections, spot patterns you might miss</li>
+ <li><strong>Fast</strong> — It processes information quicker than you can read it</li>
+ <li><strong>Patient</strong> — It won't get bored, tired, or frustrated with iteration</li>
+ <li><strong>Contextual</strong> — The more you tell it, the better it gets</li>
+ <li><strong>Not a replacement for you</strong> — It's a collaborator, not a substitute for thought</li>
+ </ul>
 
-<p>You wouldn't dump a complex project in hour one. You'd:</p>
+ <p>Think of it like hiring a new collaborator. Smart and eager, but you wouldn't dump a complex project in hour one. You might:</p>
 
-<ul>
-  <li>Get to know each other</li>
-  <li>Establish how you communicate</li>
-  <li>Build some trust through small wins</li>
-  <li>Then tackle meaningful work together</li>
-</ul>
+ <ul>
+ <li>Get to know each other</li>
+ <li>Establish how you communicate</li>
+ <li>Build some trust through small wins</li>
+ <li>Then tackle meaningful work together</li>
+ </ul>
 
-<p>That's what this guide is about. Moving from "tool I use" to "partner I work with."</p>
+ <div class="highlight"><p>That's what this guide is about. Moving from "tool I use" to "partner I work with."</p></div>
 
-<div class="highlight">
-  <strong>What This Takes</strong><br>
-  <strong>Curiosity</strong> — Willing to explore how your agent thinks<br>
-  <strong>Openness</strong> — Trying approaches you didn't think of<br>
-  <strong>Clarity</strong> — Being specific about what you actually need<br>
-  <strong>Iteration</strong> — Accepting that v1 won't be perfect<br>
-  <strong>Patience</strong> — A working relationship takes a few conversations
-</div>
+ <h2>What You Actually Need</h2>
 
-<h2>What Your Agent Can Do (Without Adding Anything)</h2>
+ <p><strong>Curiosity</strong> — A willingness to explore how your agent thinks</p>
+ <p><strong>Openness</strong> — Trying approaches you didn't think of</p>
+ <p><strong>Clarity</strong> — Being specific about what you actually need</p>
+ <p><strong>Iteration</strong> — Accepting that v1 won't be perfect</p>
+ <p><strong>Patience</strong> — A working relationship takes a few conversations</p>
 
-<p>Here's the thing: your agent doesn't come with everything enabled. Out of the box, it can talk, read, and write. That's the baseline. What it <em>can</em> do depends on what's connected.</p>
+ <h2>The First Shift</h2>
 
-<p>But there's a foundation that works without extra setup:</p>
+ <p>If you've used ChatGPT or Claude, you have to unlearn something here.</p>
 
-<h3>Core Capabilities (Built-In)</h3>
+ <p><strong>This isn't a prompt-and-response machine.</strong> You're not writing prompts. You're having a conversation. You're building a working relationship.</p>
 
-<p>These are the fundamental "organs" — always available through your configuration:</p>
+ <p>Think of it like hiring someone:</p>
 
-<table>
-  <tr>
-    <th>What It Is</th>
-    <th>What It Does</th>
-  </tr>
-  <tr>
-    <td><strong>File Operations</strong></td>
-    <td>Read, write, edit, and organize files in your workspace</td>
-  </tr>
-  <tr>
-    <td><strong>Execution</strong></td>
-    <td>Run shell commands when needed (handled carefully)</td>
-  </tr>
-  <tr>
-    <td><strong>Web Search</strong></td>
-    <td>Search the web using Brave API</td>
-  </tr>
-  <tr>
-    <td><strong>Web Fetch</strong></td>
-    <td>Pull content from URLs — paste a link, ask about it, your agent reads it</td>
-  </tr>
-  <tr>
-    <td><strong>Browser Control</strong></td>
-    <td>Interact with web pages — click, type, take screenshots</td>
-  </tr>
-  <tr>
-    <td><strong>Image Analysis</strong></td>
-    <td>Analyze images you upload — describe, extract, answer questions</td>
-  </tr>
-</table>
+ <ul>
+ <li>You wouldn't send them an email that says "help me" and expect miracles</li>
+ <li>You wouldn't expect them to know your business without onboarding</li>
+ <li>You'd expect to correct them when they get something wrong</li>
+ <li>You'd expect to get better at working together over time</li>
+ </ul>
 
-<div class="highlight">
-  <strong>The Honest Limits</strong><br>
-  Your agent can't see your screen (unless you show it something), doesn't know what time it is (you have to tell it), won't ask questions unless you ask first, and won't remember between sessions unless you build that memory. Every "failure" mode comes back to one of these. It's not stubborn — it's waiting for you to be precise.
-</div>
+ <p>Same deal here.</p>
 
-<h3>Skills — The Extra Knowledge</h3>
+ <h2>Ready? Let's Go.</h2>
 
-<p>Beyond the core, your agent comes with knowledge about how to do things. We call these <strong>skills</strong> — they're like manuals that teach your agent different workflows.</p>
+ <p>Before we move on, three things to hold:</p>
 
-<p>Some skills auto-load when the right tool is present:</p>
+ <ol>
+ <li><strong>Curiosity over optimization.</strong> Don't try to make this efficient before you understand it. Play first, optimize later.</li>
+ <li><strong>Precision over speed.</strong> The clearer you are about what you actually want, the better this works. Vague in, vague out.</li>
+ <li><strong>This takes two.</strong> Your agent is half the equation. You're the other half. Neither one succeeds alone.</li>
+ </ol>
 
-<ul>
-  <li><strong>Weather</strong> — curl-based weather lookups (wttr.in)</li>
-  <li><strong>GitHub</strong> — if the <code>gh</code> CLI is installed</li>
-  <li><strong>Health Check</strong> — system health diagnostics</li>
-  <li><strong>Skill Creator</strong> — helpers for building new skills</li>
-</ul>
+ <p>Next up: what your agent can actually do — the skills and capabilities it comes with.</p>
 
-<p>But here's the key distinction:</p>
+ <div class="nav-links">
+ <a href="index.html" class="back">← index</a>
+ <a href="02-what-your-agent-can-do.html" class="next">next: What Your Agent Can Do →</a>
+ </div>
 
-<div class="highlight">
-  <strong>Tools ≠ Skills</strong><br>
-  <strong>Tools</strong> are permissions — what your agent <em>can</em> do (enabled in config).<br>
-  <strong>Skills</strong> are knowledge — what your agent <em>knows how</em> to do (auto-load if installed).<br>
-  A skill is a manual, not a permission. Knowing how to use GitHub doesn't mean it can — you still need to connect your account.
-</div>
-
-<h3>What Requires Extra Setup</h3>
-
-<p>These are the things that need explicit connection:</p>
-
-<ul>
-  <li><strong>Discord</strong> — Connect via OAuth to chat in your server</li>
-  <li><strong>Email</strong> — Connect via gog (Google Workspace) or himalaya (IMAP)</li>
-  <li><strong>GitHub</strong> — Connect with a personal access token for file persistence</li>
-  <li><strong>Voice</strong> — Set up text-to-speech for voice replies</li>
-</ul>
-
-<p>We'll walk through connecting each of these in later modules. For now, know that the foundation is solid — everything else is additive.</p>
-
-<h2>The First Shift</h2>
-
-<p>If you've used ChatGPT or Claude, you have to unlearn something here.</p>
-
-<p><strong>This isn't a prompt-and-response machine.</strong> You're not writing prompts. You're having a conversation. You're building a working relationship.</p>
-
-<p>Think of it like hiring someone:</p>
-
-<ul>
-  <li>You wouldn't send them an email that says "help me" and expect miracles</li>
-  <li>You wouldn't expect them to know your business without onboarding</li>
-  <li>You'd expect to correct them when they get something wrong</li>
-  <li>You'd expect to get better at working together over time</li>
-</ul>
-
-<p>Same deal here.</p>
-
-<h2>Ready? Let's Go.</h2>
-
-<p>Before we move on, three things to hold:</p>
-
-<ol>
-  <li><strong>Curiosity over optimization.</strong> Don't try to make this efficient before you understand it. Play first, optimize later.</li>
-  <li><strong>Precision over speed.</strong> The clearer you are about what you actually want, the better this works. Vague in, vague out.</li>
-  <li><strong>This takes two.</strong> Your agent is half the equation. You're the other half. Neither one succeeds alone.</li>
-</ol>
-
-<p>Next up: the first conversation — the onboarding that teaches your agent who you are.</p>
-
-    <div class="nav-links">
-      <a href="index.html" class="back">← index</a>
-      <a href="02-first-conversation.html" class="next">next: The First Conversation →</a>
-    </div>
-    
-    <div class="footer">
-      <span>begin_ v1.0</span>
-      <span>>how you start shapes where you go_</span>
-    </div>
-  </main>
+ <div class="footer">
+ <span>begin_ v1.0</span>
+ <span>>how you start shapes where you go_</span>
+ </div>
+ </main>
 </body>
+
 </html>
+
+
