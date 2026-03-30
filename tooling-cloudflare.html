@@ -1,61 +1,290 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tool: Cloudflare Platform</title>
-  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;padding:20px;max-width:860px;margin:0 auto;color:#111}h1{margin-bottom:6px}pre{background:#f7fafc;padding:12px;border-radius:8px;border:1px solid #e6eef6;overflow:auto}</style>
+  <title>Cloudflare Worker Setup — begin_</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+    :root{
+      --bg:#0a0a0a;
+      --surface:#141414;
+      --surface-highlight:#1e1e1e;
+      --text:#e0e0e0;
+      --text-dim:#707070;
+      --accent:#e8c547;
+      --accent-dim:#c9a73a;
+      --border:#2a2a2a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'IBM Plex Mono',monospace;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      font-size:15px;
+    }
+    a{color:inherit;text-decoration:none}
+    
+    body::before{
+      content:"";
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
+      pointer-events:none;
+      z-index:999;
+    }
+    
+    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
+    
+    h1{
+      font-size:1.8rem;
+      font-weight:600;
+      margin:0 0 8px;
+    }
+    
+    .prompt-line{
+      color:var(--text-dim);
+      font-size:14px;
+      margin-bottom:32px;
+    }
+    .prompt-line .user{color:var(--accent);font-weight:500}
+    
+    h2{
+      font-size:1.2rem;
+      font-weight:500;
+      margin:28px 0 12px;
+      color:var(--accent);
+    }
+    
+    h3{
+      font-size:1rem;
+      font-weight:500;
+      margin:16px 0 8px;
+      color:var(--accent-dim);
+    }
+    
+    p{margin:0 0 16px}
+    li{margin-bottom:8px}
+    ol{padding-left:20px}
+    ul{padding-left:20px}
+    
+    .meta{
+      background:var(--surface);
+      border:1px solid var(--border);
+      padding:16px;
+      margin:24px 0;
+      border-left:3px solid var(--accent);
+    }
+    
+    .meta-item{
+      margin-bottom:8px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    
+    .meta-item strong{
+      color:var(--accent);
+      min-width:80px;
+    }
+    
+    .code-block{
+      background:var(--surface-highlight);
+      border:1px solid var(--border);
+      padding:12px;
+      margin:12px 0;
+      overflow-x:auto;
+      font-size:13px;
+      color:var(--accent);
+    }
+    
+    .highlight{
+      color:var(--accent);
+      font-size:14px;
+      margin:16px 0;
+      padding:12px 16px;
+      border-left:3px solid var(--accent);
+      background:rgba(232,197,71,0.05);
+    }
+    
+    code{background:var(--surface-highlight);padding:2px 6px;font-size:13px}
+    
+    .nav-links{
+      display:flex;
+      justify-content:space-between;
+      margin-top:48px;
+      padding-top:24px;
+      border-top:1px solid var(--border);
+    }
+    .nav-links a{color:var(--accent);font-size:13px}
+    
+    .footer{
+      margin-top:48px;
+      padding-top:20px;
+      border-top:1px solid var(--border);
+      color:var(--text-dim);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+    }
+
+    /* Navbar */
+    .navbar{
+      position:sticky;
+      top:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
+      padding:16px 24px;
+      z-index:100;
+      backdrop-filter:blur(2px);
+    }
+    .navbar-content{
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:12px;
+      gap:12px;
+    }
+    .navbar-left{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .navbar-left a{
+      color:var(--accent);
+      font-weight:500;
+    }
+    .navbar-left a:hover{
+      color:var(--text);
+    }
+    .navbar-left .sep{
+      color:var(--text-dim);
+    }
+    .navbar-left .tutorial-link{
+      color:var(--text-dim);
+    }
+    .navbar-left .tutorial-link:hover{
+      color:var(--accent);
+    }
+    .navbar-right{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .navbar-right a{
+      color:var(--text-dim);
+    }
+    .navbar-right a:hover{
+      color:var(--accent);
+    }
+  </style>
 </head>
 <body>
-  <h1>Cloudflare Platform — Overview & Setup</h1>
-  <p>Purpose: Edge serverless hosting, Workers, Pages, KV, Durable Objects, and secrets management for agent tooling.</p>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="navbar-left">
+        <a href="index.html">heyron@partner</a>
+        <span class="sep">></span>
+        <a href="tooling-index.html" class="tutorial-link">tools</a>
+      </div>
+      <div class="navbar-right">
+        <a href="index.html">back</a>
+      </div>
+    </div>
+  </nav>
 
-  <h2>Skill</h2>
-  <p>Intermediate → Advanced</p>
-
-  <h2>Estimated time</h2>
-  <p>15–60 minutes depending on services used</p>
-
-  <h2>What this card covers</h2>
-  <ul>
-    <li>Workers (serverless functions)</li>
-    <li>Pages (static hosting + functions)</li>
-    <li>KV and Durable Objects (storage options)</li>
-    <li>Secrets and Wrangler usage</li>
-  </ul>
-
-  <h2>Quick setup checklist</h2>
-  <ol>
-    <li>Create a Cloudflare account and a Worker/Pages project.</li>
-    <li>Install Wrangler (or use Cloudflare Dashboard) — example install:
-      <pre>npm install -g wrangler</pre>
-    </li>
-    <li>Store secrets locally using Wrangler:
-      <pre>npx wrangler secret put CLAUDE_API_KEY</pre>
-    </li>
-    <li>Deploy the Worker:
-      <pre>npx wrangler deploy</pre>
-    </li>
-    <li>Use KV for simple key/value storage and Durable Objects for stronger consistency/use cases.</li>
-  </ol>
-
-  <h2>Verification</h2>
-  <p>Call the deployed Worker URL (or use /api/health endpoints) to confirm the service is responding.</p>
-
-  <h2>Notes & best practices</h2>
-  <ul>
-    <li>Secrets: Use Wrangler secrets rather than committing env files.</li>
-    <li>Permissions: Create API tokens with minimum required scopes for automation.</li>
-    <li>Local dev: Use Wrangler dev for local testing before deploy.</li>
-    <li>Cost/limits: Workers have limits — check Cloudflare docs for CPU and request limits at the edge.</li>
-  </ul>
-
-  <h2>Troubleshooting</h2>
-  <ul>
-    <li>Deploy fails: confirm account, zone, and API token scopes.</li>
-    <li>Secrets not available: ensure they were added to the correct environment in Wrangler.</li>
-  </ul>
-
-  <p><a href="tooling-index.html">← Back to Tools</a></p>
+  <main class="wrap">
+    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~tool-setup cloudflare-worker</span></div>
+    
+    <h1>Cloudflare Worker Setup_</h1>
+    
+    <p>Serverless backend for custom workflows. Handle API calls, data processing, and automation between tools without managing servers.</p>
+    
+    <div class="meta">
+      <div class="meta-item">
+        <strong>Skill Level</strong>
+        <span>Advanced</span>
+      </div>
+      <div class="meta-item">
+        <strong>Time</strong>
+        <span>15–30 minutes</span>
+      </div>
+      <div class="meta-item">
+        <strong>Cost</strong>
+        <span>Free tier available (100k requests/day)</span>
+      </div>
+      <div class="meta-item">
+        <strong>Docs</strong>
+        <a href="https://developers.cloudflare.com/workers/" style="color:var(--accent)">developers.cloudflare.com/workers</a>
+      </div>
+    </div>
+    
+    <h2>What It Does</h2>
+    <p>Cloudflare Workers let your agent:</p>
+    <ul>
+      <li>Run custom JavaScript code in response to HTTP requests</li>
+      <li>Process data transformations without a server</li>
+      <li>Bridge APIs together (e.g., receive data from service A, transform it, send to service B)</li>
+      <li>Create custom webhooks and automations</li>
+      <li>Deploy instantly with no infrastructure overhead</li>
+    </ul>
+    
+    <h2>Installation Steps</h2>
+    
+    <h3>1. Create a Cloudflare Account</h3>
+    <p>Sign up at <code>cloudflare.com</code>. The free tier is sufficient for most workflows.</p>
+    
+    <h3>2. Create Your First Worker</h3>
+    <p>In the Cloudflare dashboard, go to Workers & Pages and click "Create Application". Choose "Create Worker".</p>
+    
+    <h3>3. Generate an API Token</h3>
+    <p>Go to your account settings and create a new API token with Workers permissions. Add it to <code>.env</code>:</p>
+    <div class="code-block">CLOUDFLARE_TOKEN=your_token_here
+CLOUDFLARE_ACCOUNT_ID=your_account_id</div>
+    
+    <h3>4. Deploy a Test Worker</h3>
+    <p>Ask your agent to deploy a simple worker:</p>
+    <div class="code-block">Deploy a Cloudflare Worker that returns "Hello from the edge"</div>
+    <p>Your agent will provide a URL. Visit it to verify deployment.</p>
+    
+    <h2>Common Patterns</h2>
+    <ul>
+      <li><strong>Data transformation:</strong> Receive JSON, transform it, return modified version</li>
+      <li><strong>API gateway:</strong> Proxy requests and add authentication or logging</li>
+      <li><strong>Scheduled tasks:</strong> Trigger periodic jobs (backups, digests, cleanup)</li>
+      <li><strong>Webhooks:</strong> Receive events from external services and process them</li>
+    </ul>
+    
+    <h2>Verification</h2>
+    <p>Successful setup means:</p>
+    <ul>
+      <li>Your Cloudflare account is active</li>
+      <li>Your agent can deploy workers without errors</li>
+      <li>Workers respond correctly to HTTP requests</li>
+      <li>Logs are visible in the Cloudflare dashboard</li>
+    </ul>
+    
+    <h2>Troubleshooting</h2>
+    <ul>
+      <li><strong>Authentication failed:</strong> Verify your API token has Workers permissions.</li>
+      <li><strong>Worker not responding:</strong> Check the worker code for errors; review logs in the dashboard.</li>
+      <li><strong>Timeout errors:</strong> Workers have a 30-second timeout; optimize your code or use background jobs.</li>
+    </ul>
+    
+    <div class="highlight">💡 Tip: Start simple. A worker that just echoes input teaches you the basics. Gradually add complexity—transformations, API calls, database operations.</div>
+    
+    <div class="nav-links">
+      <a href="tooling-index.html">← back to tools</a>
+    </div>
+    
+    <div class="footer">
+      <span>begin_ v1.0</span>
+      <span>>how you start shapes where you go_</span>
+    </div>
+  </main>
 </body>
 </html>

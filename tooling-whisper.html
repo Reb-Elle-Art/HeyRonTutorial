@@ -1,41 +1,286 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tool: Whisper (t-whisper)</title>
-  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;padding:20px;max-width:760px;margin:0 auto;color:#111}h1{margin-bottom:6px}pre{background:#f7fafc;padding:12px;border-radius:8px;border:1px solid #e6eef6}</style>
+  <title>Whisper Setup — begin_</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+    :root{
+      --bg:#0a0a0a;
+      --surface:#141414;
+      --surface-highlight:#1e1e1e;
+      --text:#e0e0e0;
+      --text-dim:#707070;
+      --accent:#e8c547;
+      --accent-dim:#c9a73a;
+      --border:#2a2a2a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'IBM Plex Mono',monospace;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      font-size:15px;
+    }
+    a{color:inherit;text-decoration:none}
+    
+    body::before{
+      content:"";
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
+      pointer-events:none;
+      z-index:999;
+    }
+    
+    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
+    
+    h1{
+      font-size:1.8rem;
+      font-weight:600;
+      margin:0 0 8px;
+    }
+    
+    .prompt-line{
+      color:var(--text-dim);
+      font-size:14px;
+      margin-bottom:32px;
+    }
+    .prompt-line .user{color:var(--accent);font-weight:500}
+    
+    h2{
+      font-size:1.2rem;
+      font-weight:500;
+      margin:28px 0 12px;
+      color:var(--accent);
+    }
+    
+    h3{
+      font-size:1rem;
+      font-weight:500;
+      margin:16px 0 8px;
+      color:var(--accent-dim);
+    }
+    
+    p{margin:0 0 16px}
+    li{margin-bottom:8px}
+    ol{padding-left:20px}
+    ul{padding-left:20px}
+    
+    .meta{
+      background:var(--surface);
+      border:1px solid var(--border);
+      padding:16px;
+      margin:24px 0;
+      border-left:3px solid var(--accent);
+    }
+    
+    .meta-item{
+      margin-bottom:8px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    
+    .meta-item strong{
+      color:var(--accent);
+      min-width:80px;
+    }
+    
+    .code-block{
+      background:var(--surface-highlight);
+      border:1px solid var(--border);
+      padding:12px;
+      margin:12px 0;
+      overflow-x:auto;
+      font-size:13px;
+      color:var(--accent);
+    }
+    
+    .highlight{
+      color:var(--accent);
+      font-size:14px;
+      margin:16px 0;
+      padding:12px 16px;
+      border-left:3px solid var(--accent);
+      background:rgba(232,197,71,0.05);
+    }
+    
+    code{background:var(--surface-highlight);padding:2px 6px;font-size:13px}
+    
+    .nav-links{
+      display:flex;
+      justify-content:space-between;
+      margin-top:48px;
+      padding-top:24px;
+      border-top:1px solid var(--border);
+    }
+    .nav-links a{color:var(--accent);font-size:13px}
+    
+    .footer{
+      margin-top:48px;
+      padding-top:20px;
+      border-top:1px solid var(--border);
+      color:var(--text-dim);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+    }
+
+    /* Navbar */
+    .navbar{
+      position:sticky;
+      top:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
+      padding:16px 24px;
+      z-index:100;
+      backdrop-filter:blur(2px);
+    }
+    .navbar-content{
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:12px;
+      gap:12px;
+    }
+    .navbar-left{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .navbar-left a{
+      color:var(--accent);
+      font-weight:500;
+    }
+    .navbar-left a:hover{
+      color:var(--text);
+    }
+    .navbar-left .sep{
+      color:var(--text-dim);
+    }
+    .navbar-left .tutorial-link{
+      color:var(--text-dim);
+    }
+    .navbar-left .tutorial-link:hover{
+      color:var(--accent);
+    }
+    .navbar-right{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .navbar-right a{
+      color:var(--text-dim);
+    }
+    .navbar-right a:hover{
+      color:var(--accent);
+    }
+  </style>
 </head>
 <body>
-  <h1>Whisper — Setup</h1>
-  <p>Purpose: Speech‑to‑text for voice memos, meeting notes, and subtitles. Uses local venv and wrapper scripts.</p>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="navbar-left">
+        <a href="index.html">heyron@partner</a>
+        <span class="sep">></span>
+        <a href="tooling-index.html" class="tutorial-link">tools</a>
+      </div>
+      <div class="navbar-right">
+        <a href="index.html">back</a>
+      </div>
+    </div>
+  </nav>
 
-  <h2>Skill</h2>
-  <p>Intermediate</p>
-
-  <h2>Estimated time</h2>
-  <p>15–45 minutes (model download time varies)</p>
-
-  <h2>Setup</h2>
-  <ol>
-    <li>Install or recreate the virtual environment:
-      <pre>bash t-whisper/install.sh</pre>
-    </li>
-    <li>Transcribe an audio file with the wrapper:
-      <pre>./t-whisper/transcribe.sh audio.mp3</pre>
-    </li>
-    <li>Adjust model and format options as needed (small/medium/large; output formats: txt, srt, vtt).</li>
-  </ol>
-
-  <h2>Verification</h2>
-  <p>Check <code>/root/.openclaw/workspace/x-temp/whisper-output/</code> for output files and confirm the transcript looks correct.</p>
-
-  <h2>Troubleshooting</h2>
-  <ul>
-    <li>Model download fails: ensure network access and enough disk space.</li>
-    <li>GPU issues: confirm CUDA drivers if using GPU acceleration.</li>
-  </ul>
-
-  <p><a href="tooling-index.html">← Back to Tools</a></p>
+  <main class="wrap">
+    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~tool-setup whisper</span></div>
+    
+    <h1>Whisper Setup_</h1>
+    
+    <p>Voice-to-text transcription. Send voice memos and let your agent turn them into notes, summaries, or actionable items. Perfect for hands-free input.</p>
+    
+    <div class="meta">
+      <div class="meta-item">
+        <strong>Skill Level</strong>
+        <span>Beginner</span>
+      </div>
+      <div class="meta-item">
+        <strong>Time</strong>
+        <span>5–10 minutes</span>
+      </div>
+      <div class="meta-item">
+        <strong>Cost</strong>
+        <span>Free (with rate limits)</span>
+      </div>
+      <div class="meta-item">
+        <strong>Docs</strong>
+        <a href="https://openai.com/research/whisper" style="color:var(--accent)">openai.com/research/whisper</a>
+      </div>
+    </div>
+    
+    <h2>What It Does</h2>
+    <p>Whisper enables:</p>
+    <ul>
+      <li>Send voice messages and have them automatically transcribed</li>
+      <li>Convert voice memos into searchable text</li>
+      <li>Dictate notes while driving, cooking, or away from keyboard</li>
+      <li>Let your agent process voice input as naturally as text</li>
+    </ul>
+    
+    <h2>Installation Steps</h2>
+    
+    <h3>1. Get an OpenAI API Key (if needed)</h3>
+    <p>Visit <code>platform.openai.com</code>, sign up, and generate an API key in your account settings.</p>
+    
+    <h3>2. Add Your API Key to .env</h3>
+    <p>Store your key in the workspace <code>.env</code>:</p>
+    <div class="code-block">OPENAI_API_KEY=sk-your_key_here</div>
+    
+    <h3>3. Configure Whisper Integration</h3>
+    <p>Your agent should already have Whisper support. Test it by sending a voice message (if your platform supports audio upload).</p>
+    
+    <h3>4. Test Transcription</h3>
+    <p>Send a short voice memo. Your agent should respond with the transcribed text:</p>
+    <div class="code-block">Voice memo: "Remember to review the project report"</div>
+    <p>Agent responds: "Transcribed: 'Remember to review the project report'"</p>
+    
+    <h2>Best Practices</h2>
+    <ul>
+      <li><strong>Keep memos focused:</strong> Short, clear voice notes work better than rambling.</li>
+      <li><strong>Speak clearly:</strong> Whisper handles accents well, but clarity helps.</li>
+      <li><strong>Provide context:</strong> Say "add to todo:" or "remember that:" to guide the agent.</li>
+    </ul>
+    
+    <h2>Verification</h2>
+    <p>Successful setup means:</p>
+    <ul>
+      <li>Voice files are uploaded successfully</li>
+      <li>Transcriptions are accurate and timely</li>
+      <li>Your agent can parse and respond to transcribed content</li>
+    </ul>
+    
+    <h2>Troubleshooting</h2>
+    <ul>
+      <li><strong>API key invalid:</strong> Verify your OpenAI key is active and has sufficient credits.</li>
+      <li><strong>Audio not uploading:</strong> Check your messaging app supports audio and file sizes are under limits (typically 25MB).</li>
+      <li><strong>Poor transcription quality:</strong> Speak more clearly or use shorter phrases.</li>
+    </ul>
+    
+    <div class="highlight">💡 Tip: Use Whisper for quick capture—ideas while driving, reminders while cooking, notes during meetings. Your agent transcribes and archives them.</div>
+    
+    <div class="nav-links">
+      <a href="tooling-index.html">← back to tools</a>
+    </div>
+    
+    <div class="footer">
+      <span>begin_ v1.0</span>
+      <span>>how you start shapes where you go_</span>
+    </div>
+  </main>
 </body>
 </html>

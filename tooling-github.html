@@ -1,43 +1,293 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tool: GitHub Tooling</title>
-  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;padding:20px;max-width:760px;margin:0 auto;color:#111}h1{margin-bottom:6px}pre{background:#f7fafc;padding:12px;border-radius:8px;border:1px solid #e6eef6}</style>
+  <title>GitHub Setup — begin_</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+    :root{
+      --bg:#0a0a0a;
+      --surface:#141414;
+      --surface-highlight:#1e1e1e;
+      --text:#e0e0e0;
+      --text-dim:#707070;
+      --accent:#e8c547;
+      --accent-dim:#c9a73a;
+      --border:#2a2a2a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'IBM Plex Mono',monospace;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      font-size:15px;
+    }
+    a{color:inherit;text-decoration:none}
+    
+    body::before{
+      content:"";
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
+      pointer-events:none;
+      z-index:999;
+    }
+    
+    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
+    
+    h1{
+      font-size:1.8rem;
+      font-weight:600;
+      margin:0 0 8px;
+    }
+    
+    .prompt-line{
+      color:var(--text-dim);
+      font-size:14px;
+      margin-bottom:32px;
+    }
+    .prompt-line .user{color:var(--accent);font-weight:500}
+    
+    h2{
+      font-size:1.2rem;
+      font-weight:500;
+      margin:28px 0 12px;
+      color:var(--accent);
+    }
+    
+    h3{
+      font-size:1rem;
+      font-weight:500;
+      margin:16px 0 8px;
+      color:var(--accent-dim);
+    }
+    
+    p{margin:0 0 16px}
+    li{margin-bottom:8px}
+    ol{padding-left:20px}
+    ul{padding-left:20px}
+    
+    .meta{
+      background:var(--surface);
+      border:1px solid var(--border);
+      padding:16px;
+      margin:24px 0;
+      border-left:3px solid var(--accent);
+    }
+    
+    .meta-item{
+      margin-bottom:8px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    
+    .meta-item strong{
+      color:var(--accent);
+      min-width:80px;
+    }
+    
+    .code-block{
+      background:var(--surface-highlight);
+      border:1px solid var(--border);
+      padding:12px;
+      margin:12px 0;
+      overflow-x:auto;
+      font-size:13px;
+      color:var(--accent);
+    }
+    
+    .highlight{
+      color:var(--accent);
+      font-size:14px;
+      margin:16px 0;
+      padding:12px 16px;
+      border-left:3px solid var(--accent);
+      background:rgba(232,197,71,0.05);
+    }
+    
+    code{background:var(--surface-highlight);padding:2px 6px;font-size:13px}
+    
+    .nav-links{
+      display:flex;
+      justify-content:space-between;
+      margin-top:48px;
+      padding-top:24px;
+      border-top:1px solid var(--border);
+    }
+    .nav-links a{color:var(--accent);font-size:13px}
+    
+    .footer{
+      margin-top:48px;
+      padding-top:20px;
+      border-top:1px solid var(--border);
+      color:var(--text-dim);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+    }
+
+    /* Navbar */
+    .navbar{
+      position:sticky;
+      top:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
+      padding:16px 24px;
+      z-index:100;
+      backdrop-filter:blur(2px);
+    }
+    .navbar-content{
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:12px;
+      gap:12px;
+    }
+    .navbar-left{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .navbar-left a{
+      color:var(--accent);
+      font-weight:500;
+    }
+    .navbar-left a:hover{
+      color:var(--text);
+    }
+    .navbar-left .sep{
+      color:var(--text-dim);
+    }
+    .navbar-left .tutorial-link{
+      color:var(--text-dim);
+    }
+    .navbar-left .tutorial-link:hover{
+      color:var(--accent);
+    }
+    .navbar-right{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .navbar-right a{
+      color:var(--text-dim);
+    }
+    .navbar-right a:hover{
+      color:var(--accent);
+    }
+  </style>
 </head>
 <body>
-  <h1>GitHub Tooling — Setup</h1>
-  <p>Purpose: Repo workflows, tokens, Pages deployment, and safe push practices for agent-driven workflows.</p>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="navbar-left">
+        <a href="index.html">heyron@partner</a>
+        <span class="sep">></span>
+        <a href="tooling-index.html" class="tutorial-link">tools</a>
+      </div>
+      <div class="navbar-right">
+        <a href="index.html">back</a>
+      </div>
+    </div>
+  </nav>
 
-  <h2>Skill</h2>
-  <p>Beginner–Intermediate</p>
-
-  <h2>Estimated time</h2>
-  <p>15–30 minutes</p>
-
-  <h2>Setup checklist</h2>
-  <ol>
-    <li>Create two GitHub tokens in <a href="https://github.com/settings/tokens">Personal access tokens</a>:
-      <ul>
-        <li><strong>GITHUB_TOKEN_CLASSIC</strong> (classic PAT) — for git operations (push/pull via HTTPS).</li>
-        <li><strong>GITHUB_TOKEN_API</strong> (fine‑grained) — for API calls and automation.</li>
-      </ul>
-    </li>
-    <li>Add tokens to your workspace <code>.env</code> file as <code>GITHUB_TOKEN_CLASSIC</code> and <code>GITHUB_TOKEN_API</code>.</li>
-    <li>In repo operations, use the CLASSIC token embedded in the remote URL for scripted pushes:
-      <pre>git remote set-url origin https://Reb-Elle-Art:${GITHUB_TOKEN_CLASSIC}@github.com/Reb-Elle-Art/REPO.git
-      git push origin main</pre>
-    </li>
-    <li>Before any public push, confirm checklist: no API keys, no personal data, and explicit approval. (User preference: agent must ask.)</li>
-  </ol>
-
-  <h2>Troubleshooting</h2>
-  <ul>
-    <li>Authentication failures: verify token scopes and that the token is the classic PAT for git operations.</li>
-    <li>Pages not publishing: ensure GitHub Pages settings are enabled and branch is selected in repo Settings → Pages.</li>
-  </ul>
-
-  <p><a href="tooling-index.html">← Back to Tools</a></p>
+  <main class="wrap">
+    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~tool-setup github</span></div>
+    
+    <h1>GitHub Setup_</h1>
+    
+    <p>Version control and off-site backup. Your agent can push, pull, and manage repositories. Essential for projects you want to evolve over time.</p>
+    
+    <div class="meta">
+      <div class="meta-item">
+        <strong>Skill Level</strong>
+        <span>Intermediate</span>
+      </div>
+      <div class="meta-item">
+        <strong>Time</strong>
+        <span>10–15 minutes</span>
+      </div>
+      <div class="meta-item">
+        <strong>Cost</strong>
+        <span>Free (private repos included)</span>
+      </div>
+      <div class="meta-item">
+        <strong>Docs</strong>
+        <a href="https://github.com/settings/tokens" style="color:var(--accent)">github.com/settings/tokens</a>
+      </div>
+    </div>
+    
+    <h2>What It Does</h2>
+    <p>GitHub lets your agent:</p>
+    <ul>
+      <li>Create and manage repositories</li>
+      <li>Push code and project files with commit messages</li>
+      <li>Pull existing repos into your workspace</li>
+      <li>Maintain version history and branching</li>
+      <li>Keep a permanent backup of your work</li>
+    </ul>
+    
+    <h2>Installation Steps</h2>
+    
+    <h3>1. Create a GitHub Account (if needed)</h3>
+    <p>Visit <code>github.com</code> and create a free account. You can have unlimited private repositories.</p>
+    
+    <h3>2. Generate a Personal Access Token</h3>
+    <p>Go to <code>github.com/settings/tokens</code> and create a new token with these permissions:</p>
+    <ul>
+      <li><code>repo</code> (full control of private repositories)</li>
+      <li><code>workflow</code> (manage GitHub Actions if you want automation)</li>
+    </ul>
+    <p>Copy the token—you'll only see it once.</p>
+    
+    <h3>3. Store the Token in .env</h3>
+    <p>Add this to your workspace <code>.env</code>:</p>
+    <div class="code-block">GITHUB_TOKEN=your_token_here</div>
+    
+    <h3>4. Test the Connection</h3>
+    <p>Ask your agent to test the setup:</p>
+    <div class="code-block">Create a new GitHub repo called "test-project" and push a README.md to it</div>
+    <p>Check that the repo appears in your GitHub account within a minute.</p>
+    
+    <h2>Best Practices</h2>
+    <ul>
+      <li><strong>Keep repos private:</strong> Set each repo to private unless you want it public.</li>
+      <li><strong>Use clear commit messages:</strong> Ask your agent to write descriptive commits (e.g., "feat: add user authentication").</li>
+      <li><strong>Backup regularly:</strong> Push important work at milestones, not just once.</li>
+      <li><strong>One token per purpose:</strong> Create separate tokens for different tools if needed.</li>
+    </ul>
+    
+    <h2>Verification</h2>
+    <p>Successful setup means:</p>
+    <ul>
+      <li>Your agent can create repos under your account</li>
+      <li>Commits appear with proper messages</li>
+      <li>You can pull the repo to another machine</li>
+    </ul>
+    
+    <h2>Troubleshooting</h2>
+    <ul>
+      <li><strong>Token expired or invalid:</strong> Regenerate a new token and update <code>.env</code>.</li>
+      <li><strong>Push rejected:</strong> Check branch protection rules or repo permissions.</li>
+      <li><strong>Authentication failed:</strong> Ensure the token has the <code>repo</code> scope.</li>
+    </ul>
+    
+    <div class="highlight">💡 Tip: Use GitHub as your project's permanent home. Your agent handles the technical work; you focus on the content.</div>
+    
+    <div class="nav-links">
+      <a href="tooling-index.html">← back to tools</a>
+    </div>
+    
+    <div class="footer">
+      <span>begin_ v1.0</span>
+      <span>>how you start shapes where you go_</span>
+    </div>
+  </main>
 </body>
 </html>

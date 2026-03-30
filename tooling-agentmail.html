@@ -1,41 +1,272 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tool: AgentMail</title>
-  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;padding:20px;max-width:760px;margin:0 auto;color:#111}h1{margin-bottom:6px}pre{background:#f7fafc;padding:12px;border-radius:8px;border:1px solid #e6eef6}</style>
+  <title>AgentMail Setup — begin_</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+    :root{
+      --bg:#0a0a0a;
+      --surface:#141414;
+      --surface-highlight:#1e1e1e;
+      --text:#e0e0e0;
+      --text-dim:#707070;
+      --accent:#e8c547;
+      --accent-dim:#c9a73a;
+      --border:#2a2a2a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'IBM Plex Mono',monospace;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      font-size:15px;
+    }
+    a{color:inherit;text-decoration:none}
+    
+    body::before{
+      content:"";
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
+      pointer-events:none;
+      z-index:999;
+    }
+    
+    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
+    
+    h1{
+      font-size:1.8rem;
+      font-weight:600;
+      margin:0 0 8px;
+    }
+    
+    .prompt-line{
+      color:var(--text-dim);
+      font-size:14px;
+      margin-bottom:32px;
+    }
+    .prompt-line .user{color:var(--accent);font-weight:500}
+    
+    h2{
+      font-size:1.2rem;
+      font-weight:500;
+      margin:28px 0 12px;
+      color:var(--accent);
+    }
+    
+    p{margin:0 0 16px}
+    li{margin-bottom:8px}
+    ol{padding-left:20px}
+    ul{padding-left:20px}
+    
+    .meta{
+      background:var(--surface);
+      border:1px solid var(--border);
+      padding:16px;
+      margin:24px 0;
+      border-left:3px solid var(--accent);
+    }
+    
+    .meta-item{
+      margin-bottom:8px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    
+    .meta-item strong{
+      color:var(--accent);
+      min-width:80px;
+    }
+    
+    .code-block{
+      background:var(--surface-highlight);
+      border:1px solid var(--border);
+      padding:12px;
+      margin:12px 0;
+      overflow-x:auto;
+      font-size:13px;
+      color:var(--accent);
+    }
+    
+    .highlight{
+      color:var(--accent);
+      font-size:14px;
+      margin:16px 0;
+      padding:12px 16px;
+      border-left:3px solid var(--accent);
+      background:rgba(232,197,71,0.05);
+    }
+    
+    code{background:var(--surface-highlight);padding:2px 6px;font-size:13px}
+    
+    .nav-links{
+      display:flex;
+      justify-content:space-between;
+      margin-top:48px;
+      padding-top:24px;
+      border-top:1px solid var(--border);
+    }
+    .nav-links a{color:var(--accent);font-size:13px}
+    
+    .footer{
+      margin-top:48px;
+      padding-top:20px;
+      border-top:1px solid var(--border);
+      color:var(--text-dim);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+    }
+
+    /* Navbar */
+    .navbar{
+      position:sticky;
+      top:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
+      padding:16px 24px;
+      z-index:100;
+      backdrop-filter:blur(2px);
+    }
+    .navbar-content{
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:12px;
+      gap:12px;
+    }
+    .navbar-left{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .navbar-left a{
+      color:var(--accent);
+      font-weight:500;
+    }
+    .navbar-left a:hover{
+      color:var(--text);
+    }
+    .navbar-left .sep{
+      color:var(--text-dim);
+    }
+    .navbar-left .tutorial-link{
+      color:var(--text-dim);
+    }
+    .navbar-left .tutorial-link:hover{
+      color:var(--accent);
+    }
+    .navbar-right{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .navbar-right a{
+      color:var(--text-dim);
+    }
+    .navbar-right a:hover{
+      color:var(--accent);
+    }
+  </style>
 </head>
 <body>
-  <h1>AgentMail — Setup</h1>
-  <p>Purpose: Send and receive project emails from an agent-managed inbox. Great for notifications and small automated replies.</p>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="navbar-left">
+        <a href="index.html">heyron@partner</a>
+        <span class="sep">></span>
+        <a href="tooling-index.html" class="tutorial-link">tools</a>
+      </div>
+      <div class="navbar-right">
+        <a href="index.html">back</a>
+      </div>
+    </div>
+  </nav>
 
-  <h2>Skill</h2>
-  <p>Beginner — API key and inbox creation required.</p>
-
-  <h2>Estimated time</h2>
-  <p>10–20 minutes</p>
-
-  <h2>Steps</h2>
-  <ol>
-    <li>Open your workspace <code>.env</code> and ensure <code>AGENTMAIL_API_KEY</code> is set.</li>
-    <li>Use the provided wrapper to send a test email:
-      <pre>bash t-agentmail/send-email.sh "to@example.com" "Subject" "Body"</pre>
-    </li>
-    <li>Verify delivery and check the inbox via the AgentMail dashboard or using the check script:
-      <pre>bash t-agentmail/checkemail.sh</pre>
-    </li>
-  </ol>
-
-  <h2>Verification</h2>
-  <p>Successful send returns HTTP 200 and shows the message in the inbox; check agent logs for delivery confirmation.</p>
-
-  <h2>Troubleshooting</h2>
-  <ul>
-    <li>Missing API key: ensure .env is sourced before running scripts.</li>
-    <li>Delivery failures: check spam/quarantine and logs from AgentMail provider.</li>
-  </ul>
-
-  <p><a href="tooling-index.html">← Back to Tools</a></p>
+  <main class="wrap">
+    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~tool-setup agentmail</span></div>
+    
+    <h1>AgentMail Setup_</h1>
+    
+    <p>Enable your agent to send and receive emails. Perfect for notifications, digests, and forwarding external data into your workflow. Your agent gets a dedicated inbox like <code>your-project@agentmail.to</code>.</p>
+    
+    <div class="meta">
+      <div class="meta-item">
+        <strong>Skill Level</strong>
+        <span>Beginner</span>
+      </div>
+      <div class="meta-item">
+        <strong>Time</strong>
+        <span>5–10 minutes</span>
+      </div>
+      <div class="meta-item">
+        <strong>Cost</strong>
+        <span>Free</span>
+      </div>
+      <div class="meta-item">
+        <strong>Docs</strong>
+        <a href="https://agentmail.to/docs" style="color:var(--accent)">agentmail.to/docs</a>
+      </div>
+    </div>
+    
+    <h2>What It Does</h2>
+    <p>AgentMail gives your agent a dedicated inbox at <code>zoe@agentmail.to</code> (or similar). The agent can:</p>
+    <ul>
+      <li>Send emails on your behalf</li>
+      <li>Receive and read incoming messages</li>
+      <li>Generate digests of newsletters or external data</li>
+      <li>Forward important messages for processing</li>
+    </ul>
+    
+    <h2>Installation Steps</h2>
+    
+    <h3>1. Get an API Key</h3>
+    <p>Visit <code>agentmail.to</code> and sign up for a free account. Generate an API key from your dashboard.</p>
+    
+    <h3>2. Store the Key in .env</h3>
+    <p>Add this line to your workspace <code>.env</code> file:</p>
+    <div class="code-block">AGENTMAIL_API_KEY=your_key_here</div>
+    
+    <h3>3. Test the Connection</h3>
+    <p>Ask your agent to send a test email:</p>
+    <div class="code-block">Send a test email to example@gmail.com with subject "AgentMail Test"</div>
+    <p>Check that it arrives in a few seconds.</p>
+    
+    <h3>4. Set Up Incoming Email Forwarding (Optional)</h3>
+    <p>If you want external emails forwarded to your agent, configure forwarding rules in the AgentMail dashboard to route them to your agent's workspace.</p>
+    
+    <h2>Verification</h2>
+    <p>Successful setup means:</p>
+    <ul>
+      <li>Test email arrives at your address</li>
+      <li>Your agent can read responses from the AgentMail inbox</li>
+      <li>You see confirmation logs in the agent's session history</li>
+    </ul>
+    
+    <h2>Troubleshooting</h2>
+    <ul>
+      <li><strong>API key not recognized:</strong> Verify the key is correctly stored in <code>.env</code> and reload the agent session.</li>
+      <li><strong>Email not sending:</strong> Check that you're connected to the internet and the AgentMail service is live.</li>
+      <li><strong>Emails going to spam:</strong> Whitelist <code>agentmail.to</code> in your email provider.</li>
+    </ul>
+    
+    <div class="highlight">💡 Tip: Use AgentMail for automated reports, daily digests, or alerts. Your agent becomes a bridge between you and the rest of the internet.</div>
+    
+    <div class="nav-links">
+      <a href="tooling-index.html">← back to tools</a>
+    </div>
+    
+    <div class="footer">
+      <span>begin_ v1.0</span>
+      <span>>how you start shapes where you go_</span>
+    </div>
+  </main>
 </body>
 </html>
