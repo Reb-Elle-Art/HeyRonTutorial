@@ -36,7 +36,7 @@
       z-index:999;
     }
     
-    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
+    .wrap{max-width:800px;margin:0 auto;padding:60px 24px}
     
     h1{
       font-size:1.8rem;
@@ -51,54 +51,87 @@
     }
     .prompt-line .user{color:var(--accent);font-weight:500}
     
+    .intro{
+      color:var(--text);
+      margin-bottom:32px;
+      line-height:1.7;
+    }
+    
     .ascii-divider{
       color:var(--text-dim);
       font-size:11px;
       white-space:pre;
       margin:24px 0;
-      opacity:0.35;
+      opacity:0.65;
     }
     
     p{margin:0 0 16px}
     
+    .tools-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+      margin:32px 0;
+    }
+    
     .card{
       background:var(--surface);
       border:1px solid var(--border);
-      padding:16px 20px;
-      margin-bottom:12px;
+      padding:20px;
+      border-radius:2px;
       transition:all 0.2s;
+      cursor:pointer;
+      display:block;
     }
     .card:hover{
       border-color:var(--accent-dim);
       background:var(--surface-highlight);
+      transform:translateY(-2px);
     }
     
     .card-header{
       display:flex;
       justify-content:space-between;
-      align-items:center;
-      margin-bottom:8px;
+      align-items:flex-start;
+      margin-bottom:12px;
     }
+    
     .card h3{
-      margin:0;
-      font-size:1rem;
-      font-weight:500;
-      color:var(--text);
+      margin:0 0 4px;
+      font-size:1.1rem;
+      font-weight:600;
+      color:var(--accent);
+      flex:1;
     }
-    .card .badge{
+    
+    .card-time{
       font-size:11px;
-      padding:2px 8px;
-      background:var(--surface-highlight);
-      border:1px solid var(--border);
-      color:var(--text-dim);
+      padding:4px 8px;
+      background:rgba(232,197,71,0.1);
+      border:1px solid var(--accent-dim);
+      color:var(--accent);
+      font-weight:500;
+      white-space:nowrap;
+      margin-left:12px;
     }
+    
     .card p{
-      margin:0 0 8px;
-      color:var(--text-dim);
-      font-size:13px;
+      margin:0 0 12px;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.5;
     }
-    .card .meta{
+    
+    .card-meta{
       font-size:12px;
+      color:var(--text-dim);
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    
+    .card-meta::after{
+      content:"→";
       color:var(--accent);
     }
     
@@ -127,56 +160,61 @@
     
     <h1>Tools_</h1>
     
-    <p>Your toolkit for human-agent collaboration.</p>
+    <div class="intro">
+      <p>Your agent comes with core capabilities built in. Below are the most useful tools to add for a complete workflow: email integration, voice transcription, web publishing, version control, and more.</p>
+      <p>Each tool adds a specific capability. Start with one or two that match your needs—you don't need all of them.</p>
+    </div>
     
     <div class="ascii-divider">┌─────────────────────────────────────────┐
 │  > LOADING TOOL_MODULES...           │
 └─────────────────────────────────────────┘</div>
     
-    <a href="tooling-agentmail.html" class="card">
-      <div class="card-header">
-        <h3>AgentMail</h3>
-        <span class="badge">email</span>
-      </div>
-      <p>Your agent's inbox. Send and receive emails through your agent.</p>
-      <span class="meta">→ Setup Guide</span>
-    </a>
-    
-    <a href="tooling-whisper.html" class="card">
-      <div class="card-header">
-        <h3>Whisper</h3>
-        <span class="badge">speech</span>
-      </div>
-      <p>Voice-to-text transcription. Send voice memos to your agent.</p>
-      <span class="meta">→ Setup Guide</span>
-    </a>
-    
-    <a href="tooling-here-now.html" class="card">
-      <div class="card-header">
-        <h3>here.now</h3>
-        <span class="badge">hosting</span>
-      </div>
-      <p>Instant static web hosting. Publish files and folders to a live URL.</p>
-      <span class="meta">→ Setup Guide</span>
-    </a>
-    
-    <a href="tooling-github.html" class="card">
-      <div class="card-header">
-        <h3>GitHub</h3>
-        <span class="badge">storage</span>
-      </div>
-      <p>Version control and backup. Your agent can push and pull from repos.</p>
-      <span class="meta">→ Setup Guide</span>
-    </a>
-    
-    <a href="tooling-cloudflare.html" class="card">
-      <div class="card-header">
-        <h3>Cloudflare Worker</h3>
-        <span class="badge">backend</span>
-      </div>
-      <p>Serverless backend. Handles API calls and custom workflows.</p>
-      <span class="meta">→ Setup Guide</span>
-    </a>
+    <div class="tools-grid">
+      <a href="tooling-agentmail.html" class="card">
+        <div class="card-header">
+          <h3>AgentMail</h3>
+          <span class="card-time">5 min</span>
+        </div>
+        <p>Your agent's inbox. Send and receive emails. Perfect for digests, newsletters, and forwarding external data.</p>
+        <span class="card-meta">Setup guide</span>
+      </a>
+      
+      <a href="tooling-github.html" class="card">
+        <div class="card-header">
+          <h3>GitHub</h3>
+          <span class="card-time">10 min</span>
+        </div>
+        <p>Version control and backup. Your agent can push, pull, and manage repos. Essential for projects you want to evolve.</p>
+        <span class="card-meta">Setup guide</span>
+      </a>
+      
+      <a href="tooling-herenow.html" class="card">
+        <div class="card-header">
+          <h3>here.now</h3>
+          <span class="card-time">3 min</span>
+        </div>
+        <p>Instant static web hosting. Publish files and folders to a live URL instantly. Share reports, portfolios, anything static.</p>
+        <span class="card-meta">Setup guide</span>
+      </a>
+      
+      <a href="tooling-whisper.html" class="card">
+        <div class="card-header">
+          <h3>Whisper</h3>
+          <span class="card-time">5 min</span>
+        </div>
+        <p>Voice-to-text transcription. Send voice memos and let your agent turn them into notes or summaries.</p>
+        <span class="card-meta">Setup guide</span>
+      </a>
+      
+      <a href="tooling-cloudflare.html" class="card">
+        <div class="card-header">
+          <h3>Cloudflare Worker</h3>
+          <span class="card-time">15 min</span>
+        </div>
+        <p>Serverless backend for custom workflows. Handles API calls, data processing, and automation between tools.</p>
+        <span class="card-meta">Setup guide</span>
+      </a>
+    </div>
     
     <a href="index.html" class="back-link">← back to begin_</a>
     
