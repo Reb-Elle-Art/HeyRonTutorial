@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAQ — begin_</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+    :root{
+      --bg:#0a0a0a;
+      --surface:#141414;
+      --surface-highlight:#1e1e1e;
+      --text:#e0e0e0;
+      --text-dim:#707070;
+      --accent:#e8c547;
+      --accent-dim:#c9a73a;
+      --border:#2a2a2a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'IBM Plex Mono',monospace;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      font-size:15px;
+    }
+    a{color:inherit;text-decoration:none}
+    
+    body::before{
+      content:"";
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
+      pointer-events:none;
+      z-index:999;
+    }
+    
+    .wrap{max-width:700px;margin:0 auto;padding:60px 24px}
+    
+    h1{
+      font-size:1.8rem;
+      font-weight:600;
+      margin:0 0 8px;
+    }
+    
+    .prompt-line{
+      color:var(--text-dim);
+      font-size:14px;
+      margin-bottom:32px;
+    }
+    .prompt-line .user{color:var(--accent);font-weight:500}
+    
+    .ascii-divider{
+      color:var(--text-dim);
+      font-size:11px;
+      white-space:pre;
+      margin:24px 0;
+      opacity:0.35;
+    }
+    
+    h2{
+      font-size:1.2rem;
+      font-weight:500;
+      margin:32px 0 12px;
+      color:var(--accent);
+    }
+    
+    p{margin:0 0 16px}
+    li{margin-bottom:8px}
+    
+    .section{
+      background:var(--surface);
+      border:1px solid var(--border);
+      padding:20px;
+      margin-bottom:16px;
+    }
+    .section:hover{border-color:var(--accent-dim)}
+    
+    .section h3{
+      margin:0 0 12px;
+      font-size:1rem;
+      font-weight:500;
+    }
+    .section p{
+      color:var(--text-dim);
+      font-size:13px;
+      margin:0;
+    }
+    
+    .placeholder{
+      color:var(--text-dim);
+      font-size:13px;
+      font-style:italic;
+      padding:16px;
+      border:1px dashed var(--border);
+    }
+    
+    .back-link{
+      display:inline-block;
+      margin-top:48px;
+      color:var(--text-dim);
+      font-size:13px;
+    }
+    .back-link:hover{color:var(--accent)}
+    
+    .footer{
+      margin-top:64px;
+      padding-top:20px;
+      border-top:1px solid var(--border);
+      color:var(--text-dim);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~faq</span></div>
+    
+    <h1>FAQ_</h1>
+    
+    <p>Frequently asked questions about working with your agent.</p>
+    
+    <div class="ascii-divider">┌─────────────────────────────────────────┐
+│  > LOADING FAQ                           │
+└─────────────────────────────────────────┘</div>
+    
+
+    <div class="section">
+      <h3>Can the agent access my local files?</h3>
+      <p>Only files inside the workspace folder. It can't see your local browser or other apps.</p>
+    </div>
+    
+    <div class="section">
+      <h3>How do I reset the conversation?</h3>
+      <p>Start a new session. The agent has no memory of previous sessions unless you explicitly load context.</p>
+    </div>
+    
+    <div class="section">
+      <h3>What if the agent gives wrong information?</h3>
+      <p>Correct it immediately. Be specific about what changed. The agent learns from corrections.</p>
+    </div>
+    
+    <div class="section">
+      <h3>Can I use this for public projects?</h3>
+      <p>Yes! But be careful with what you share. Never push credentials or secrets to public repos.</p>
+    </div>
+    
+    <a href="index.html" class="back-link">← back to begin_</a>
+    
+    <div class="footer">
+      <span>begin_ v1.0</span>
+      <span>>how you start shapes where you go_</span>
+    </div>
+  </main>
+</body>
+</html>
