@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>02 — What Your Agent Can Do | HeyRon Tutorial</title>
+ <style>
+ @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+ :root {
+ --bg: #0a0a0a;
+ --surface: #141414;
+ --surface-highlight: #1e1e1e;
+ --text: #e0e0e0;
+ --text-dim: #707070;
+ --accent: #e8c547;
+ --accent-dim: #c9a73a;
+ --border: #2a2a2a;
+ }
+
+ * {
+ box-sizing: border-box
+ }
+
+ body {
+ margin: 0;
+ font-family: 'IBM Plex Mono', monospace;
+ background: var(--bg);
+ color: var(--text);
+ line-height: 1.6;
+ font-size: 15px;
+ }
+
+ a {
+ color: inherit;
+ text-decoration: none
+ }
+
+ body::before {
+ content: "";
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
+ pointer-events: none;
+ z-index: 999;
+ }
+
+ .wrap {
+ max-width: 700px;
+ margin: 0 auto;
+ padding: 60px 24px
+ }
+
+ h1 {
+ font-size: 1.8rem;
+ font-weight: 600;
+ margin: 0 0 8px;
+ }
+
+ .prompt-line {
+ color: var(--text-dim);
+ font-size: 14px;
+ margin-bottom: 32px;
+ }
+
+ .prompt-line .user {
+ color: var(--accent);
+ font-weight: 500
+ }
+
+ h2 {
+ font-size: 1.2rem;
+ font-weight: 500;
+ margin: 28px 0 12px;
+ color: var(--accent);
+ }
+
+ h3 {
+ font-size: 1rem;
+ font-weight: 500;
+ margin: 16px 0 8px;
+ color: var(--text);
+ }
+
+ p {
+ margin: 0 0 16px
+ }
+
+ li {
+ margin-bottom: 8px
+ }
+
+ table {
+ width: 100%;
+ border-collapse: collapse;
+ margin: 16px 0;
+ font-size: 14px;
+ }
+
+ th,
+ td {
+ text-align: left;
+ padding: 12px;
+ border-bottom: 1px solid var(--border);
+ }
+
+ th {
+ font-weight: 600;
+ color: var(--accent)
+ }
+
+ .highlight {
+ color: var(--accent);
+ font-size: 14px;
+ margin: 16px 0;
+ padding: 12px 16px;
+ border-left: 3px solid var(--accent);
+ background: rgba(232, 197, 71, 0.05);
+ }
+
+ code {
+ background: var(--surface-highlight);
+ padding: 2px 6px;
+ border-radius: 3px;
+ font-size: 13px;
+ }
+
+ .nav-links {
+ display: flex;
+ justify-content: space-between;
+ margin-top: 48px;
+ padding-top: 24px;
+ border-top: 1px solid var(--border);
+ }
+
+ .nav-links a {
+ color: var(--accent);
+ font-size: 13px
+ }
+
+ .nav-links .next {
+ margin-left: auto
+ }
+
+ .footer {
+ margin-top: 48px;
+ padding-top: 20px;
+ border-top: 1px solid var(--border);
+ color: var(--text-dim);
+ font-size: 12px;
+ display: flex;
+ justify-content: space-between;
+ }
+
+ ul,
+ ol {
+ margin: 12px 0 12px 24px
+ }
+
+ /* Navbar */
+ .navbar {
+ position: sticky;
+ top: 0;
+ background: var(--bg);
+ border-bottom: 1px solid var(--border);
+ padding: 16px 24px;
+ z-index: 100;
+ backdrop-filter: blur(2px);
+ }
+
+ .navbar-content {
+ max-width: 900px;
+ margin: 0 auto;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ font-size: 12px;
+ gap: 12px;
+ flex-wrap: wrap;
+ }
+
+ .navbar-left {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+
+ .navbar-left a {
+ color: var(--accent);
+ font-weight: 500;
+ }
+
+ .navbar-left a:hover {
+ color: var(--text);
+ }
+
+ .navbar-left .sep {
+ color: var(--text-dim);
+ }
+
+ .navbar-left .tutorial-link {
+ color: var(--text-dim);
+ }
+
+ .navbar-left .tutorial-link:hover {
+ color: var(--accent);
+ }
+
+ .navbar-center {
+ display: flex;
+ gap: 8px;
+ align-items: center;
+ }
+
+ .navbar-center a {
+ color: var(--text-dim);
+ font-weight: 400;
+ }
+
+ .navbar-center a:hover {
+ color: var(--text);
+ }
+
+ .navbar-center a.active {
+ color: var(--accent);
+ font-weight: 500;
+ }
+
+ .navbar-center a.active::before {
+ content: ">";
+ color: var(--accent);
+ margin-right: 4px;
+ animation: cursor-blink 1s step-end infinite;
+ }
+
+ @keyframes cursor-blink {
+ 50% {
+ opacity: 0
+ }
+ }
+
+ .navbar-right {
+ display: flex;
+ gap: 12px;
+ align-items: center;
+ margin-left: auto;
+ }
+
+ .navbar-right a {
+ color: var(--text-dim);
+ }
+
+ .navbar-right a:hover {
+ color: var(--accent);
+ }
+ </style>
+</head>
+
+<body>
+ <nav class="navbar">
+ <div class="navbar-content">
+ <div class="navbar-left">
+ <a href="index.html">heyron@partner</a>
+ <span class="sep">></span>
+ <a href="00-Tutorial.html" class="tutorial-link">tutorial</a>
+ </div>
+ <div class="navbar-center">
+ <a href="01-what-you-got.html">01</a>
+ <a href="02-what-your-agent-can-do.html" class="active">02</a>
+ <a href="03-first-conversation.html">03</a>
+ <a href="04-workspace.html">04</a>
+ <a href="05-storage-strategy.html">05</a>
+ <a href="06-sample-project.html">06</a>
+ </div>
+ <div class="navbar-right">
+ <a href="quickstart-v2.html">QuickStart</a>
+ <a href="tooling-index.html">Tools</a>
+ </div>
+ </div>
+ </nav>
+ <main class="wrap">
+ <div class="prompt-line"><span class="user">HeyRon@partner</span> <span class="prompt">$ ~load-module what-your-agent-can-do</span></div>
+
+ <h1>02 What Your Agent Can Do_</h1>
+
+ <p>An agent comes with built-in capabilities. Some work immediately. Others require setup. Here's what you have and what you need.</p>
+
+ <h2>Built-In Skills (No Setup Required)</h2>
+
+ <p>These work right now, in your agent's foundational layer:</p>
+
+ <table>
+ <tr>
+ <th>Capability</th>
+ <th>What It Does</th>
+ </tr>
+ <tr>
+ <td><strong>File Operations</strong></td>
+ <td>Read, write, edit, and organize files in your workspace</td>
+ </tr>
+ <tr>
+ <td><strong>Shell Commands</strong></td>
+ <td>Run commands in your terminal (in your container)</td>
+ </tr>
+ <tr>
+ <td><strong>Web Search</strong></td>
+ <td>Search the web using Brave API — instant lookups</td>
+ </tr>
+ <tr>
+ <td><strong>Web Fetch</strong></td>
+ <td>Pull readable content from URLs — paste a link, ask about it</td>
+ </tr>
+ <tr>
+ <td><strong>Image Analysis</strong></td>
+ <td>Analyze images you upload — describe, extract, answer questions</td>
+ </tr>
+ <tr>
+ <td><strong>PDF Analysis</strong></td>
+ <td>Read and extract information from PDF files</td>
+ </tr>
+ </table>
+
+ <h2>Tools You Add (Optional But Powerful)</h2>
+
+ <p>Beyond the built-ins, you can connect optional tools. These expand what your agent can do:</p>
+
+ <h3>Communication</h3>
+ <ul>
+ <li><strong>AgentMail</strong> — Send and receive emails</li>
+ <li><strong>Discord/Slack</strong> — Chat in your communities</li>
+ <li><strong>Telegram</strong> — Mobile messaging integration</li>
+ </ul>
+
+ <h3>Storage & Version Control</h3>
+ <ul>
+ <li><strong>GitHub</strong> — Push, pull, and manage repositories</li>
+ <li><strong>here.now</strong> — Instant web publishing</li>
+ </ul>
+
+ <h3>Media & Transcription</h3>
+ <ul>
+ <li><strong>Whisper</strong> — Voice-to-text transcription</li>
+ <li><strong>Text-to-Speech</strong> — Audio output for replies</li>
+ </ul>
+
+ <h3>Advanced</h3>
+ <ul>
+ <li><strong>Cloudflare Workers</strong> — Serverless backend for custom workflows</li>
+ </ul>
+
+ <p>Don't feel pressured to add everything. Start with what you need. You can add more later.</p>
+
+ <h2>What Your Agent Actually Does</h2>
+
+ <p>The real skill isn't the list of tools. It's the *approach*:</p>
+
+ <ul>
+ <li><strong>Reads your files first</strong> — Understands your philosophy and priorities</li>
+ <li><strong>Reasons through structure</strong> — Navigates your workspace with intention</li>
+ <li><strong>Respects boundaries</strong> — Takes initiative on internal work, asks before external actions</li>
+ <li><strong>Maintains context</strong> — Remembers decisions and patterns across sessions</li>
+ <li><strong>Uses tools appropriately</strong> — Knows when to search, when to fetch, when to execute</li>
+ <li><strong>Partners, not serves</strong> — Treats collaboration as genuine teamwork</li>
+ </ul>
+
+ <div class="highlight">
+ <strong>The Honest Limits</strong><br>
+ Your agent can't see your screen (unless you send it a screenshot), doesn't know what time it is (you have to tell it otherwise it is in UTC Zulu Time), and won't remember between sessions unless you build that memory (aka memoralize it in a file).
+ </div>
+
+ <h2>Tools ≠ Skills</h2>
+
+ <p>A quick distinction that matters:</p>
+
+ <ul>
+ <li><strong>Tools</strong> are permissions — what your agent *can* do (enabled in config)</li>
+ <li><strong>Skills</strong> are knowledge — what your agent *knows how* to do (built-in workflows)</li>
+ </ul>
+
+ <p>Knowing how to use GitHub doesn't mean your agent can — you still need to connect your account with a token. The skill is the knowledge; the tool is the permission.</p>
+
+ <h2>What's Next?</h2>
+
+ <p>Now that you know what's possible, it's time to introduce yourself to your agent properly. That's the first conversation — the onboarding that teaches your agent who you are and how you work.</p>
+
+ <div class="nav-links">
+ <a href="01-what-you-got.html" class="back">← previous</a>
+ <a href="03-first-conversation.html" class="next">next: First Conversation →</a>
+ </div>
+
+ <div class="footer">
+ <span>begin_ v1.0</span>
+ <span>>how you start shapes where you go_</span>
+ </div>
+ </main>
+</body>
+
+</html>
